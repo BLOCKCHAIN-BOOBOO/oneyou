@@ -12,7 +12,7 @@ const Footer = () => {
         
         <div>
        <ul className="flex ">
-            <li className="cursor-pointer mx-4 footer-text hidden sm:hidden md:flex xl:flex">
+            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text hidden sm:hidden md:flex xl:flex">
               <NavLink
                 to="/"
                 className=""
@@ -21,7 +21,7 @@ const Footer = () => {
               </NavLink>
             </li>
 
-            <li className="cursor-pointer mx-4 footer-text">
+            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text">
               <NavLink
                 to="/exploreNFT/nfts"
                 className=""
@@ -29,7 +29,7 @@ const Footer = () => {
                Support
               </NavLink>
             </li>
-             <li className="cursor-pointer mx-4 footer-text hidden sm:hidden md:flex xl:flex">
+             <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text hidden sm:hidden md:flex xl:flex">
               <NavLink
                 to="/exploreNFT/nfts"
                 className=""

@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="w-full z-40 header absolute " style={{ position: "sticky" }}>
       <nav className="w-full z-40 header relative px-2 sm:px-2 md:px-5 xl:px-10">
-        <div className="flex justify-between py-4 sm:py-1 md:py-1 xl:py-1 w-full relative">
+        <div className="flex justify-between py-4 sm:py-4 md:py-1 xl:py-1 w-full relative">
         <div className="hidden sm:hidden md:flex xl:flex"><img src={headerlogo} className=""/></div>
          
           <div className="header-text self-center text-center">
