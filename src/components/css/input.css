@@ -1,0 +1,169 @@
+body,
+html {
+     width: 100%;
+    /* object-fit: cover; */
+    height:100%;
+}
+.App{
+    height:100%
+}
+#root{
+    height:100%;
+}
+
+.page-background{
+position: relative;
+height:100%;
+background: linear-gradient(112.66deg, #DDF6FF 0.66%, #DAC4FF 99.6%);
+}
+
+/* Login page */
+.login-header{
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.welcome-text{
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.login-with-google-btn{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #4879F8;
+}
+.login-with-google-text{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;    
+    color: #007AFE;
+}
+.account-text{    
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+.signup-text{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;    
+    color: #007AFE;
+}
+label{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: #72777A;
+}
+.input-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #373737;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 7px 16px;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E3E5E6;
+    border-radius: 10px;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+/* login end */
+
+/* signup page */
+
+.signup-page-text{
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;    
+    color: #333333;
+}
+.terms-text {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    color: #007AFE;
+}
+
+/* signup page end */
+
+/* header */
+.header{
+    display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* padding: 0px 40px;           */
+        position: absolute;       
+        left: 0px;
+        top: 0px;    
+        background: #FFFFFF;
+}
+.header-text{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 16px;
+    color: #4879F8;
+}
+.help-support-text{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        /* display: flex; */
+        align-items: center;
+        color: #212121;
+}
+
+/* Footer */
+
+.footer{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /* padding: 0px 40px; */
+    background: #FFFFFF;
+}
+.footer-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* display: flex; */
+    align-items: center;
+    color: #999999;
+}
