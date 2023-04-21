@@ -629,3 +629,104 @@ font-weight: 600;
     align-items: center;    
     color: #000000;
 }
+.setting-page-text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: flex-end;
+    color: #333333;
+}
+.setting-delete-btn{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FF3D00;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #F8F8F8;
+    border-radius: 200px;
+}
+.settings-page{
+    width:100%;
+}
+
+/* subscription page */
+.payment-table tr th{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* display: flex;
+    align-items: center; */
+    color: #171717;
+    flex-direction: row;
+    justify-content: center;          
+    padding: 12px 10px;
+    background: #F8F8F8;
+    /* border-radius: 10px; */
+}
+.payment-table tr td{
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 12px 12px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #F8F8F8;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #171717;
+}
+table {
+    /* border: 1px solid #CCC; */
+    border-collapse: collapse;
+}
+table {
+    border-collapse: collapse;
+  
+}
+
+td {
+    border: none;
+}
+.upi-bg{
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 10px;    
+        background: #F8F8F8;
+        border-radius: 10px;
+}
+.payment-table-upcoming-btn{
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 10px;
+        background: #FFF5C0;
+        border-radius: 100px;
+
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px; 
+        color: #FFA51F;
+}
+.paid-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;    
+    background: #D8FFC0;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+   
+    color: #55A624;
+}
