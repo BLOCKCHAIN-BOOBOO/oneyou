@@ -4,7 +4,7 @@ const Login = () => {
  
     return (
     <div className="page-background flex self-center align-middle justify-center">
-      <div className="flex flex-col mx-auto xl:w-2/6 md:w-3/6 sm:w-3/6 w-full py-10 px-5 bg-white rounded-xl self-center justify-center align-middle">
+      <div className="flex flex-col mx-auto xl:w-2/6 md:w-3/6 sm:w-3/6 w-5/6 py-10 px-5 bg-white rounded-xl self-center justify-center align-middle">
          <form className="form-control">
         <div className="text-3xl w-full login-header">Login</div>
         <div className="welcome-text py-2">Welcome Back, We are Happy to see you again</div>

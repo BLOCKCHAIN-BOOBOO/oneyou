@@ -14,7 +14,8 @@ const Navbar = () => {
           <div className="header-text self-center text-center">
             Oneyou.in
           </div>
-          <div className="hidden sm:hidden md:flex xl:flex help-support-text">Help & Support</div>
+          <div className="flex help-support-text">Help & Support</div>
+          {/* hidden sm:hidden md:flex xl: */}
         </div>
       
       </nav>

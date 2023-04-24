@@ -8,6 +8,7 @@ import refresh from "../../images/refresh.png";
 import downarrowwhite from "../../images/downarrowwhite.png";
 import forwardarrow from "../../images/forward-arrow.png";
 import settings from "../../images/settings.png";
+import backarrow from "../../images/back-arrow.png"
 import deleteicon from "../../images/delete-icon.png";
 import settingrefresh from "../../images/setting-refresh.png";
 import upiicon from "../../images/upi-icon.png"
@@ -60,10 +61,10 @@ const Subscriptionpayment = () => {
               {/*home-about  dir="ltr" */}
              
                 <div className="home-about-me w-full">
-                    
-                     <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
-            Payment
-            </div>
+                <div className="flex w-full  border-b-2">
+                     <button className="float-left text-left py-2 m-2 px-3"><img className="flex bg-gray-300 rounded-2xl p-3" height="" width="" src={backarrow} /></button>
+                     <div className="home-profile-edit-header w-full self-center justify-center flex text-center"> Payment</div>
+                     </div>   
           
 <div className="flex flex-row self-start float-left m-5">
     <div className="flex flex-col payment-method-card payment-header">

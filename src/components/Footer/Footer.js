@@ -6,13 +6,14 @@ const Footer = () => {
   return (
     <div className="w-full py-3 footer px-2 sm:px-2 md:px-5 xl:px-10" > 
     <footer className="">   
-        <div className="flex justify-between py-4 w-full relative">
+        <div className="flex justify-between xl:flex-row md:flex-row sm:flex-row flex-col py-4 w-full relative">
         <div className="footer-text">© 2024 . All rights are reserved by Oneyou.in </div>
          
         
         <div>
-       <ul className="flex ">
-            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text hidden sm:hidden md:flex xl:flex">
+       <ul className="flex self-center py-2 justify-center">
+            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text flex">
+              {/* hidden sm:hidden md:flex xl: */}
               <NavLink
                 to="/"
                 className=""
@@ -29,7 +30,8 @@ const Footer = () => {
                Support
               </NavLink>
             </li>
-             <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text hidden sm:hidden md:flex xl:flex">
+             <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text ">
+              {/* hidden sm:hidden md:flex xl:flex */}
               <NavLink
                 to="/exploreNFT/nfts"
                 className=""
