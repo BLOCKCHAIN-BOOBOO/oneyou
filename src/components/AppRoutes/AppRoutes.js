@@ -5,6 +5,10 @@ import Signup from "../signup";
 import Home from "../home";
 import Usersettings from "../Usersettings/usersettings";
 import Subscriptionsetting from "../Usersettings/subscriptionsetting";
+import Editupi from "../Usersettings/editupi";
+import Upgradeplan from "../Usersettings/upgradeplan";
+import Subscriptionpayment from "../Usersettings/subscriptionpayment";
+import Aboutoneyou from "../Usersettings/aboutoneyou";
 
 
 function AppRoutes() {
@@ -16,6 +20,10 @@ function AppRoutes() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/usersettings" element={<Usersettings />}></Route>
         <Route path="/subscriptionsetting" element={<Subscriptionsetting />}></Route>
+        <Route path="/editupi" element={<Editupi />}></Route>
+        <Route path="/upgradeplan" element={<Upgradeplan />}></Route>
+        <Route path="/subscriptionpayment" element={<Subscriptionpayment />}></Route>
+        <Route path="/about" element={<Aboutoneyou />}></Route>
       </Routes>
     </div>
   );

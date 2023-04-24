@@ -450,7 +450,7 @@ font-weight: 400;
     align-items: center;
     padding: 10px 10px 10px 20px;
         /* background: #FFFFFF; */
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #101010;
@@ -521,7 +521,7 @@ font-weight: 600;
     /* font-size: 1rem; */
     /* color: #fff; */
 
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #000000;
@@ -729,4 +729,133 @@ td {
     line-height: 16px;
    
     color: #55A624;
+}
+.input-border{
+border: 2px solid #007AFE;
+}
+.input-border:focus{
+border: 2px solid #007AFE;
+}
+
+/* upgrade cards */
+
+.upgrade-card{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;    
+    background: #FFFFFF;
+    border: 1px solid rgba(47, 43, 67, 0.1);
+    border-radius: 24px;
+}
+.month-text{
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;    
+    color: rgba(47, 43, 67, 0.6);
+}
+.dollar-text{
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: -0.02em;    
+    color: #2F2B43;
+}
+.basic-text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.016em;
+    color: #2F2B43;
+}
+.upgrade-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: rgba(47, 43, 67, 0.6);
+}
+.ordered-list{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #2F2B43;
+}
+.get-started-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border: 1px solid rgba(47, 43, 67, 0.1);
+       
+    box-shadow: 0px 1px 3px rgba(47, 43, 67, 0.1), inset 0px -1px 0px rgba(47, 43, 67, 0.1);
+    border-radius: 12px;
+}
+.get-started-second-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;    
+    background: #2F2B43;
+    color:#fff;       
+    box-shadow: 0px 1px 3px rgba(47, 43, 67, 0.1), inset 0px -1px 0px rgba(47, 43, 67, 0.1);
+    border-radius: 12px;
+    align-items: center;
+    text-align: center;
+  }
+.upgrade-second-card{
+    box-sizing: border-box;    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;    
+    background: radial-gradient(137.05% 100% at 50% 0%, #FCD6FF 5.59%, #FFFDD7 62.66%, #FFFFFF 100%);
+     
+    border: 1px solid rgba(47, 43, 67, 0.1);
+    border-radius: 24px;
+}
+.most-popular-second-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 8px;    
+    background: #FFFFFF;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+.payment-method-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;   
+    background: #F9F9F9;
+    border-radius: 10px;
+}
+.payment-method-name{
+font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #000000;
+}
+.payment-header{
+    font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        color: #000000;
 }
