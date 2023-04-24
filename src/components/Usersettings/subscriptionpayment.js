@@ -68,23 +68,23 @@ const Subscriptionpayment = () => {
           
 <div className="flex flex-row self-start float-left m-5">
     <div className="flex flex-col payment-method-card payment-header">
-        <div className="flex payment-header">
+        <div className="flex payment-header py-1">
           <span className="flex self-center">Invoice ID:</span> 
           <span>UX207564</span>
        </div>
-         <div className="flex">
+         <div className="flex py-1">
           <span className="flex self-center">Date of Plan:</span> 
           <span>15 May 2023</span>
        </div>
-         <div className="flex">
+         <div className="flex py-1">
           <span className="flex self-center">Amount:</span> 
           <span>50 INR</span>
        </div>
-         <div className="flex">
+         <div className="flex py-1">
           <span className="flex self-center">Plan:</span> 
           <span>Starter Premium Plan / Monthly</span>
        </div>
-       <div className="flex">
+       <div className="flex py-1">
           <span className="flex self-center">Method:</span> 
           <span>UPI ID</span>
        </div>
