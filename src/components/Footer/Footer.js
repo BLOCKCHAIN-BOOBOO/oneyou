@@ -6,8 +6,9 @@ const Footer = () => {
   return (
     <div className="w-full py-3 footer px-2 sm:px-2 md:px-5 xl:px-10" > 
     <footer className="">   
-        <div className="flex justify-between xl:flex-row md:flex-row sm:flex-row flex-col py-4 w-full relative">
-        <div className="footer-text">© 2024 . All rights are reserved by Oneyou.in </div>
+        <div className="flex justify-between xl:flex-row md:flex-row sm:flex-row flex-col w-full relative">
+           {/* py-4 */}
+        <div className="footer-text flex self-center">© 2024 . All rights are reserved by Oneyou.in </div>
          
         
         <div>

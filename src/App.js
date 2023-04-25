@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
        <BrowserRouter>
-       {/* <Navbar/> */}
-       <Menunavbar/>
+       <Navbar/>
+       {/* <Menunavbar/> */}
       <AppRoutes />
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
     </div>
   );

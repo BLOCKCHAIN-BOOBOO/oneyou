@@ -22,7 +22,7 @@ const Home = () => {
     
      <div className="m-8 flex flex-row">
     <div className="flex flex-row w-full  mt-16" >      
-      {/* dir="ltr" */}     
+      {/* dir="ltr"  mb-16*/}     
         <div className="flex flex-col w-4/6">
           {/* <div className="flex self-center justify-center mx-auto"> */}
             <div className="home-header w-full flex">
@@ -36,7 +36,7 @@ const Home = () => {
                 Publish Site <img src={downarrowwhite} className="m-2" height="10" width="10" /></div>
 
             </div>
-            <div className="home-about flex mt-5 w-full left-0 ">
+            <div className="home-about flex mt-5 w-full left-0 mb-20">
               {/* dir="ltr" */}
                 <div className="home-about-name w-2/6 m-2">
                     <div className="w-full flex flex-col border-b-2 ">
@@ -171,29 +171,29 @@ const Home = () => {
               </Accordion>
 
               <Accordion title="Projects Section" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>
               <Accordion title="Resume Section" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>
            
               <Accordion title="Add Social Links" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                   
                 </div>
               </Accordion>
               <Accordion title="Skills Section" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>
            
               <Accordion title="Add Languages" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>

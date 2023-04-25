@@ -3,7 +3,7 @@ import React from "react";
 const Signup = () => {
  
     return (
-    <div className="page-background flex self-center align-middle justify-center">
+    <div className="page-background flex self-center align-middle justify-center h-screen">
       <div className="flex flex-col xl:w-2/6 md:w-3/6 sm:w-3/6 w-5/6 py-10 px-5 bg-white rounded-xl self-center justify-center align-middle">
          <form className="form-control">
         <div className="text-3xl w-full login-header">Welcome to Oneyou</div>
@@ -20,7 +20,7 @@ const Signup = () => {
         </div>
 
        <div className="flex flex-row self-center justify-center py-2">
-        <div className="text">Already have an account</div>
+        <div className="flex self-center justify-center text-xs sm:text-sm md:text-sm xl:text-md">Already have an account</div>
         <div className="signup-text ml-2">Log In</div>
        </div>
         </form>

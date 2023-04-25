@@ -24,7 +24,7 @@ const Subscriptionsetting = () => {
       {/* dir="ltr" */}     
         
         <div className="flex left-0 justify-center w-1/4 m-2">
-        <div className="home-profile-edit w-full">
+        <div className="home-profile-edit w-full h-full">
             <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
               <img src={settings} className="m-2" height="15" width="15" />  User Settings
             </div>
@@ -39,12 +39,12 @@ const Subscriptionsetting = () => {
               </Accordion>
 
               <Accordion title="Subscriptions" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>
               <Accordion title="About Oneyou" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
+                <div className="">
                  
                 </div>
               </Accordion>
