@@ -83,7 +83,7 @@ const Editupi = () => {
 
     <div className="flex flex-col mt-2">
         <span className="flex self-start float-left">Payment History</span>
-        <div className="flex mt-5">
+        <div className="mt-5 block overflow-auto" style={{height:"300px"}}>
         <table className="table w-full flex payment-table">
            
                 <tr>
@@ -94,7 +94,7 @@ const Editupi = () => {
                 <th>Status</th>
                 <th>Action</th>
                 </tr>
-           
+               
                 <tr>
                     <td>UX27032001</td>
                     <td>15 May 2023</td>
@@ -119,7 +119,7 @@ const Editupi = () => {
                     <td className="flex self-center justify-center"><button className="paid-btn py-2 px-7">PAID</button></td>
                     <td><div className="flex ">Download Invoice <img src={download} className="flex m-1" width="12" height="12" /></div></td>
                 </tr>
-
+             
           
         </table>
         </div>

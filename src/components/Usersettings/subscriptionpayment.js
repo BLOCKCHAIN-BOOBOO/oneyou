@@ -54,7 +54,7 @@ const Subscriptionpayment = () => {
 
         </div>
         </div>
-        <div className="flex flex-col w-3/4 h-full m-5">
+        <div className="flex flex-col w-3/4 h-full m-2">
           {/* <div className="flex self-center justify-center mx-auto"> */}
            
             <div className=" flex w-full h-full right-0 ">
