@@ -8,6 +8,9 @@ import refresh from "../images/refresh.png";
 import publishicon from "../images/publish-icon.png"
 import downarrowwhite from "../images/downarrowwhite.png";
 import forwardarrow from "../images/forward-arrow.png";
+import mobile from "../images/mobile.png";
+import desktop from "../images/desktop.png"
+import filesetting from "../images/file-setting.png";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
@@ -29,7 +32,7 @@ const Home = () => {
               {/* dir="ltr" */}
                 <div className="current-plan px-5 py-2 ">Current Plan <div className="starter ml-2 px-5 py-1">Starter 
                 <img src={downarrow} className="ml-2 float-right flex" height="10" width="10" /></div></div>
-                <div className="device-type py-2 px-5">Device: <img src={home} height="18" width="18" /></div>
+                <div className="device-type py-2 px-5">Device: <img src={desktop} height="20" width="20" /> <img src={mobile} height="20" width="20" /></div>
                 <div className="preview py-1 px-5">Preview <img src={arrow} className="m-2" height="10" width="10" /></div>
                 <div className="refresh py-1 px-7">Refresh <img src={refresh} className="m-2" height="15" width="15" /></div>
                 <div className="publish-site py-1 px-6"><img src={publishicon} className="m-2" height="13" width="13" /> 
@@ -121,7 +124,7 @@ const Home = () => {
                   <img src={file} className="m-2" height="15" width="15" />Templates</button>
                 <button   onClick={() => handleTypeActive("web settings")}  
                 className={`flex profile-button-text m-2  ${typeActive === "web settings" && " profile-button-active"}`}>
-                    <img src={file} className="m-2" height="15" width="15" /> Web Settings</button>
+                     <img src={filesetting} className="m-2" height="20" width="20" /> Web Settings</button>
             </div>
  {typeActive === "your details" && (
  <div className="xl:m-5 md:m-5 sm:m-2 m-2 accordion-card mx-auto rounded-xl w-full p-2 h-full">
@@ -159,41 +162,149 @@ const Home = () => {
 
          
               <Accordion title="Education Secion" className="text-white bg-transparent">
-                <div className="flex">
+                <div className="flex flex-col">
+                  <div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Field of Study" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
+                 
+                 
+                  <div className="py-2 flex">
+               <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Skills" />
+                  <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
+                 
+             <div> 
+               <div className="py-2 flex">
+                  <span className="profile-text">Documents</span>
+                  <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
+                </div>
+              
+                
+                  </div>
                 
                 </div>
               </Accordion>
 
               <Accordion title="Experience Section" className="text-white bg-transparent">
-                <div className="flex flex-row ">
+                <div className="flex flex-col ">
+
+                   <div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Company Name" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Location" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Current" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
+                                 
+                 <div> 
+                  <div className="py-2 flex">
+                  <span className="profile-text">Position</span>
+                  <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Description" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
+                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
+                  </div>
+                
+                <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>               
+                  </div>
                   
                  </div>
               </Accordion>
 
               <Accordion title="Projects Section" className="bg-transparent overflow-x-hidden">
-                <div className="">
+                <div className="flex flex-col">
+                 <div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>                                  
                  
+                 <div>
+                  <div className="py-2 flex">
+                  <span className="profile-text">Link</span>
+                  <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div> 
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
+                  </div>
+                   <img className="about-name-img border-0 rounded-md" height="70" width="70" />
+                  <div className="py-2 flex">
+                  <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" /> 
+                  <i className="fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /></div>
+                
+                             
+                  </div>
                 </div>
               </Accordion>
               <Accordion title="Resume Section" className="bg-transparent overflow-x-hidden">
-                <div className="">
-                 
+                <div className="flex flex-col">
+                 <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Resume" /></div>
                 </div>
               </Accordion>
            
               <Accordion title="Add Social Links" className="bg-transparent overflow-x-hidden">
-                <div className="">
+                <div className="flex flex-col">
+                   <div>
+                  <div className="py-2 ">
+                    <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Name">
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Linked In</option>
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Blog</option>
+                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Github</option>
+                     <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Portfolio</option>
+                      <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Skype</option>
+                       <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Youtube</option>
+                      </select>
+                    </div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div> 
+                  </div>
                   
                 </div>
               </Accordion>
               <Accordion title="Skills Section" className="bg-transparent overflow-x-hidden">
-                <div className="">
+                <div className="flex flex-col">
+
+                   <div>
+                 <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Skill" /></div> 
+
+                  <div className="py-2 ">
+                    <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
+                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
+                      </select>
+                    </div>
+                  
+                  </div>
                  
                 </div>
               </Accordion>
            
               <Accordion title="Add Languages" className="bg-transparent overflow-x-hidden">
-                <div className="">
+                <div className="flex flex-col">
+
+                   <div>
+                 <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Language" /></div> 
+
+                  <div className="py-2 ">
+                    <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
+                   <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
+                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
+                      </select>
+                    </div>
+                  
+                  </div>
                  
                 </div>
               </Accordion>

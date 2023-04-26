@@ -548,6 +548,12 @@ font-weight: 600;
 
     color: #202020;
 }
+.accordion-card{
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
 
 .accordion-item {
     /* background-color: #fff; */
