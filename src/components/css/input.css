@@ -922,3 +922,11 @@ font-weight: 400;
         line-height: 30px;
         color: #000000;
 }
+.domain-text{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}

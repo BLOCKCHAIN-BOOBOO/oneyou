@@ -11,6 +11,8 @@ import forwardarrow from "../images/forward-arrow.png";
 import mobile from "../images/mobile.png";
 import desktop from "../images/desktop.png"
 import filesetting from "../images/file-setting.png";
+import sslcertificate from "../images/ssl-certificate.png";
+import nextbtn from "../images/next-btn.png";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
@@ -339,22 +341,73 @@ const Home = () => {
      <div className="xl:m-5 md:m-5 sm:m-2 m-2 accordion-card mx-auto rounded-xl w-full p-2 h-full">
                 
               <Accordion title="Basic Settings" className="text-white bg-transparent">
-                <div className="flex">
-                
+                <div className="flex flex-col">
+                  <div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
+                  <img className="about-name-img border-0 rounded-md" height="70" width="70" />
+                  </div>
+                 
                 </div>
               </Accordion>
 
               <Accordion title="Domain Settings" className="text-white bg-transparent">
-                <div className="flex flex-row ">
+                <div className="flex flex-col py-4">  
+                  <div>
+                   <span className="domain-text self-start text-left">Enter Domain You Own.</span>
+                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Enter Domain Name" /></div>
+                  </div>
+
+<div className="flex flex-row">
+                          <div className="flex m-2">
+                            <input
+                              type="radio"
+                              id="dnsConfig"                            
+                              name="domain"
+                              value="dnsConfig"
+                            />
+                            <label
+                              className="text-black text-sm pl-2 font-semibold"
+                              for="dnsConfig"
+                            >
+                              DNS Config
+                            </label>
+                          </div>
+                          <div className="flex m-2 ">
+                            <input
+                              type="radio"
+                              id="status"                            
+                              name="domain"
+                              value="status"
+                             
+                            />
+                            <label
+                              className="text-black text-sm pl-2 font-semibold"
+                              for="status"
+                            >
+                              Status
+                            </label>
+                          </div>
+                        
+                        </div>
+
+                  <div>
+                   
+                   <span className="profile-text self-start text-left"><img src={sslcertificate} className="flex m-2" width="22" height="22" />SSL Certificate</span>
+                  </div>
+
+                  <div className="bg-gray-100 m-2 flex py-2">  <div className="publish-site flex py-2 mx-auto px-6"> Update </div></div>
+
+                  <div className="flex"> 
+                  <span className="domain-text text-sm self-start text-left">Don't Have a Domain? Check Oneyou Domain Plans </span>
+                  <img src={nextbtn} className="flex self-center" height="25" width="25" />
                   
+                  </div>
+
+
                  </div>
               </Accordion>
 
-              <Accordion title="Favicon Icon & Cover Image" className="bg-transparent overflow-x-hidden">
-                <div className=" h-80 frndslist-dropdown">
-                 
-                </div>
-              </Accordion>
+             
            
                   
         
