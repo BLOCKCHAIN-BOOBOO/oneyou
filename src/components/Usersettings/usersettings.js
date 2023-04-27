@@ -60,7 +60,7 @@ const Usersettings = () => {
         <div className="flex flex-col w-3/4 h-full m-2">
           {/* <div className="flex self-center justify-center mx-auto"> */}
            
-            <div className=" flex w-full right-0 ">
+            <div className=" flex w-full right-0 h-full">
               {/*home-about  dir="ltr" */}
              
                 <div className="home-about-me w-full">
