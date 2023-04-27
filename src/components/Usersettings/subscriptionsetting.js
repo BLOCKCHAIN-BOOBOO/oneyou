@@ -20,10 +20,10 @@ const Subscriptionsetting = () => {
     <div className="page-background flex self-center align-middle justify-center">
     
      <div className="m-8 flex flex-row w-full h-full settings-page">
-    <div className="flex flex-row w-full h-full mt-16" >      
+    <div className="flex flex-row w-full h-5/6 mt-16" >      
       {/* dir="ltr" */}     
         
-        <div className="flex left-0 justify-center w-1/4 m-2">
+        <div className="flex left-0 justify-center h-full w-1/4 m-2">
         <div className="home-profile-edit w-full h-full">
             <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
               <img src={settings} className="m-2" height="15" width="15" />  User Settings
@@ -56,7 +56,7 @@ const Subscriptionsetting = () => {
         <div className="flex flex-col w-3/4 h-full m-2">
           {/* <div className="flex self-center justify-center mx-auto"> */}
            
-            <div className=" flex w-full right-0 ">
+            <div className=" flex w-full right-0 h-full">
               {/*home-about  dir="ltr" */}
              
                 <div className="home-about-me w-full">

@@ -23,14 +23,14 @@ const Home = () => {
     };
 
     return (
-    <div className="page-background flex self-center align-middle justify-center">
+    <div className="page-background self-center align-middle justify-center">
     
      <div className="m-8 flex flex-row">
-    <div className="flex flex-row w-full  mt-16" >      
+    <div className="flex xl:flex-row md:flex-row sm:flex-col flex-col w-full  mt-16" >      
       {/* dir="ltr"  mb-16*/}     
-        <div className="flex flex-col w-4/6">
+        <div className="flex flex-col self-center justify-center xl:w-4/6 md:w-4/6 sm:w-full w-full">
           {/* <div className="flex self-center justify-center mx-auto"> */}
-            <div className="home-header w-full flex">
+            <div className="home-header w-full hidden sm:hidden md:flex xl:flex flex-col  sm:flex-col md:flex-row xl:flex-row">
               {/* dir="ltr" */}
                 <div className="current-plan px-5 py-2 ">Current Plan <div className="starter ml-2 px-5 py-1">Starter 
                 <img src={downarrow} className="ml-2 float-right flex" height="10" width="10" /></div></div>
@@ -41,16 +41,29 @@ const Home = () => {
                 Publish Site <img src={downarrowwhite} className="m-2" height="10" width="10" /></div>
 
             </div>
-            <div className="home-about flex mt-5 w-full left-0 mb-20">
+
+<div className="home-header w-full flex flex-col flex sm:flex md:hidden xl:hidden sm:flex-col md:flex-row xl:flex-row">
               {/* dir="ltr" */}
-                <div className="home-about-name w-2/6 m-2">
-                    <div className="w-full flex flex-col border-b-2 ">
-                         <img className="about-name-img border-0 rounded-md mx-auto" height="120" width="120" />
+                <div className="current-plan font-semibold px-5 py-2 m-2">View Only <div className="starter ml-2 px-5 py-2">To edit please go to Desktop 
+                <img src={downarrow} className="ml-2 float-right flex" height="10" width="10" /></div></div>
+                               
+                <div className="publish-site py-1 px-6"><img src={publishicon} className="m-2" height="13" width="13" /> 
+                Site Publishing Settings <img src={downarrowwhite} className="m-2" height="10" width="10" /></div>
+
+            </div>
+
+            <div className="home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20">
+              {/* dir="ltr" */}
+                <div className="home-about-name flex self-center justify-center xl:w-2/6 md:w-2/6 sm:w-full w-full m-2">
+                    <div className="w-full flex xl:flex-col md:flex-col sm:flex-row flex-row xl:border-b-2 md:border-b-2 sm:border-0 border-0">
+                         <img className="about-name-img border-0 rounded-md xl:mx-auto md:mx-auto sm:mx-0 mx-0" height="120" width="120" />
+                      <div className="flex flex-col mx-auto sm:mx-2 md:mx-0 xl:mx-0">
                         <span className="profile-name mt-8">Name</span>
                         <span className="profile-about mx-auto my-4">Custom Tag Ex Designer</span>
+                      </div>
 
                     </div>
-                    <div className="flex flex-col my-4">
+                    <div className="xl:flex md:flex sm:hidden hidden flex-col my-4">
                     <div className="flex flex-row self-start justify-start py-2">
                         <img className="about-name-img border-0 rounded-md" height="50" width="50" />
                         <div className="flex flex-col m-2">
@@ -81,8 +94,8 @@ const Home = () => {
                     </div>
                     </div>
                 </div>
-                <div className="home-about-me w-4/6 m-2 ">
-                    <div className="about-links-div">
+                <div className="home-about-me flex self-center relative justify-center xl:w-4/6 md:w-4/6 sm:w-full w-full m-2 ">
+                    <div className="about-links-div self-center">
                         <div className="about-link-about cursor-pointer">About</div>
                         <div className="about-link-resume cursor-pointer">Resume</div>
                         <div className="about-link-blog cursor-pointer">Blog</div>
@@ -112,7 +125,7 @@ const Home = () => {
             </div>
           {/* </div> */}
         </div>
-        <div className="flex right-0 justify-center w-2/6">
+        <div className="right-0 justify-center w-2/6 hidden sm:hidden md:flex xl:flex">
         <div className="home-profile-edit ">
             <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
                 Profile Edit Preferences

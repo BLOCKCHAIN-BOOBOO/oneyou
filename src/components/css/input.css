@@ -77,6 +77,24 @@ background: linear-gradient(112.66deg, #DDF6FF 0.66%, #DAC4FF 99.6%);
 }
 }
 
+@media (min-width: 270px) and (max-width: 768px) {
+.about-links-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 33px;
+bottom:0;
+position: absolute;
+    width: 240px;
+    height: 47px;
+    margin:10px 0px;
+    background: #FDFDFD;
+    border: 1px solid #B0B0B0;
+    border-radius: 10px;
+}
+}
 
 .account-text{    
     font-weight: 400;
@@ -250,8 +268,8 @@ label{
 /* Home page */
 
 .home-header{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -348,8 +366,8 @@ label{
 }
 
 .home-about{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
