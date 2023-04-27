@@ -82,7 +82,7 @@ const Subscriptionsetting = () => {
 
     <div className="flex flex-col mt-2">
         <span className="flex self-start float-left">Payment History</span>
-        <div className="flex mt-5">
+        <div className="mt-5 block overflow-auto" style={{height:"300px"}}>
         <table className="table w-full flex payment-table">
            
                 <tr>
