@@ -18,7 +18,7 @@ import publishicon from "../../images/publish-icon.png"
 const Upgradeplan = () => {
 
     return (
-    <div className="page-background flex self-center align-middle justify-center">
+    <div className="page-background  page-body flex self-center align-middle justify-center">
     
      <div className="m-8 flex flex-row w-full h-full settings-page">
     <div className="flex flex-row w-full h-5/6 mt-16" >      
