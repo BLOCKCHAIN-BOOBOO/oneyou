@@ -23,7 +23,7 @@ const Home = () => {
     };
 
     return (
-    <div className="page-background self-center align-middle justify-center">
+    <div className="page-background page-body self-center align-middle justify-center">
     
      <div className="m-8 flex flex-row">
     <div className="flex xl:flex-row md:flex-row sm:flex-col flex-col w-full  mt-16" >      

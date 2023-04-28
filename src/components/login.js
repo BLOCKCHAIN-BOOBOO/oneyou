@@ -1,9 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
  
     return (
-    <div className="page-background flex self-center align-middle justify-center h-screen">
+      <>
+    <div className="page-background flex self-center h-full absolute w-full align-middle justify-center">
       <div className="flex flex-col mx-auto xl:w-2/6 md:w-3/6 sm:w-3/6 w-6/6 py-10 px-2 bg-white rounded-xl self-center justify-center align-middle">
          <form className="form-control">
         <div className="w-full login-header">Login</div>
@@ -26,6 +28,50 @@ const Login = () => {
         </form>
       </div>
     </div>
+     <div className="w-full py-3 footer px-2 sm:px-2 md:px-5 xl:px-10" > 
+    <footer className="">   
+        <div className="flex justify-between xl:flex-row md:flex-row sm:flex-row flex-col w-full relative">
+           {/* py-4 */}
+        <div className="footer-text flex self-center">© 2024 . All rights are reserved by Oneyou.in </div>
+         
+        
+        <div>
+       <ul className="flex self-center py-2 justify-center">
+            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text flex">
+              {/* hidden sm:hidden md:flex xl: */}
+              <NavLink
+                to="/"
+                className=""
+              >
+                About
+              </NavLink>
+            </li>
+
+            <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text">
+              <NavLink
+                to="/exploreNFT/nfts"
+                className=""
+              >
+               Support
+              </NavLink>
+            </li>
+             <li className="cursor-pointer xl:mx-4 md:mx-4 sm:mx-2 mx-2 footer-text ">
+              {/* hidden sm:hidden md:flex xl:flex */}
+              <NavLink
+                to="/exploreNFT/nfts"
+                className=""
+              >
+              Contact Us
+              </NavLink>
+            </li>
+            </ul>
+
+        </div>
+        </div>
+      
+   </footer>
+    </div>
+    </>
   );
 };
 

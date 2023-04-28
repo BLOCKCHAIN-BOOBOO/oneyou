@@ -22,6 +22,11 @@ height: 100vh; */
 /* height: 100%; */
 background: linear-gradient(112.66deg, #DDF6FF 0.66%, #DAC4FF 99.6%);
 }
+.page-body{
+    height:100vh;
+    overflow-y:scroll;
+}
+
 
 /* Login page */
 .login-header{
@@ -196,8 +201,8 @@ label{
 /* Footer */
 
 .footer{
-    /* position: absolute; */
-    position:relative;
+    position: absolute;
+    /* position:relative; */
     left: 0px;
     right: 0px;
     bottom: 0px;
