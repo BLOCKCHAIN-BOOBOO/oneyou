@@ -14,6 +14,7 @@ import desktop from "../images/desktop.png"
 import filesetting from "../images/file-setting.png";
 import sslcertificate from "../images/ssl-certificate.png";
 import nextbtn from "../images/next-btn.png";
+import Iframe from "react-iframe";;
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
@@ -55,7 +56,19 @@ const Home = () => {
 
             <div className="home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20">
               {/* dir="ltr" */}
-                <div className="home-about-name flex self-center justify-center xl:w-2/6 md:w-2/6 sm:w-full w-full m-2">
+              
+               <Iframe
+                src="https://me.harrish.dev/"
+                id=""
+                height="600px"
+                width="100%"
+                className="w-full flex"
+                allow="autoplay"
+                display="block"
+                position="relative"
+              />
+              
+                {/* <div className="home-about-name flex self-center justify-center xl:w-2/6 md:w-2/6 sm:w-full w-full m-2">
                     <div className="w-full flex xl:flex-col md:flex-col sm:flex-row flex-row xl:border-b-2 md:border-b-2 sm:border-0 border-0">
                          <img className="about-name-img border-0 rounded-md xl:mx-auto md:mx-auto sm:mx-0 mx-0" height="120" width="120" />
                       <div className="flex flex-col mx-auto sm:mx-2 md:mx-0 xl:mx-0">
@@ -115,13 +128,12 @@ const Home = () => {
                 md:gap-2 lg:grid lg:grid-cols-2 lg:gap-2 xl:grid xl:grid-cols-2 xl:gap-2">
                           <div><img className="about-name-img border-0 rounded-md w-5/6 h-5/6" height="200" width="200" /></div>  
                           <div><img className="about-name-img border-0 rounded-md w-5/6 h-5/6" /></div>                         
-                          {/* <div><img class="about-name-img border-0 rounded-md w-5/6 h-5/6" height="200" width="200" /></div>  
-                          <div><img class="about-name-img border-0 rounded-md w-5/6 h-5/6" /></div>   */}
+                          
 
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
           {/* </div> */}
@@ -171,6 +183,8 @@ const Home = () => {
                <div className="py-2">
                   <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Enter Location" /> 
                 </div>
+
+                <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
               </div>
              
             </div>
@@ -203,7 +217,7 @@ const Home = () => {
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /></div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
                 </div>
-              
+              <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                 
                   </div>
                 
@@ -232,9 +246,9 @@ const Home = () => {
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
                   </div>
                 
-                <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>               
+                {/* <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>                */}
                   </div>
-                  
+                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                  </div>
               </Accordion>
 
@@ -258,7 +272,9 @@ const Home = () => {
                   <i className="fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /></div>
-                
+              
+              
+                <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                              
                   </div>
                 </div>
@@ -266,6 +282,8 @@ const Home = () => {
               <Accordion title="Resume Section" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Resume" /></div>
+
+                 <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                 </div>
               </Accordion>
            
@@ -284,7 +302,7 @@ const Home = () => {
                     </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div> 
                   </div>
-                  
+                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                 </div>
               </Accordion>
               <Accordion title="Skills Section" className="bg-transparent overflow-x-hidden">
@@ -302,7 +320,7 @@ const Home = () => {
                     </div>
                   
                   </div>
-                 
+                 <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                 </div>
               </Accordion>
            
@@ -321,6 +339,7 @@ const Home = () => {
                     </div>
                   
                   </div>
+                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
                  
                 </div>
               </Accordion>
@@ -409,7 +428,7 @@ const Home = () => {
                    <span className="profile-text self-start text-left"><img src={sslcertificate} className="flex m-2" width="22" height="22" />SSL Certificate</span>
                   </div>
 
-                  <div className="bg-gray-100 m-2 flex py-2">  <div className="publish-site flex py-2 mx-auto px-6"> Update </div></div>
+                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
 
                   <div className="flex"> 
                   <span className="domain-text text-sm self-start text-left">Don't Have a Domain? Check Oneyou Domain Plans </span>
