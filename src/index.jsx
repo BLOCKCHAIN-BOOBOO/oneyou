@@ -16,13 +16,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const clientID =
   "307241725765-ifete12oqa3m9csgadh8sg3vcu1s7u6e.apps.googleusercontent.com";
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
      <Provider store={store}>
      <GoogleOAuthProvider clientId={clientID}>
     <App />
     </GoogleOAuthProvider>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

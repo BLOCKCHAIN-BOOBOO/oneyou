@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { SIGNIN } from "../actiontypes/Types";
+import { SIGNIN } from "./actionTypes";
 
 
 export const googleAuth = (Gdata) => async (dispatch) => {
@@ -20,10 +20,10 @@ export const googleAuth = (Gdata) => async (dispatch) => {
 
       let userdata = {
         token: token,
-        email: email,
+        email:email,
         username: username,
       };
-    //   dispatch({ type: SIGNIN, payload: userdata });
+      dispatch({ type: SIGNIN,payload:userdata});
       return data;
     }
   } catch (error) {

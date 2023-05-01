@@ -7,10 +7,19 @@ import home from "../../images/home.png";
 
 const Menunavbar = () => {
       const [menuActive, setMenuActive] = useState("Profile");
- 
+ const navigate=useNavigate()
     const handleMenuActive = (menutype) => {
+
+      if(menutype=== "web settings"){
+ navigate("/usersettings")
+      }
+     else if(menutype==="profile"){
+      navigate("/home")
+     }
+     
+     
     setMenuActive(menutype);
-    console.log(menutype)
+    
     };
   return (
     <>
