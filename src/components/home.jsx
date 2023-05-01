@@ -184,9 +184,12 @@ const Home = () => {
                   <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Enter Location" /> 
                 </div>
 
-                <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+               
               </div>
-             
+             <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
             </div>
           </Accordion>
 
@@ -217,10 +220,14 @@ const Home = () => {
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /></div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
                 </div>
-              <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
-                
+                            
                   </div>
                 
+               <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
+
                 </div>
               </Accordion>
 
@@ -248,7 +255,10 @@ const Home = () => {
                 
                 {/* <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>                */}
                   </div>
-                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                  <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                  </div>
               </Accordion>
 
@@ -274,7 +284,10 @@ const Home = () => {
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /></div>
               
               
-                <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                 <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                              
                   </div>
                 </div>
@@ -283,7 +296,10 @@ const Home = () => {
                 <div className="flex flex-col">
                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Resume" /></div>
 
-                 <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                 <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                 </div>
               </Accordion>
            
@@ -302,7 +318,10 @@ const Home = () => {
                     </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div> 
                   </div>
-                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                   <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                 </div>
               </Accordion>
               <Accordion title="Skills Section" className="bg-transparent overflow-x-hidden">
@@ -320,7 +339,10 @@ const Home = () => {
                     </div>
                   
                   </div>
-                 <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                  <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                 </div>
               </Accordion>
            
@@ -339,7 +361,10 @@ const Home = () => {
                     </div>
                   
                   </div>
-                  <div className="bg-gray-100 m-2 flex py-2">  <button className="publish-site flex py-2 mx-auto px-6"> Update </button></div>
+                   <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+               </div>
                  
                 </div>
               </Accordion>
