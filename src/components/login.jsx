@@ -1,7 +1,52 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState}from "react";
+import { NavLink,useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
+import { googleAuth } from "../state/actions/googleAuth";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+
+  const [errmsg, seterrMsg] = useState("")
+
+const navigate=useNavigate()
+const dispatch=useDispatch()
+const googlelogin = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      getUserGoogleProfile(tokenResponse.access_token);
+    },
+  });
+
+  const getUserGoogleProfile = async (accesstoken) => {
+    try {
+      if (accesstoken) {
+        console.log(accesstoken);
+        window.sessionStorage.setItem("web0auth", accesstoken);
+        const data = {
+          google_token: accesstoken,
+        };
+        await dispatch(googleAuth(data)).then((res) => {
+          console.log("res",res)
+          if (res?.data?.code === "success") {
+            seterrMsg(res?.data?.message);
+
+            navigate("/home");
+            //  setisLoader(false);
+          } else if (res?.response?.data?.code === "failed") {
+            seterrMsg(res?.response?.data?.message);
+            //  setisLoader(false);
+          } else if (res?.code === "ERR_NETWORK") {
+            seterrMsg(res?.message);
+            //  setisLoader(false);
+          } else {
+            seterrMsg("something went wrong");
+            //  setisLoader(false);
+          }
+        });
+      }
+    } catch (error) {}
+    return;
+  };
+
  
     return (
       <>
@@ -17,7 +62,7 @@ const Login = () => {
         </div>
 
         <div className="flex self-center justify-center py-4">
-        <button type="button" className="login-with-google-btn login-with-google-text rounded-2xl rounded-full">
+        <button type="button" className="login-with-google-btn login-with-google-text rounded-2xl rounded-full"   onClick={googlelogin}>
             <i className="fa fa-google text-3xl"></i>Login with Google </button>
         </div>
 
