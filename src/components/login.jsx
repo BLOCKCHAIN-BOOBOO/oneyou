@@ -56,10 +56,10 @@ const googlelogin = useGoogleLogin({
         <div className="w-full login-header">Login</div>
         <div className="welcome-text flex self-center justify-center text-xs sm:text-sm md:text-md xl:text-md py-2">Welcome Back, We are Happy to see you again</div>
 
-        <div className="m-3 w-5/6 mx-auto self-center justify-center">
+        {/* <div className="m-3 w-5/6 mx-auto self-center justify-center">
           <label className="flex self-start justify-start pb-2">Username</label>
           <input type="text" className="mx-auto w-full input-text" />
-        </div>
+        </div> */}
 
         <div className="flex self-center justify-center py-4">
         <button type="button" className="login-with-google-btn login-with-google-text rounded-2xl rounded-full"   onClick={googlelogin}>

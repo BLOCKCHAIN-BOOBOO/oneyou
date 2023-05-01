@@ -16,7 +16,7 @@ function AppRoutes() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
+        {/* <Route path="/signup" element={<Signup />}></Route> */}
         <Route path="/home" element={<Home />}></Route>
         <Route path="/usersettings" element={<Usersettings />}></Route>
         <Route path="/subscriptionsetting" element={<Subscriptionsetting />}></Route>
