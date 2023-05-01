@@ -9,6 +9,7 @@ import Editupi from "../Usersettings/editupi";
 import Upgradeplan from "../Usersettings/upgradeplan";
 import Subscriptionpayment from "../Usersettings/subscriptionpayment";
 import Aboutoneyou from "../Usersettings/aboutoneyou";
+import Account from "../Usersettings/account";
 
 
 function AppRoutes() {
@@ -18,12 +19,18 @@ function AppRoutes() {
         <Route path="/" element={<Login />}></Route>
         {/* <Route path="/signup" element={<Signup />}></Route> */}
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/usersettings" element={<Usersettings />}></Route>
-        <Route path="/subscriptionsetting" element={<Subscriptionsetting />}></Route>
+
+        <Route path="/usersettings" element={<Usersettings />}> 
+         <Route path="account" element={<Account />}></Route>
+         <Route path="subscriptionsetting" element={<Subscriptionsetting />}></Route>
+          <Route path="about" element={<Aboutoneyou />}></Route>
+       </Route>
+
+         
         <Route path="/editupi" element={<Editupi />}></Route>
         <Route path="/upgradeplan" element={<Upgradeplan />}></Route>
         <Route path="/subscriptionpayment" element={<Subscriptionpayment />}></Route>
-        <Route path="/about" element={<Aboutoneyou />}></Route>
+       
       </Routes>
     </div>
   );
