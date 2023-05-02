@@ -16,12 +16,16 @@ import sslcertificate from "../images/ssl-certificate.png";
 import nextbtn from "../images/next-btn.png";
 import Iframe from "react-iframe";
 import defaultprofileimgae from "../images/defaultprofileimg.png"
+import PostRequest from "./postRequest"
+import { useDispatch } from "react-redux";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
+
+  const dispatch =useDispatch()
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
@@ -35,12 +39,36 @@ console.log("inmg",e.target.files[0])
 if (e.target.files && e.target.files[0]) {
       console.log(URL.createObjectURL(e.target.files[0]));
       setpreviewimg(URL.createObjectURL(e.target.files[0]));
-      SetFile(URL.createObjectURL(e.target.files[0]));
+      SetFile(file);
     }
     }
 
+   
+
+   const  uploadproileimg=async(type)=>{ 
+switch (type) {
+  case "uploadprofile":
+
+  let data={
+    profile:file
+  }
+    let res= await dispatch(PostRequest(data,"addProfile"))
+console.log("response",res)
+ return
+
+  default:
+    break;
+}
+
+   }
+
+
     useEffect(() => {
-    }, [previewimg])
+
+
+    }, [])
+    
+
     
 
     return (
@@ -190,7 +218,7 @@ if (e.target.files && e.target.files[0]) {
 
                   <span className="profile-text" >Add Profile Image</span>
 
-                 <button type="button" className="upload-image-btn rounded-2xl rounded-lg"> Upload image</button>
+                 <button type="button" className="upload-image-btn rounded-2xl rounded-lg" onClick={e=>uploadproileimg("uploadprofile")}> Upload image</button>
                 </div>
               </div>
               <div className="flex flex-col accordion-div-height py-4 w-full text-left self-start">
