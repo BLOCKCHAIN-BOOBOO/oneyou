@@ -29,7 +29,7 @@ const googlelogin = useGoogleLogin({
           if (res?.data?.code === "success") {
             seterrMsg(res?.data?.message);
 
-            navigate("/home");
+            navigate("/profile");
             //  setisLoader(false);
           } else if (res?.response?.data?.code === "failed") {
             seterrMsg(res?.response?.data?.message);

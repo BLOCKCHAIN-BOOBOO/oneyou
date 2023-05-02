@@ -14,15 +14,29 @@ import desktop from "../images/desktop.png"
 import filesetting from "../images/file-setting.png";
 import sslcertificate from "../images/ssl-certificate.png";
 import nextbtn from "../images/next-btn.png";
-import Iframe from "react-iframe";;
+import Iframe from "react-iframe";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
- 
+ const [File, SetFile] = useState(null);
+  const [previewimg, setpreviewimg] = useState();
+
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
     };
+
+    const getprofile=(event)=>{
+        const file = event.target.files[0];
+      SetFile(event.target.file[0])
+//  setpreviewimg(URL.createObjectURL(file));
+
+if (event.target.files && event.target.files[0]) {
+      console.log(URL.createObjectURL(event.target.files[0]));
+      setpreviewimg(URL.createObjectURL(event.target.files[0]));
+      SetFile(URL.createObjectURL(event.target.files[0]));
+    }
+    }
 
     return (
     <div className="page-background page-body self-center align-middle justify-center">
@@ -160,7 +174,12 @@ const Home = () => {
           <Accordion title="Basic Details Section" className="bg-transparent">
             <div className="flex flex-col">
               <div className="flex flex-row self-start justify-start py-2">
-                <img className="about-name-img border-0 rounded-md" height="70" width="70" />
+                
+                  <input type="file" id="profileimg" />
+                           <label htmlFor='profileimg'  className= " cursor-pointer self-center text-xs font-bold text-color pt-2" style={{'font-family':' Arial, Helvetica, sans-serif','background':' linear-gradient( to right, #2162ec 6.93%, #7a6bf1c7 52.34%, #b771f3b5 95.98%, #d375f6, #d775f6)','-webkit-text-fill-color': 'transparent','-webkit-background-clip': 'text'}}   >
+{}
+                {File ?<img src={File&& File} onChange={e=>getprofile(e)} className="about-name-img border-0 rounded-md" height="70" width="70"  /> :<img src={File&& File} onChange={e=>getprofile(e)} className="about-name-img border-0 rounded-md" height="70" width="70"  />}
+                </label>
                 <div className="flex flex-col justify-between ml-2">
                   <span className="profile-text">Add Profile Image</span>
                  <button type="button" className="upload-image-btn rounded-2xl rounded-lg"> Upload image</button>
