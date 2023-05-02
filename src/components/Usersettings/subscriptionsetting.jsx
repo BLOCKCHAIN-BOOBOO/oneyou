@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {  Outlet,useNavigate } from "react-router-dom";
 import { Accordion } from "react-bootstrap-accordion";
 import home from "../../images/home.png";
 import file from "../../images/file.png";
@@ -16,11 +17,24 @@ import publishicon from "../../images/publish-icon.png"
 
 const Subscriptionsetting = () => {
 
+     const navigate=useNavigate()
+
+   const navigateToUpgrade = async () => {
+    navigate('/usersettings/subscriptions/upgradeplan');
+  };
+    const navigateToChangeUPI = async () => {
+    navigate('/usersettings/subscriptions/editupi');
+  };
+ const navigateToPayment = async () => {
+    navigate('/usersettings/subscriptions/subscriptionpayment');
+  };
     return (
-  
+        <>
+   
+
         <div className="flex flex-col w-full h-full m-2">
           {/* <div className="flex self-center justify-center mx-auto"> */}
-           
+        
             <div className=" flex w-full right-0 h-full">
               {/*home-about  dir="ltr" */}
              
@@ -33,7 +47,7 @@ const Subscriptionsetting = () => {
 <div className="flex flex-col self-start h-full">
     <div className="flex">
         <span className="flex self-center">Current Plan</span> 
-        <button className="publish-site py-2 px-7 m-4">Upgrade <img src={publishicon} className="ml-2" height="15" width="15" /></button>
+        <button className="publish-site py-2 px-7 m-4" onClick={navigateToUpgrade}>Upgrade <img src={publishicon} className="ml-2" height="15" width="15" /></button>
     </div>
     <div className="flex">
         <span className="flex self-center">Payment Method</span> 
@@ -42,7 +56,7 @@ const Subscriptionsetting = () => {
             <span className="flex self-center">abcabc@ybl</span>
             <img src={upiicon} className="self-center flex justify-center ml-2" width="15" height="15" />
         </div>
-        <button className="publish-site py-2 px-7 m-4">Change <img src={settingrefresh} className="ml-2" height="15" width="15" /></button>
+        <button className="publish-site py-2 px-7 m-4" onClick={navigateToChangeUPI}>Change <img src={settingrefresh} className="ml-2" height="15" width="15" /></button>
     </div>
 
     <div className="flex flex-col mt-2">
@@ -65,7 +79,7 @@ const Subscriptionsetting = () => {
                     <td>50</td>
                     <td>Monthly</td>
                     <td className="flex self-center justify-center"><button className="payment-table-upcoming-btn py-2 px-7">Upcoming</button></td>
-                    <td><button className="publish-site py-2 px-7">Paynow</button></td>
+                    <td><button className="publish-site py-2 px-7" onClick={navigateToPayment}>Paynow</button></td>
                 </tr>
                 <tr>
                     <td>UX27032001</td>
@@ -97,7 +111,7 @@ const Subscriptionsetting = () => {
             </div>
           {/* </div> */}
         </div>
-      
+      </>
   );
 };
 

@@ -11,7 +11,7 @@ const Menunavbar = () => {
     const handleMenuActive = (menutype) => {
 
       if(menutype=== "web settings"){
- navigate("/usersettings")
+ navigate("/usersettings/account")
       }
      else if(menutype==="profile"){
       navigate("/profile")
