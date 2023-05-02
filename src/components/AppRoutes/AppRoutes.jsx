@@ -18,7 +18,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Login />}></Route>
         {/* <Route path="/signup" element={<Signup />}></Route> */}
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/profile" element={<Home />}></Route>
 
         <Route path="/usersettings" element={<Usersettings />}> 
          <Route path="account" element={<Account />}></Route>
