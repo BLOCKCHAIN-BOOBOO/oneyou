@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Accordion } from "react-bootstrap-accordion";
 import home from "../../images/home.png";
 import file from "../../images/file.png";
@@ -14,7 +15,26 @@ import settingrefresh from "../../images/setting-refresh.png";
 
 const Usersettings = () => {
   const [typeActive, setTypeActive] = useState("your details");
+
+    const [activeLink, setActiveLink] = useState("account");
  
+    const handleActiveLink = (typesale) => {
+    setActiveLink(typesale);
+    console.log(typesale)
+    };
+
+  const navigate=useNavigate()
+
+   const navigateToAccount = async () => {
+    navigate('/usersettings/account');
+  };
+   const navigateToSubscription = async () => {
+    navigate('/usersettings/subscriptionsetting');
+  };
+
+   const navigateToAbout = async () => {
+    navigate('/usersettings/about');
+  };
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
@@ -36,67 +56,34 @@ const Usersettings = () => {
 
     <div className="xl:m-5 md:m-5 sm:m-2 m-2 accordion-card mx-auto rounded-xl w-full p-2 h-full">
        
-          <Accordion title="Account" className="text-white bg-transparent">
-                <div className="flex flex-row ">
-                  
-                 </div>
-              </Accordion>
+          <div onClick={() => handleActiveLink("account")} 
+                  className={`w-full flex user-setting-bg  ${activeLink === "account" && " user-setting-active-link"}`}>
+                <button className="flex flex-row justify-between user-setting-btn" onClick={navigateToAccount}>Account 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i></button>
+               
+              </div>
 
-              <Accordion title="Subscriptions" className="bg-transparent overflow-x-hidden">
-                <div className="">
-                 
-                </div>
-              </Accordion>
-              <Accordion title="About Oneyou" className="bg-transparent overflow-x-hidden">
-                <div className="">
-                 
-                </div>
-              </Accordion>
+               <div onClick={() => handleActiveLink("subscription")} 
+                  className={`w-full flex user-setting-bg  ${activeLink === "subscription" && " user-setting-active-link"}`}>
+                <button className="flex justify-between flex-row user-setting-btn" onClick={navigateToSubscription}>Subscriptions 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
 
+               <div onClick={() => handleActiveLink("about")} 
+                  className={`w-full flex user-setting-bg  ${activeLink === "about" && " user-setting-active-link"}`}>
+                <button className="flex flex-row justify-between user-setting-btn" onClick={navigateToAbout}>About Oneyou 
+                <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i></button>
+                
+              </div>
     </div>
 
         </div>
         </div>
-        <div className="flex flex-col w-3/4 h-full m-2">
-          {/* <div className="flex self-center justify-center mx-auto"> */}
-           
-            <div className=" flex w-full right-0 h-full">
-              {/*home-about  dir="ltr" */}
-             
-                <div className="home-about-me w-full">
-                    
-                     <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
-             User Account Settings
-            </div>
-            <div className="flex flex-col self-start h-full">
-            <div className="flex self-start w-full m-2"><span className="setting-page-text self-center justify-center">Account Linked:</span>
-           
-           <div className="flex m-4">
-            <button type="button" className="login-with-google-text">
-            <i className="fa fa-google text-3xl m-2"></i>Google: </button>
-           <span className="login-with-google-text">abc@gmail.com</span>
-            <span>
-                <button className="publish-site py-2 px-7 m-4">Change <img src={settingrefresh} className="ml-2" height="15" width="15" /></button>
-            </span>
-            </div>
-            </div>
-            <div className="flex self-start w-full m-2">
-            <span className="setting-page-text self-center justify-center">Delete Account:</span>
-            <span>
-            <button className="setting-delete-btn px-10 mx-2">Delete 
-            <img src={deleteicon} className="ml-2" height="13" width="13" /></button></span>
-            </div>
-            <div className="flex self-start w-full m-2">
-            <span className="setting-page-text self-center justify-center">Logout Account:</span>
-            <span className=""> 
-            <button className="publish-site py-2 px-6 m-4">Logout</button>
-                
-                </span></div>
-                </div>
-            </div>
-            </div>
-          {/* </div> */}
-        </div>
+      
+        <div className="flex w-full">
+      <Outlet/>
+      </div>
        </div>
 
     </div>
