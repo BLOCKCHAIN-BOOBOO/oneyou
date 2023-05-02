@@ -14,10 +14,8 @@ const Menunavbar = () => {
  navigate("/usersettings")
       }
      else if(menutype==="profile"){
-      navigate("/home")
+      navigate("/profile")
      }
-     
-     
     setMenuActive(menutype);
     
     };
