@@ -65,10 +65,10 @@ const googlelogin = useGoogleLogin({
             <i className="fa fa-google text-3xl"></i>Login with Google </button>
         </div>
 <div>{errmsg&&errmsg}</div>
-       <div className="flex flex-row self-center justify-center py-2">
+       {/* <div className="flex flex-row self-center justify-center py-2">
         <div className="flex self-center justify-center text-xs sm:text-sm md:text-sm xl:text-md">Don't have an account</div>
         <div className="signup-text ml-2">Sign Up</div>
-       </div>
+       </div> */}
         </form>
       </div>
     </div>
