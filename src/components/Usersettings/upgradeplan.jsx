@@ -18,13 +18,9 @@ import publishicon from "../../images/publish-icon.png"
 const Upgradeplan = () => {
 
     return (
-    <div className="page-background  page-body flex self-center align-middle justify-center">
     
-     <div className="m-8 flex flex-row w-full h-full settings-page">
-    <div className="flex flex-row w-full h-5/6 mt-16" >      
-      {/* dir="ltr" */}     
        
-        <div className="flex flex-col w-3/4 h-full m-2">
+        <div className="flex flex-col w-full h-full m-2">
           {/* <div className="flex self-center justify-center mx-auto"> */}
            
             <div className=" flex w-full h-full right-0 ">
@@ -84,10 +80,7 @@ const Upgradeplan = () => {
             </div>
           {/* </div> */}
         </div>
-       </div>
-
-    </div>
-    </div>
+      
   );
 };
 

@@ -22,14 +22,19 @@ function AppRoutes() {
 
         <Route path="/usersettings" element={<Usersettings />}> 
          <Route path="account" element={<Account />}></Route>
+        
          <Route path="subscriptionsetting" element={<Subscriptionsetting />}></Route>
+          <Route path="subscriptions/upgradeplan" element={<Upgradeplan />}></Route>
+           <Route path="subscriptions/editupi" element={<Editupi />}></Route>
+          <Route path="subscriptions/subscriptionpayment" element={<Subscriptionpayment />}></Route>
+
           <Route path="about" element={<Aboutoneyou />}></Route>
        </Route>
 
          
-        <Route path="/editupi" element={<Editupi />}></Route>
-        <Route path="/upgradeplan" element={<Upgradeplan />}></Route>
-        <Route path="/subscriptionpayment" element={<Subscriptionpayment />}></Route>
+        
+       
+       
        
       </Routes>
     </div>
