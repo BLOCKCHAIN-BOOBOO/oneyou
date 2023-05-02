@@ -209,7 +209,7 @@ console.log("response",res)
               <div className="flex flex-row self-start justify-start py-2">
                 
                   <input type="file" id="profileimg"  onChange={e=>getprofile(e)} />
-                           <label htmlFor='profileimg'  className= " cursor-pointer self-center text-xs font-bold text-color pt-2" style={{'font-family':' Arial, Helvetica, sans-serif','background':' linear-gradient( to right, #2162ec 6.93%, #7a6bf1c7 52.34%, #b771f3b5 95.98%, #d375f6, #d775f6)','-webkit-text-fill-color': 'transparent','-webkit-background-clip': 'text'}}   >
+                           <label htmlFor='profileimg'  className= " cursor-pointer self-center text-xs font-bold text-color pt-2" style={{'fontFamily':' Arial, Helvetica, sans-serif','background':' linear-gradient( to right, #2162ec 6.93%, #7a6bf1c7 52.34%, #b771f3b5 95.98%, #d375f6, #d775f6)','WebkitTextFillColor': 'transparent','WebkitBackgroundClip': 'text'}}   >
 
                 <img src={previewimg} className="about-name-img border-0 rounded-md cursor-pointer" height="70" width="70"  />  
                 </label>
@@ -480,7 +480,7 @@ console.log("response",res)
                             />
                             <label
                               className="text-black text-sm pl-2 font-semibold"
-                              for="dnsConfig"
+                              htmlFor="dnsConfig"
                             >
                               DNS Config
                             </label>
@@ -495,7 +495,7 @@ console.log("response",res)
                             />
                             <label
                               className="text-black text-sm pl-2 font-semibold"
-                              for="status"
+                              htmlFor="status"
                             >
                               Status
                             </label>
