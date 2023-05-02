@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {  useNavigate } from "react-router-dom";
 import { Accordion } from "react-bootstrap-accordion";
 import home from "../../images/home.png";
 import file from "../../images/file.png";
@@ -15,6 +16,11 @@ import download from "../../images/download.png"
 import publishicon from "../../images/publish-icon.png"
 
 const Editupi = () => {
+     const navigate=useNavigate()
+
+   const navigateToUpgrade = async () => {
+    navigate('/usersettings/subscriptions/upgradeplan');
+  };
 
     return (
    
@@ -34,7 +40,7 @@ const Editupi = () => {
 <div className="flex flex-col self-start float-left">
     <div className="flex">
         <span className="flex self-center">Current Plan</span> 
-        <button className="publish-site py-2 px-7 m-4">Upgrade <img src={publishicon} className="ml-2" height="15" width="15" /></button>
+        <button className="publish-site py-2 px-7 m-4" onClick={navigateToUpgrade}>Upgrade <img src={publishicon} className="ml-2" height="15" width="15" /></button>
     </div>
     <div className="flex">
         <span className="flex self-center">Payment Method</span> 
