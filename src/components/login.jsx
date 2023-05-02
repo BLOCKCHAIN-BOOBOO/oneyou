@@ -36,7 +36,6 @@ const googlelogin = useGoogleLogin({
             //  setisLoader(false);
           } else if (res?.code === "ERR_NETWORK") {
             seterrMsg(res?.message);
-            //  setisLoader(false);
           } else {
             seterrMsg("something went wrong");
             //  setisLoader(false);
