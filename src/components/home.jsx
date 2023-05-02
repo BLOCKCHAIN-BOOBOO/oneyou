@@ -452,7 +452,7 @@ if (e.target.files && e.target.files[0]) {
                             />
                             <label
                               className="text-black text-sm pl-2 font-semibold"
-                              for="dnsConfig"
+                              htmlFor="dnsConfig"
                             >
                               DNS Config
                             </label>
@@ -467,7 +467,7 @@ if (e.target.files && e.target.files[0]) {
                             />
                             <label
                               className="text-black text-sm pl-2 font-semibold"
-                              for="status"
+                              htmlFor="status"
                             >
                               Status
                             </label>
