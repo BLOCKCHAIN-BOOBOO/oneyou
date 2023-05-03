@@ -659,8 +659,8 @@ font-weight: 600;
     transition: height 0.2s ease 0s;
     overflow-x: hidden !important;
     /* margin-bottom: 0; */
-    min-height:15rem !important;
-    overflow-y: auto !important;
+    /* min-height:15rem !important;
+    overflow-y: auto !important; */
 
 }
 .accordion-div-height{
