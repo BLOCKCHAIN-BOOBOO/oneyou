@@ -282,7 +282,7 @@ const removeDocFields = (index) => {
                   <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                  
-             <div> 
+             <div className="h-5/6 overflow-y-auto flex flex-col"> 
                <div className="py-2 flex">
                   <span className="profile-text">Documents</span>
                   <i onClick={addFields} className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i>
@@ -290,9 +290,11 @@ const removeDocFields = (index) => {
                   {documents.map((input, index) => {
           return (
                   <div key={index}>
-                  <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /></div>
+                  <div className="py-2 flex"><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} />
+                  <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
                   <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /></div>
-                <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                
                 </div>
           )})}
                 </div>
