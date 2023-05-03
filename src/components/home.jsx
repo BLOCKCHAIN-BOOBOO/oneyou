@@ -24,7 +24,9 @@ const Home = () => {
  const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
-
+const [documents, setDocuments] = useState([
+    { name: '', link: '' }
+  ])
   const dispatch =useDispatch()
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
@@ -62,11 +64,24 @@ console.log("response",res)
 
    }
 
+  const  handleDocumentChange=(index,event)=>{
+    let data = [...documents];
+   data[index][event.target.name] = event.target.value;
+   setDocuments(data);
 
-    useEffect(() => {
+   }
+const addFields = () => {
+  let newfield = { name: '', age: '' }
+
+    setDocuments([...documents, newfield])  
+}
 
 
-    }, [])
+const removeDocFields = (index) => {
+    let data = [...documents];
+    data.splice(index, 1)
+    setDocuments(data)
+}
     
 
     
@@ -270,10 +285,16 @@ console.log("response",res)
              <div> 
                <div className="py-2 flex">
                   <span className="profile-text">Documents</span>
-                  <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  <i onClick={addFields} className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i>
                   </div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div>
+                  {documents.map((input, index) => {
+          return (
+                  <div key={index}>
+                  <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /></div>
+                  <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /></div>
+                <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                </div>
+          )})}
                 </div>
                             
                   </div>
