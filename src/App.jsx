@@ -16,14 +16,15 @@ const  App=()=> {
 return state?.googleToken?.userInfo ?state?.googleToken?.userInfo :state?.userinfo
 
   })
- console.log(userauth)
+ console.log("usertoken",userauth)
+
+
   return (
     <div className="App">
        <BrowserRouter>
-     {userauth?.token ?<Menunavbar/>:  <Navbar/>} 
+     
        
       <AppRoutes />
-      <Footer/>
     </BrowserRouter>
     </div>
   );

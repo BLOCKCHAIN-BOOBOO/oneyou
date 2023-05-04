@@ -70,8 +70,11 @@ console.log("response",res)
    setDocuments(data);
 
    }
+
+
+
 const addFields = () => {
-  let newfield = { name: '', age: '' }
+  let newfield = { name: '', link: '' }
 
     setDocuments([...documents, newfield])  
 }
