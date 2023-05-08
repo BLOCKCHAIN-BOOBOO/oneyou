@@ -508,6 +508,9 @@ const refreshIframe=()=>{
 
               {message === "open" && (
                   <div className="home-profile-edit profile-popup">
+                    <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
+                     Profile / Add Languages
+                    </div>
                 <div className="flex flex-col p-2 w-full">
 
 <div>
