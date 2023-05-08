@@ -18,9 +18,13 @@ import nextbtn from "../images/next-btn.png";
 import Iframe from "react-iframe";
 import defaultprofileimgae from "../images/defaultprofileimg.png"
 import PostRequest from "./postRequest"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import "./homepage.css"
+import { BASEURL } from "../state/actions/actionTypes";
+import io from "socket.io-client";
+
+const socket = io.connect(BASEURL);
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
@@ -28,6 +32,14 @@ const Home = () => {
 
 
   const [message, setMessage] = useState("");
+
+let userauth=useSelector(state=>{
+    console.log("state update",state,state?.googleToken?.userInfo
+
+)
+return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
+
+  })
 
   const click = () => {
     console.log("open");
@@ -122,6 +134,13 @@ const removeDocFields = (index) => {
 const refreshIframe=()=>{
   setIFrame({random: iframe.random + 1});
 }
+    useEffect(() => {
+     let data={ email:userauth}
+     socket.emit("join_room",data );
+      return () => {
+        
+      }
+    }, [])
     
 
     return (
