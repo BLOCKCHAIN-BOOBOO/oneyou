@@ -734,15 +734,17 @@ const refreshIframe=()=>{
              
            
                   
-        
+           
         </div>
   )}
+     {showmodal && <Basicdetails showmodal={setShowModal} />}
         </div>
         </div>
+     
        </div>
-
+     
     </div>
-    {showmodal && <Basicdetails showmodal={setShowModal} />}
+  
     </div>
   );
 };
