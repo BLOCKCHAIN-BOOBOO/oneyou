@@ -52,7 +52,7 @@ if (e.target.files && e.target.files[0]) {
 
    
 
-   const  uploadproileimg=async(type)=>{ 
+   const  uploadproileimg=async(type)=> { 
 switch (type) {
   case "uploadprofile":
 

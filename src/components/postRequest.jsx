@@ -1,6 +1,5 @@
 import axios from "axios";
-const BASEURL="https://api.yourbrandfolio.com/profile/"
-
+import { BASEURL } from "../state/actions/actionTypes";
 const PostRequest = (data, url) => async (dispatch) => {
   const token=sessionStorage.getItem("token")
   console.log("token",token)
