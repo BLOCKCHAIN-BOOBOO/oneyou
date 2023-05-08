@@ -1,4 +1,4 @@
-import { SIGNIN } from "../actions/actionTypes";
+import { SIGNIN, SIGNOUT } from "../actions/actionTypes";
 
 
 // const InitialState={
@@ -13,6 +13,10 @@ switch (action.type) {
     case SIGNIN:
         console.log("googletoken store",action)
         return {state:action.payload} 
+
+        case SIGNOUT:
+
+        return {state:action.payload}
 
     default:
        return state

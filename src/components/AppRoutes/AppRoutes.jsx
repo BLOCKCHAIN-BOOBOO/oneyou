@@ -1,5 +1,5 @@
 import "../../App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "../login";
 import Signup from "../signup";
 import Home from "../home";
@@ -13,13 +13,15 @@ import Account from "../Usersettings/account";
 import Footer from "../Footer/Footer";
 import Menunavbar from "../Navbar/Menunavbar";
 import Navbar from "../Navbar/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ValidateToken } from "../TokenValidtor";
 import { useEffect } from "react";
 
 
 const AppRoutes=()=> {
+const dispatch=useDispatch()
 
+  let navigate=useNavigate()
 let userauth=useSelector(state=>{
     console.log("state update",state,state?.googleToken?.userInfo
 
@@ -28,11 +30,12 @@ return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
 
   })
 
-const SignOut=()=>{
-sessionStorage.clear()
-Navigate()
 
-}
+
+    const SignOut=()=>{
+       dispatch(SignOut())
+      navigate("/login")
+    }
 
 
 useEffect(() => {
@@ -83,7 +86,7 @@ useEffect(() => {
        </Routes>
       
       <Footer/>
-
+      
     </div>
   );
 }
