@@ -610,6 +610,9 @@ font-weight: 600;
     border-bottom: 1px solid #fff;
     background: #F9F9F9;
 }
+.accordion-bg{
+    background: #F9F9F9;
+}
 
 .accordion-button {
     position: relative;

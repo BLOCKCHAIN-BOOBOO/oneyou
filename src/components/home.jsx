@@ -493,7 +493,7 @@ const refreshIframe=()=>{
                 {/* </div> */}
               {/* </Accordion> */}
 
-              <div onClick={() => click()} 
+              <div className="accordion-bg" onClick={() => click()} 
                   // className={`w-full flex user-setting-bg  
                   // ${activeLink === "add languages" && " user-setting-active-link"}`}
                   >
