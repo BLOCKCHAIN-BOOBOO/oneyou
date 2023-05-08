@@ -25,7 +25,6 @@ import Basicdetails from "./preferences/basicdetails";
 import { BASEURL } from "../state/actions/actionTypes";
 import io from "socket.io-client";
 
-const socket = io.connect(BASEURL,{path:"/mysocket"});
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
@@ -33,6 +32,7 @@ const Home = () => {
 
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+const socket = io(BASEURL);
 
 let userauth=useSelector(state=>{
     console.log("state update",state,state?.googleToken?.userInfo
