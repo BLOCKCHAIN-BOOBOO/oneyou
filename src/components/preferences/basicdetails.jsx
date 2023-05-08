@@ -50,7 +50,7 @@ console.log("response",res)
    }
 return (
 <>
-
+<div className="">
   <div className="home-profile-edit profile-popup">
     <div className="flex home-profile-edit-header w-full self-center justify-between flex text-center border-b-2">
     <span> Profile / Basic Details</span>
@@ -105,6 +105,7 @@ return (
 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
 </div>
 
+</div>
 </div>
 </div>
 </>
