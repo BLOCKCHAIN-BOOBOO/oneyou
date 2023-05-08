@@ -47,13 +47,11 @@ const googlelogin = useGoogleLogin({
   };
 
 
-  useEffect(() => {
-   sessionStorage.clear()
-  
-    return () => {
+  // useEffect(() => {
+  //   return () => {
       
-    }
-  }, [])
+  //   }
+  // }, [])
   
  
     return (

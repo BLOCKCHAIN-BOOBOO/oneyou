@@ -12,17 +12,71 @@ import settings from "../../images/settings.png";
 import deleteicon from "../../images/delete-icon.png";
 import settingrefresh from "../../images/setting-refresh.png";
 import {  useNavigate } from "react-router-dom";
-
+import { useGoogleLogin } from "@react-oauth/google";
+// import { googleAuth } from "../state/actions/googleAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { googleAuth } from "../../state/actions/googleAuth";
+import { SIGNOUT } from "../../state/actions/actionTypes";
+import SignOut from "../../state/actions/SignOut";
 const Account = () => {
   const [typeActive, setTypeActive] = useState("your details");
+  const [errmsg, seterrMsg] = useState("")
+
+const dispatch=useDispatch()
  const navigate=useNavigate()
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
     };
 
+let userauth=useSelector(state=>{
+    console.log("state update",state,state?.googleToken?.userInfo
+
+)
+return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
+
+  })
+
+ 
+const googlelogin = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      getUserGoogleProfile(tokenResponse.access_token);
+    },
+  });
+
+  const getUserGoogleProfile = async (accesstoken) => {
+    try {
+      if (accesstoken) {
+        console.log(accesstoken);
+       
+        const data = {
+          google_token: accesstoken,
+        };
+        await dispatch(googleAuth(data)).then((res) => {
+          console.log("res",res)
+          if (res?.data?.code === "success") {
+            seterrMsg(res?.data?.message);
+
+            navigate("/profile");
+            //  setisLoader(false);
+          } else if (res?.response?.data?.code === "failed") {
+            seterrMsg(res?.response?.data?.message);
+            //  setisLoader(false);
+          } else if (res?.code === "ERR_NETWORK") {
+            seterrMsg(res?.message);
+          } else {
+            seterrMsg("something went wrong");
+            //  setisLoader(false);
+          }
+        });
+      }
+    } catch (error) {}
+    return;
+  };
+
+
     const signOut=()=>{
-      sessionStorage.clear();
+       dispatch(SignOut())
       navigate("/login")
     }
 
@@ -45,9 +99,9 @@ const Account = () => {
            <div className="flex m-4">
             <button type="button" className="login-with-google-text">
             <i className="fa fa-google text-3xl m-2"></i>Google: </button>
-           <span className="login-with-google-text">abc@gmail.com</span>
+           <span className="login-with-google-text">{userauth?.email}</span>
             <span>
-                <button className="publish-site py-2 px-7 m-4">Change <img src={settingrefresh} className="ml-2" height="15" width="15" /></button>
+                <button onClick={googlelogin} className="publish-site py-2 px-7 m-4">Change <img src={settingrefresh} className="ml-2" height="15" width="15" /></button>
             </span>
             </div>
             </div>

@@ -19,7 +19,8 @@ import Iframe from "react-iframe";
 import defaultprofileimgae from "../images/defaultprofileimg.png"
 import PostRequest from "./postRequest"
 import { useDispatch } from "react-redux";
-
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import "./homepage.css"
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
@@ -40,11 +41,15 @@ const navigate=useNavigate()
 const [documents, setDocuments] = useState([
     { name: '', link: '' }
   ])
+
+  const [iframe, setIFrame] = useState({random: 0})
   const dispatch =useDispatch()
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
     };
+
+ const handle = useFullScreenHandle();
 
     const getprofile=(e)=>{
         let file = e.target.files[0];
@@ -99,7 +104,9 @@ const removeDocFields = (index) => {
     setDocuments(data)
 }
     
-
+const refreshIframe=()=>{
+  setIFrame({random: iframe.random + 1});
+}
     
 
     return (
@@ -115,8 +122,8 @@ const removeDocFields = (index) => {
                 <div className="current-plan px-5 py-2 ">Current Plan <div className="starter ml-2 px-5 py-1">Starter 
                 <img src={downarrow} className="ml-2 float-right flex" height="10" width="10" /></div></div>
                 <div className="device-type py-2 px-5">Device: <img src={desktop} height="20" width="20" /> <img src={mobile} height="20" width="20" /></div>
-                <div className="preview py-1 px-5">Preview <img src={arrow} className="m-2" height="10" width="10" /></div>
-                <div className="refresh py-1 px-7">Refresh <img src={refresh} className="m-2" height="15" width="15" /></div>
+                <div className="preview py-1 px-5" onClick={handle.enter} >Preview <img src={arrow} className="m-2" height="10" width="10" /></div>
+                <div className="refresh py-1 px-7" onClick={refreshIframe}>Refresh <img src={refresh} className="m-2" height="15" width="15" /></div>
                 <div className="publish-site py-1 px-6"><img src={publishicon} className="m-2" height="13" width="13" /> 
                 Publish Site <img src={downarrowwhite} className="m-2" height="10" width="10" /></div>
 
@@ -134,8 +141,9 @@ const removeDocFields = (index) => {
 
             <div className="home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20">
               {/* dir="ltr" */}
-              
+              <FullScreen handle={handle} className="w-full h-full">
                <Iframe
+                key={iframe.random}
                 src="https://me.harrish.dev/"
                 id=""
                 height="600px"
@@ -144,8 +152,9 @@ const removeDocFields = (index) => {
                 allow="autoplay"
                 display="block"
                 position="relative"
+                
               />
-              
+              </FullScreen>
                 {/* <div className="home-about-name flex self-center justify-center xl:w-2/6 md:w-2/6 sm:w-full w-full m-2">
                     <div className="w-full flex xl:flex-col md:flex-col sm:flex-row flex-row xl:border-b-2 md:border-b-2 sm:border-0 border-0">
                          <img className="about-name-img border-0 rounded-md xl:mx-auto md:mx-auto sm:mx-0 mx-0" height="120" width="120" />
