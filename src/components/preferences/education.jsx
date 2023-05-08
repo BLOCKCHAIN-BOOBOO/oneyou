@@ -44,7 +44,7 @@ return (
   </div>
   
     </div>
-<div className="flex flex-col p-2 w-full">
+<div className="flex flex-col p-2 w-full overflow-y-auto">
 
 <div className="flex py-4 flex-col">
 <div>

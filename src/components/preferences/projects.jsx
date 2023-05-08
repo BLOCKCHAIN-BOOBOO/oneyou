@@ -16,7 +16,7 @@ return (
   </div>
   
     </div>
-<div className="flex flex-col p-2 w-full">
+<div className="flex flex-col p-2 w-full overflow-y-auto">
 
 <div className="flex py-4 flex-col">
 <div>
@@ -38,12 +38,7 @@ return (
                   </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /></div>
               
-              
-                 <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
-               <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
-                <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-               </div>
-                             
+                 
                   </div>
 
 </div>
