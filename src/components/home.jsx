@@ -1,5 +1,6 @@
 
 import React, {useEffect, useState} from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Accordion } from "react-bootstrap-accordion";
 import home from "../images/home.png";
 import file from "../images/file.png";
@@ -24,6 +25,34 @@ const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
+
+
+  const [message, setMessage] = useState("");
+
+  const click = () => {
+    console.log("open");
+    setMessage("open");
+  };
+
+  const close = (e) => {
+   e.stopPropagation(); // Stop this click event to trigger click on parent onClick()
+    console.log("close");
+    setMessage("close");
+  };
+
+  
+//   const [activeLink, setActiveLink] = useState("add languages");
+ 
+//   const handleActiveLink = (typesale) => {
+//   setActiveLink(typesale);
+//   console.log(typesale)
+//   };
+
+// const navigate=useNavigate()
+
+//  const navigateToLanguages = async () => {
+//   navigate('/usersettings/languages');
+// };
 
 const [documents, setDocuments] = useState([
     { name: '', link: '' }
@@ -294,7 +323,7 @@ const refreshIframe=()=>{
                   <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                  
-             <div> 
+             <div className="h-5/6 overflow-y-auto flex flex-col"> 
                <div className="py-2 flex">
                   <span className="profile-text">Documents</span>
                   <i onClick={addFields} className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i>
@@ -302,9 +331,11 @@ const refreshIframe=()=>{
                   {documents.map((input, index) => {
           return (
                   <div key={index}>
-                  <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /></div>
+                  <div className="py-2 flex"><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} />
+                  <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                  </div>
                   <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /></div>
-                <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                
                 </div>
           )})}
                 </div>
@@ -394,7 +425,7 @@ const refreshIframe=()=>{
               <Accordion title="Add Social Links" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                    <div>
-                  <div className="py-2 ">
+                  <div className="py-2 flex">
                     <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Name">
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Linked In</option>
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Blog</option>
@@ -403,7 +434,9 @@ const refreshIframe=()=>{
                       <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Skype</option>
                        <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Youtube</option>
                       </select>
+                      <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                     </div>
+                   
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /></div> 
                   </div>
                    <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
@@ -418,12 +451,13 @@ const refreshIframe=()=>{
                    <div>
                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Skill" /></div> 
 
-                  <div className="py-2 ">
+                  <div className="py-2 flex">
                     <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
                     <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
                       </select>
+                      <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                     </div>
                   
                   </div>
@@ -433,29 +467,73 @@ const refreshIframe=()=>{
                </div>
                 </div>
               </Accordion>
-           
-              <Accordion title="Add Languages" className="bg-transparent overflow-x-hidden">
-                <div className="flex flex-col">
 
-                   <div>
+             
+           
+              {/* <Accordion title="Add Languages" className="bg-transparent overflow-x-hidden"> */}
+                {/* <div className="flex flex-col"> */}
+
+                   {/* <div>
                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Language" /></div> 
 
-                  <div className="py-2 ">
+                  <div className="py-2 flex">
                     <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
                    <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
                     <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
                       </select>
+                      <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                     </div>
                   
                   </div>
                    <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
                <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
                 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-               </div>
+               </div> */}
                  
+                {/* </div> */}
+              {/* </Accordion> */}
+
+              <div onClick={() => click()} 
+                  // className={`w-full flex user-setting-bg  
+                  // ${activeLink === "add languages" && " user-setting-active-link"}`}
+                  >
+                <button className="flex justify-between flex-row user-setting-btn"
+                //  onClick={navigateToLanguages}
+                 >Add Languages 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+
+
+              {message === "open" && (
+                  <div className="home-profile-edit profile-popup">
+                    <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
+                     Profile / Add Languages
+                    </div>
+                <div className="flex flex-col p-2 w-full">
+
+<div>
+<div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Language" /></div> 
+
+<div className="py-2 flex">
+ <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
+<option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
+<option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
+ <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
+   </select>
+   <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+ </div>
+
+</div>
+<div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
+<button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+<button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+</div>
+
+</div>
                 </div>
-              </Accordion>
+              )}
         
         
         </div>

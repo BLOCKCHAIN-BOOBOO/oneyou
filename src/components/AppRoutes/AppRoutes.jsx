@@ -16,6 +16,7 @@ import Navbar from "../Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { ValidateToken } from "../TokenValidtor";
 import { useEffect } from "react";
+import Languages from "../ProfilePreference/languages";
 
 
 const AppRoutes=()=> {
@@ -63,7 +64,9 @@ useEffect(() => {
        {userauth?.token && ValidateToken()? (
        <>
        
-       <Route path="/profile" element={<Home />}></Route>
+       <Route path="/profile" element={<Home />}>
+      
+       </Route>
 
         <Route path="/usersettings" element={<Usersettings />}> 
          <Route path="account" element={<Account />}></Route>
@@ -72,6 +75,12 @@ useEffect(() => {
           <Route path="subscriptions/upgradeplan" element={<Upgradeplan />}></Route>
            <Route path="subscriptions/editupi" element={<Editupi />}></Route>
           <Route path="subscriptions/subscriptionpayment" element={<Subscriptionpayment />}></Route>
+
+
+
+          <Route path="languages" element={<Languages />}></Route>
+
+
 
           <Route path="about" element={<Aboutoneyou />}></Route></Route>
          
