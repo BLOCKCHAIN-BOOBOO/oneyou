@@ -244,7 +244,15 @@ const refreshIframe=()=>{
  {typeActive === "your details" && (
  <div className="xl:m-5 md:m-5 sm:m-2 m-2 accordion-card mx-auto rounded-xl w-full p-2 h-full">
        
-          <Accordion title="Basic Details Section" className="bg-transparent">
+         
+         
+       <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Basic Details Section 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+          {/* <Accordion title="Basic Details Section" className="bg-transparent">
             <div className="flex flex-col">
               <div className="flex flex-row self-start justify-start py-2">
                 
@@ -286,10 +294,15 @@ const refreshIframe=()=>{
                 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
                </div>
             </div>
-          </Accordion>
+          </Accordion> */}
 
-         
-              <Accordion title="Education Secion" className="text-white bg-transparent">
+          <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Education Section 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+              {/* <Accordion title="Education Secion" className="text-white bg-transparent">
                 <div className="flex flex-col">
                   <div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /></div>
@@ -332,9 +345,16 @@ const refreshIframe=()=>{
                </div>
 
                 </div>
-              </Accordion>
+              </Accordion> */}
 
-              <Accordion title="Experience Section" className="text-white bg-transparent">
+
+              <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Experience Section 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+              {/* <Accordion title="Experience Section" className="text-white bg-transparent">
                 <div className="flex flex-col ">
 
                    <div>
@@ -356,16 +376,23 @@ const refreshIframe=()=>{
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
                   </div>
                 
-                {/* <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>                */}
+               
                   </div>
                   <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2"> 
                <button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
                 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
                </div>
                  </div>
-              </Accordion>
+              </Accordion> */}
 
-              <Accordion title="Projects Section" className="bg-transparent overflow-x-hidden">
+
+              <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Projects Section 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+              {/* <Accordion title="Projects Section" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                  <div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
@@ -394,8 +421,17 @@ const refreshIframe=()=>{
                              
                   </div>
                 </div>
-              </Accordion>
-              <Accordion title="Resume Section" className="bg-transparent overflow-x-hidden">
+              </Accordion> */}
+
+
+
+              <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Resume Section 
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+              {/* <Accordion title="Resume Section" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Resume" /></div>
 
@@ -404,9 +440,17 @@ const refreshIframe=()=>{
                 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
                </div>
                 </div>
-              </Accordion>
+              </Accordion> */}
            
-              <Accordion title="Add Social Links" className="bg-transparent overflow-x-hidden">
+
+              <div className="accordion-bg m-2" onClick={() => click()}>
+                <button className="flex justify-between flex-row user-setting-btn">
+                  Add Social Links
+                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
+               
+              </div>
+
+              {/* <Accordion title="Add Social Links" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                    <div>
                   <div className="py-2 flex">
@@ -428,7 +472,9 @@ const refreshIframe=()=>{
                 <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
                </div>
                 </div>
-              </Accordion>
+              </Accordion> */}
+
+
               {/* <Accordion title="Skills Section" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
 
@@ -453,7 +499,7 @@ const refreshIframe=()=>{
               </Accordion> */}
 
 
-              <div className="accordion-bg" onClick={() => click()}>
+              <div className="accordion-bg m-2" onClick={() => click()}>
                 <button className="flex justify-between flex-row user-setting-btn">
                   Skills Section 
                  <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
@@ -461,7 +507,7 @@ const refreshIframe=()=>{
               </div>
 
 
-              {message === "open" && (
+              {/* {message === "open" && (
                   <div className="home-profile-edit profile-popup">
                     <div className="flex home-profile-edit-header w-full self-center justify-between flex text-center border-b-2">
                     <span> Profile / Skills Section</span>
@@ -493,7 +539,7 @@ const refreshIframe=()=>{
 
 </div>
                 </div>
-              )}
+              )} */}
 
              
            
@@ -521,7 +567,7 @@ const refreshIframe=()=>{
                 {/* </div> */}
               {/* </Accordion> */}
 
-              <div className="accordion-bg" onClick={() => click()}>
+              <div className="accordion-bg m-2" onClick={() => click()}>
                 <button className="flex justify-between flex-row user-setting-btn">
                   Add Languages 
                  <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
@@ -529,7 +575,7 @@ const refreshIframe=()=>{
               </div>
 
 
-              {message === "open" && (
+              {/* {message === "open" && (
                   <div className="home-profile-edit profile-popup">
                     <div className="flex home-profile-edit-header w-full self-center justify-between flex text-center border-b-2">
                     <span> Profile / Add Languages</span>
@@ -561,7 +607,7 @@ const refreshIframe=()=>{
 
 </div>
                 </div>
-              )}
+              )} */}
         
         
         </div>
