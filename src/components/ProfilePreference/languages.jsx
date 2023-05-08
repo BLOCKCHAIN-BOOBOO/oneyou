@@ -1,6 +1,9 @@
 
 import React, {useEffect, useState} from "react";
 import { Accordion } from "react-bootstrap-accordion";
+import io from "socket.io-client";
+import { BASEURL } from "../../state/actions/actionTypes";
+const socket = io.connect(BASEURL);
 
 const Languages = () => {
 
