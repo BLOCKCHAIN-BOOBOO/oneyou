@@ -1,18 +1,18 @@
 import { SIGNIN } from "../actions/actionTypes";
 
 
-const InitialState={
-    userInfo:
-        {name:sessionStorage.getItem("username")?sessionStorage.getItem("username"):null,token:sessionStorage.getItem("token")?sessionStorage.getItem("token"):null,email:sessionStorage.getItem("email")?sessionStorage.getItem("email"):null}
+// const InitialState={
+//     userInfo:
     
-}
+// }
 
-const googleToken=(state=InitialState,action)=>{
+const googleToken=(state={name:sessionStorage.getItem("username")?sessionStorage.getItem("username"):null,token:sessionStorage.getItem("token")?sessionStorage.getItem("token"):null,email:sessionStorage.getItem("email")?sessionStorage.getItem("email"):null}
+,action)=>{
 
 switch (action.type) {
     case SIGNIN:
         console.log("googletoken store",action)
-        return state 
+        return {state:action.payload} 
 
     default:
        return state

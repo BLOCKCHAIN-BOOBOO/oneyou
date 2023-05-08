@@ -11,14 +11,20 @@ import forwardarrow from "../../images/forward-arrow.png";
 import settings from "../../images/settings.png";
 import deleteicon from "../../images/delete-icon.png";
 import settingrefresh from "../../images/setting-refresh.png";
+import {  useNavigate } from "react-router-dom";
 
 const Account = () => {
   const [typeActive, setTypeActive] = useState("your details");
- 
+ const navigate=useNavigate()
     const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale)
     };
+
+    const signOut=()=>{
+      sessionStorage.clear();
+      navigate("/login")
+    }
 
     return (
           
@@ -54,7 +60,7 @@ const Account = () => {
             <div className="flex self-start w-full m-2">
             <span className="setting-page-text self-center justify-center">Logout Account:</span>
             <span className=""> 
-            <button className="publish-site py-2 px-6 m-4">Logout</button>
+            <button className="publish-site py-2 px-6 m-4" onClick={signOut}>Logout</button>
                 
                 </span></div>
                 </div>

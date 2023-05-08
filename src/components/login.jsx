@@ -1,4 +1,4 @@
-import React, { useState}from "react";
+import React, { useEffect, useState}from "react";
 import { NavLink,useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { googleAuth } from "../state/actions/googleAuth";
@@ -20,7 +20,7 @@ const googlelogin = useGoogleLogin({
     try {
       if (accesstoken) {
         console.log(accesstoken);
-        window.sessionStorage.setItem("web0auth", accesstoken);
+       
         const data = {
           google_token: accesstoken,
         };
@@ -46,6 +46,15 @@ const googlelogin = useGoogleLogin({
     return;
   };
 
+
+  useEffect(() => {
+   sessionStorage.clear()
+  
+    return () => {
+      
+    }
+  }, [])
+  
  
     return (
       <>
