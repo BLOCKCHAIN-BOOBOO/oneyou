@@ -1,7 +1,9 @@
 import React from "react";
 
-const Experience = () => {
- 
+const Experience = ({showmodal}) => {
+   const close=()=>{
+showmodal(null)
+  }
 return (
 <>
 

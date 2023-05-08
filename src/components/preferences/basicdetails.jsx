@@ -10,7 +10,7 @@ const Basicdetails = ({ showmodal }) => {
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
     const close = (e) => { 
         console.log("close");
-        showmodal(false);
+        showmodal(null);
       };
       
     const getprofile=(e)=>{

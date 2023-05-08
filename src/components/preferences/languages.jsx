@@ -1,6 +1,9 @@
 import React from "react";
 
-const Languages = () => {
+const Languages = ({showmodal}) => {
+  const close=()=>{
+    showmodal(false)
+  }
  
 return (
 <>

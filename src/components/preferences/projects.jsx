@@ -1,7 +1,9 @@
 import React from "react";
 
-const Projects = () => {
- 
+const Projects = ({showmodal}) => {
+   const close=()=>{
+showmodal(false)
+  }
 return (
 <>
 

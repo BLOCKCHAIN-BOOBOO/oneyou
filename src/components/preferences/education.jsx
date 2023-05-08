@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Education = () => {
- 
+const Education = ({showmodal}) => {
+   const close=()=>{
+showmodal(null)
+  }
+
+const [documents, setDocuments] = useState([
+    { name: '', link: '' }
+  ])
+
+
+   const  handleDocumentChange=(index,event)=>{
+    let data = [...documents];
+   data[index][event.target.name] = event.target.value;
+   setDocuments(data);
+
+   }
+
+
+
+const addFields = () => {
+  let newfield = { name: '', link: '' }
+
+    setDocuments([...documents, newfield])  
+}
+
+
+const removeDocFields = (index) => {
+    let data = [...documents];
+    data.splice(index, 1)
+    setDocuments(data)
+}
+
 return (
 <>
 
