@@ -21,23 +21,23 @@ import PostRequest from "./postRequest"
 import { useDispatch } from "react-redux";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import "./homepage.css"
+import Basicdetails from "./preferences/basicdetails";
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
  const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
-
+  const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
 
+ 
   const click = () => {
     console.log("open");
-    setMessage("open");
+    setShowModal(true);
+    // setMessage("open");
   };
 
-  const close = (e) => { 
-    console.log("close");
-    setMessage("close");
-  };
+
 const [documents, setDocuments] = useState([
     { name: '', link: '' }
   ])
@@ -716,6 +716,7 @@ const refreshIframe=()=>{
        </div>
 
     </div>
+    {showmodal && <Basicdetails showmodal={setShowModal} />}
     </div>
   );
 };

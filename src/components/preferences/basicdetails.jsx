@@ -1,7 +1,53 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { useDispatch } from "react-redux";
+import PostRequest from "../postRequest"
+import file from "../../images/file.png";
+import defaultprofileimgae from "../../images/defaultprofileimg.png"
 
-const Basicdetails = () => {
- 
+const Basicdetails = ({ showmodal }) => {
+    const [typeActive, setTypeActive] = useState("your details");
+    const [File, SetFile] = useState(null);
+  const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
+    const close = (e) => { 
+        console.log("close");
+        showmodal(false);
+      };
+      
+    const getprofile=(e)=>{
+        let file = e.target.files[0];
+//  setpreviewimg(URL.createObjectURL(file));
+console.log("inmg",e.target.files[0])
+
+if (e.target.files && e.target.files[0]) {
+      console.log(URL.createObjectURL(e.target.files[0]));
+      setpreviewimg(URL.createObjectURL(e.target.files[0]));
+      SetFile(file);
+    }
+    }
+
+    const [iframe, setIFrame] = useState({random: 0})
+  const dispatch =useDispatch()
+    const handleTypeActive = (typesale) => {
+    setTypeActive(typesale);
+    console.log(typesale)
+    }; 
+
+   const  uploadproileimg=async(type)=> { 
+switch (type) {
+  case "uploadprofile":
+
+  let data={
+    profile:file
+  }
+    let res= await dispatch(PostRequest(data,"addProfile"))
+console.log("response",res)
+ return
+
+  default:
+    break;
+}
+
+   }
 return (
 <>
 
