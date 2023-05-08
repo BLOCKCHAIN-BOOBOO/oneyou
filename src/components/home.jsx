@@ -21,6 +21,7 @@ import PostRequest from "./postRequest"
 import { useDispatch, useSelector } from "react-redux";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import "./homepage.css"
+import Basicdetails from "./preferences/basicdetails";
 import { BASEURL } from "../state/actions/actionTypes";
 import io from "socket.io-client";
 
@@ -30,8 +31,19 @@ const Home = () => {
  const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
-
+  const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+
+<<<<<<< HEAD
+let userauth=useSelector(state=>{
+    console.log("state update",state,state?.googleToken?.userInfo
+
+)
+return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
+
+  })
+
+=======
 
 let userauth=useSelector(state=>{
     console.log("state update",state,state?.googleToken?.userInfo
@@ -43,13 +55,11 @@ return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
 
   const click = () => {
     console.log("open");
-    setMessage("open");
+    setShowModal(true);
+    // setMessage("open");
   };
 
-  const close = (e) => { 
-    console.log("close");
-    setMessage("close");
-  };
+
 const [documents, setDocuments] = useState([
     { name: '', link: '' }
   ])
@@ -735,6 +745,7 @@ const refreshIframe=()=>{
        </div>
 
     </div>
+    {showmodal && <Basicdetails showmodal={setShowModal} />}
     </div>
   );
 };
