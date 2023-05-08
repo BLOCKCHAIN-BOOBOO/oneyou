@@ -65,7 +65,7 @@ useEffect(() => {
        <>
        
        <Route path="/profile" element={<Home />}>
-       <Route path="languages" element={<Languages />}></Route>
+      
        </Route>
 
         <Route path="/usersettings" element={<Usersettings />}> 
@@ -78,7 +78,7 @@ useEffect(() => {
 
 
 
-         
+          <Route path="languages" element={<Languages />}></Route>
 
 
 
