@@ -21,9 +21,7 @@ return (
 <div className="flex py-4 flex-col">
 <div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Company Name" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Location" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Current" /></div>
+                 
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
                                  
@@ -33,6 +31,9 @@ return (
                   <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Company Name" /></div>
+                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Location" /></div>
+                  <div className="py-2 flex w-full float-left"><input type="checkbox" className="accordion-inputs mx-2 rounded-md" /> Current</div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Description" /></div>
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>

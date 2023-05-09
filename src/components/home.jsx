@@ -172,15 +172,15 @@ const Home = () => {
                 Device: <img src={desktop} height="20" width="20" />{" "}
                 <img src={mobile} height="20" width="20" />
               </div>
-              <div className="preview py-1 px-5" onClick={handle.enter}>
+              <div className="preview cursor-pointer py-1 px-5" onClick={handle.enter}>
                 Preview{" "}
                 <img src={arrow} className="m-2" height="10" width="10" />
               </div>
-              <div className="refresh py-1 px-7" onClick={refreshIframe}>
+              <div className="refresh cursor-pointer py-1 px-7" onClick={refreshIframe}>
                 Refresh{" "}
                 <img src={refresh} className="m-2" height="15" width="15" />
               </div>
-              <div className="publish-site py-1 px-6">
+              <div className="publish-site py-1 cursor-pointer px-6">
                 <img src={publishicon} className="m-2" height="13" width="13" />
                 Publish Site{" "}
                 <img

@@ -23,11 +23,12 @@ return (
 <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Language" /></div> 
 
 <div className="py-2 flex">
-<select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
+<input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Beginner" />
+{/* <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
 <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
 <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
 <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Expert</option>
-</select>
+</select> */}
 <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
 </div>
 
