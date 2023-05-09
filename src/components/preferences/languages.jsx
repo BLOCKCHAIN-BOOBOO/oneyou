@@ -23,7 +23,7 @@ return (
 <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Language" /></div> 
 
 <div className="py-2 flex">
-<input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Beginner" />
+<input type="number" className="accordion-inputs w-4/6 rounded-md" placeholder="Beginner" />
 {/* <select className="accordion-inputs w-4/6 rounded-md" required placeholder="Proficiency">
 <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Beginner</option>
 <option className="bg-transparent text-black border rounded-lg w-full px-2" value=""> Intermediate</option>
