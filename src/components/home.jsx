@@ -152,7 +152,7 @@ const Home = () => {
       <div className="m-8 flex flex-row">
         <div className="flex xl:flex-row md:flex-col sm:flex-col flex-col w-full  mt-16">
           {/* dir="ltr" md:flex-row mb-16*/}
-          <div className="flex flex-col self-center justify-center xl:w-4/6 md:w-full sm:w-full w-full">
+          <div className="flex m-1 flex-col self-center justify-center xl:w-4/6 md:w-full sm:w-full w-full">
             {/* <div className="flex self-center justify-center md:w-4/6 mx-auto"> */}
             <div className="home-header w-full hidden sm:hidden md:flex xl:flex flex-col  sm:flex-col md:flex-row xl:flex-row">
               {/* dir="ltr" */}
@@ -303,7 +303,7 @@ const Home = () => {
             </div>
             {/* </div> */}
           </div>
-          <div className="right-0 justify-center self-center xl:w-2/6 md:w-5/6 sm:w-full w-full flex hidden sm:hidden md:flex xl:flex">
+          <div className="right-0 m-1 justify-center self-center xl:w-2/6 md:w-5/6 sm:w-full w-full flex hidden sm:hidden md:flex xl:flex">
             <div className="home-profile-edit ">
               <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
                 Profile Edit Preferences
