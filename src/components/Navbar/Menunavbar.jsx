@@ -10,7 +10,7 @@ const Menunavbar = () => {
  const navigate=useNavigate()
     const handleMenuActive = (menutype) => {
 
-      if(menutype=== "web settings"){
+      if(menutype=== "user settings"){
  navigate("/usersettings/account")
       }
      else if(menutype==="profile"){
@@ -34,7 +34,7 @@ const Menunavbar = () => {
                   className={`flex profile-button-text m-2  ${menuActive === "profile" && " profile-button-active"}`} > 
                 <img src={home} className="m-2" height="18" width="18" />Profile</button>
                
-                <button onClick={() => handleMenuActive("web settings")}  
+                <button onClick={() => handleMenuActive("user settings")}  
                 className={`flex profile-button-text m-2  ${menuActive === "user settings" && " profile-button-active"}`}>
                     <img src={settings} className="m-2" height="15" width="15" /> User Settings</button>
             </div>
