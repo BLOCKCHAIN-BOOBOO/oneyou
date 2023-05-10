@@ -308,10 +308,10 @@ const Home = () => {
               <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
                 Profile Edit Preferences
               </div>
-              <div className="flex">
+              <div className="flex py-2">
                 <button
                   onClick={() => handleTypeActive("your details")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "your details" && " profile-button-active"
                   }`}
                 >
@@ -320,7 +320,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => handleTypeActive("templates")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "templates" && " profile-button-active"
                   }`}
                 >
@@ -329,7 +329,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => handleTypeActive("web settings")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "web settings" && " profile-button-active"
                   }`}
                 >
