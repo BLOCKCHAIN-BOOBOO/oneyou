@@ -62,6 +62,10 @@ return (
                <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Skills" />
                   <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
+
+                  <div className="bg-gray-100 w-full flex self-center justify-center py-2"> 
+                   <button className="publish-site m-1 flex py-2 px-6">Add More</button>
+                  </div>
                  
              <div className="h-5/6 overflow-y-auto flex flex-col"> 
                <div className="py-2 flex">
