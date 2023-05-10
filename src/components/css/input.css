@@ -1046,6 +1046,7 @@ font-weight: 400;
         /* padding: 7px 16px; */
         padding:2px 5px;
         gap: 10px;
+       border:none !important;
         background: transparent;
         /* border: 1px solid #007AFE; */
         /* border-radius: 10px; */
@@ -1058,6 +1059,7 @@ select {
     /* margin: 40px; */
     /* background: rgba(0, 0, 0, 0.3); */
     color: #fff;
+    border:none;
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
   }
 
@@ -1065,5 +1067,6 @@ select option {
     /* margin: 40px; */
     background: transparent;
     color: #fff;
+    border:none;
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
   }
