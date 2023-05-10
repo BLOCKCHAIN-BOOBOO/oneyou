@@ -37,13 +37,15 @@ const Home = () => {
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
   const [renderer, setRenderer] = useState(null);
-  const socket = io(BASEURL);
-
   let userauth = useSelector((state) => {
     console.log("state update", state, state?.googleToken?.userInfo);
     return state?.googleToken?.state
       ? state?.googleToken?.state
       : state?.googleToken;
+  });
+  const socket = io(BASEURL, {
+    query: { token: userauth.token },
+    transports: ["websocket"],
   });
 
   const click = (section) => {
@@ -56,7 +58,7 @@ const Home = () => {
   const showmodalsection = (section) => {
     switch (section) {
       case "Basic Details":
-        return <Basicdetails showmodal={setRenderer} />;
+        return <Basicdetails showmodal={setRenderer} socket={socket} />;
 
       case "Education Details":
         return <Education showmodal={setRenderer} />;
@@ -71,11 +73,29 @@ const Home = () => {
         return <Resume showmodal={setRenderer} />;
 
       case "Languages":
-        return <Languages showmodal={setRenderer} />;
+        return (
+          <Languages
+            showmodal={setRenderer}
+            section={section}
+            socket={socket}
+          />
+        );
       case "Social Links":
-        return <Languages showmodal={setRenderer} />;
+        return (
+          <Languages
+            showmodal={setRenderer}
+            section={section}
+            socket={socket}
+          />
+        );
       case "Skills":
-        return <Languages showmodal={setRenderer} />;
+        return (
+          <Languages
+            showmodal={setRenderer}
+            section={section}
+            socket={socket}
+          />
+        );
 
       default:
         return null;
@@ -105,45 +125,19 @@ const Home = () => {
     }
   };
 
-  const uploadproileimg = async (type) => {
-    switch (type) {
-      case "uploadprofile":
-        let data = {
-          profile: file,
-        };
-        let res = await dispatch(PostRequest(data, "addProfile"));
-        console.log("response", res);
-        return;
-
-      default:
-        break;
-    }
-  };
-
-  const handleDocumentChange = (index, event) => {
-    let data = [...documents];
-    data[index][event.target.name] = event.target.value;
-    setDocuments(data);
-  };
-
-  const addFields = () => {
-    let newfield = { name: "", link: "" };
-
-    setDocuments([...documents, newfield]);
-  };
-
-  const removeDocFields = (index) => {
-    let data = [...documents];
-    data.splice(index, 1);
-    setDocuments(data);
-  };
-
   const refreshIframe = () => {
     setIFrame({ random: iframe.random + 1 });
   };
   useEffect(() => {
-    let data = { email: userauth };
-    socket.emit("join_room", data);
+    let data = { email: userauth.email };
+    socket.on("connect", () => {
+      console.log("Connected to server");
+      // handle authenticated socket events here
+    });
+    socket.emit("join_room").on("status", (data) => {
+      console.log("status", data);
+    });
+
     return () => {};
   }, []);
 
