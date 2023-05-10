@@ -153,13 +153,24 @@ const Home = () => {
               <div className="current-plan px-5 py-2 ">
                 Current Plan{" "}
                 <div className="starter ml-2 px-5 py-1">
-                  Starter
+
+
+                <select className="starter border-0 w-full" required placeholder="">
+              {/* w-4/6  */}
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter</option>
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter1 
+                   </option>
+                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Staretr2</option>
+                    </select>
+
+
+                  {/* Starter
                   <img
                     src={downarrow}
                     className="ml-2 float-right flex"
                     height="10"
                     width="10"
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="device-type py-2 px-5">
