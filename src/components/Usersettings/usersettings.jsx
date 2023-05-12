@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate,useLocation } from "react-router-dom";
 import { Accordion } from "react-bootstrap-accordion";
 import home from "../../images/home.png";
 import file from "../../images/file.png";
@@ -14,10 +14,10 @@ import deleteicon from "../../images/delete-icon.png";
 import settingrefresh from "../../images/setting-refresh.png";
 
 const Usersettings = () => {
-  const [typeActive, setTypeActive] = useState("your details");
+  // const [typeActive, setTypeActive] = useState("your details");
 
     const [activeLink, setActiveLink] = useState("account");
- 
+    const location=useLocation();
     const handleActiveLink = (typesale) => {
     setActiveLink(typesale);
     console.log(typesale)
@@ -35,10 +35,10 @@ const Usersettings = () => {
    const navigateToAbout = async () => {
     navigate('/usersettings/about');
   };
-    const handleTypeActive = (typesale) => {
-    setTypeActive(typesale);
-    console.log(typesale)
-    };
+    // const handleTypeActive = (typesale) => {
+    // setTypeActive(typesale);
+    // console.log(typesale)
+    // };
 
     return (
     <div className="page-background page-body flex self-center align-middle justify-center">
@@ -57,21 +57,24 @@ const Usersettings = () => {
     <div className="xl:m-5 md:m-5 sm:m-2 m-2 accordion-card mx-auto rounded-xl w-full p-2 h-full">
        
           <div onClick={() => handleActiveLink("account")} 
-                  className={`w-full flex user-setting-bg  ${activeLink === "account" && " user-setting-active-link"}`}>
+                  className={`w-full flex user-setting-bg 
+                  ${(location.pathname) === "/usersettings/account" && " user-setting-active-link"}`}>
                 <button className="flex flex-row justify-between user-setting-btn" onClick={navigateToAccount}>Account 
                  <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i></button>
                
               </div>
 
                <div onClick={() => handleActiveLink("subscription")} 
-                  className={`w-full flex user-setting-bg  ${activeLink === "subscription" && " user-setting-active-link"}`}>
+                  className={`w-full flex user-setting-bg 
+                  ${(location.pathname) === "/usersettings/subscriptionsetting" && " user-setting-active-link"}`}>
                 <button className="flex justify-between flex-row user-setting-btn" onClick={navigateToSubscription}>Subscriptions 
                  <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
                
               </div>
 
                <div onClick={() => handleActiveLink("about")} 
-                  className={`w-full flex user-setting-bg  ${activeLink === "about" && " user-setting-active-link"}`}>
+                  className={`w-full flex user-setting-bg 
+                  ${(location.pathname) === "/usersettings/about" && " user-setting-active-link"}`}>
                 <button className="flex flex-row justify-between user-setting-btn" onClick={navigateToAbout}>About Oneyou 
                 <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i></button>
                 
