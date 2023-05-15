@@ -188,7 +188,7 @@ const Home = () => {
               </div>
               <div className=" publish-site cursor-pointer">
                 {/* publish-site py-1 cursor-pointer px-2 */}
-              <img src={publishicon} className="-ml-36 absolute flex" height="13" width="13" />
+              <img src={publishicon} className="-ml-40 absolute flex" height="13" width="13" />
 
               <select className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full " required placeholder="">
               {/* w-4/6  */}
