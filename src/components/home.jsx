@@ -136,13 +136,24 @@ const Home = () => {
               <div className="current-plan px-5 py-2 ">
                 Current Plan{" "}
                 <div className="starter ml-2 px-5 py-1">
-                  Starter
+
+
+                <select className="starter border-0 w-full" required placeholder="">
+              {/* w-4/6  */}
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter</option>
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter1 
+                   </option>
+                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Staretr2</option>
+                    </select>
+
+
+                  {/* Starter
                   <img
                     src={downarrow}
                     className="ml-2 float-right flex"
                     height="10"
                     width="10"
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="device-type py-2 px-5">
@@ -163,15 +174,24 @@ const Home = () => {
                 Refresh{" "}
                 <img src={refresh} className="m-2" height="15" width="15" />
               </div>
-              <div className="publish-site py-1 cursor-pointer px-6">
-                <img src={publishicon} className="m-2" height="13" width="13" />
-                Publish Site{" "}
-                <img
+              <div className="publish-site py-1 cursor-pointer px-2">
+              <img src={publishicon} className="m-2" height="13" width="13" />
+
+              <select className="publish-site-dropdown border-0 w-full" required placeholder="">
+              {/* w-4/6  */}
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Publish Site</option>
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Custom Domain <i className="fa fa-angle-right text white bg-slate-200 p-2"></i></option>
+                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> OneYou Domain</option>
+                    </select>
+               
+                {/* <img src={publishicon} className="m-2" height="13" width="13" />
+                Publish Site{" "} */}
+                {/* <img
                   src={downarrowwhite}
                   className="m-2"
                   height="10"
                   width="10"
-                />
+                /> */}
               </div>
             </div>
 
@@ -291,10 +311,10 @@ const Home = () => {
               <div className="home-profile-edit-header w-full self-center justify-center flex text-center border-b-2">
                 Profile Edit Preferences
               </div>
-              <div className="flex">
+              <div className="flex py-2">
                 <button
                   onClick={() => handleTypeActive("your details")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "your details" && " profile-button-active"
                   }`}
                 >
@@ -303,7 +323,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => handleTypeActive("templates")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "templates" && " profile-button-active"
                   }`}
                 >
@@ -312,7 +332,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => handleTypeActive("web settings")}
-                  className={`flex profile-button-text m-2  ${
+                  className={`flex profile-button-text m-1  ${
                     typeActive === "web settings" && " profile-button-active"
                   }`}
                 >

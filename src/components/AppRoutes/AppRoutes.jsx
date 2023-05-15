@@ -52,12 +52,13 @@ useEffect(() => {
 
   return (
     <div className="App">
-      {userauth?.token && ValidateToken() ?<Menunavbar/>:  <Navbar/>} 
+      {/* {userauth?.token && ValidateToken() ?<Menunavbar/>:  <Navbar/>}  */}
+      <Menunavbar/>
       <Routes>
         <Route path="/" element={<Login />}></Route>
          <Route path="/login" element={<Login />}></Route>
           
-        {/* <Route path="/signup" element={<Signup />}></Route> */}
+        <Route path="/signup" element={<Signup />}></Route>
          
        {/* {userauth?.token && ValidateToken()? ( */}
        <>
@@ -76,13 +77,13 @@ useEffect(() => {
 
           <Route path="about" element={<Aboutoneyou />}></Route></Route>
          
-           {/* </>)
+           {/* </>) */}
 
-           :
+           {/* :
            ( <> */}
            <Route path="/login" element={<Login />}></Route>
            </>
-          {/* //  ) } */}
+            {/* ) } */}
 
          <Route path="/*" element={<Login />}></Route>
        </Routes>
