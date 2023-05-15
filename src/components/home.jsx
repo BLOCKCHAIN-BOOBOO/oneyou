@@ -15,14 +15,13 @@ import filesetting from "../images/file-setting.png";
 import sslcertificate from "../images/ssl-certificate.png";
 import nextbtn from "../images/next-btn.png";
 import Iframe from "react-iframe";
-import defaultprofileimgae from "../images/defaultprofileimg.png";
 import PostRequest from "./postRequest";
 import { useDispatch, useSelector } from "react-redux";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import "./homepage.css";
 import Basicdetails from "./preferences/basicdetails";
 import { BASEURL } from "../state/actions/actionTypes";
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 import Languages from "./preferences/languages";
 import Education from "./preferences/education";
 import Experience from "./preferences/experience";
@@ -31,8 +30,6 @@ import Resume from "./preferences/resume";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
-  const [File, SetFile] = useState(null);
-  const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
@@ -113,33 +110,19 @@ const Home = () => {
 
   const handle = useFullScreenHandle();
 
-  const getprofile = (e) => {
-    let file = e.target.files[0];
-    //  setpreviewimg(URL.createObjectURL(file));
-    console.log("inmg", e.target.files[0]);
-
-    if (e.target.files && e.target.files[0]) {
-      console.log(URL.createObjectURL(e.target.files[0]));
-      setpreviewimg(URL.createObjectURL(e.target.files[0]));
-      SetFile(file);
-    }
-  };
-
   const refreshIframe = () => {
     setIFrame({ random: iframe.random + 1 });
   };
+
   useEffect(() => {
-    let data = { email: userauth.email };
-    socket.on("connect", () => {
-      console.log("Connected to server");
+    socket.emit("connection", (data) => {
+      console.log("Connected to server", data);
       // handle authenticated socket events here
     });
     socket.emit("join_room").on("status", (data) => {
       console.log("status", data);
     });
-
-    return () => {};
-  }, []);
+  });
 
   return (
     <div className="page-background page-body self-center align-middle justify-center">
@@ -166,11 +149,17 @@ const Home = () => {
                 Device: <img src={desktop} height="20" width="20" />{" "}
                 <img src={mobile} height="20" width="20" />
               </div>
-              <div className="preview cursor-pointer py-1 px-5" onClick={handle.enter}>
+              <div
+                className="preview cursor-pointer py-1 px-5"
+                onClick={handle.enter}
+              >
                 Preview{" "}
                 <img src={arrow} className="m-2" height="10" width="10" />
               </div>
-              <div className="refresh cursor-pointer py-1 px-7" onClick={refreshIframe}>
+              <div
+                className="refresh cursor-pointer py-1 px-7"
+                onClick={refreshIframe}
+              >
                 Refresh{" "}
                 <img src={refresh} className="m-2" height="15" width="15" />
               </div>

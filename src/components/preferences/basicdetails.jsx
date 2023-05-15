@@ -25,12 +25,11 @@ const Basicdetails = ({ showmodal, socket }) => {
     }
   };
 
-  const [iframe, setIFrame] = useState({ random: 0 });
-  const dispatch = useDispatch();
-  const handleTypeActive = (typesale) => {
-    setTypeActive(typesale);
-    console.log(typesale);
-  };
+  // const dispatch = useDispatch();
+  // const handleTypeActive = (typesale) => {
+  //   setTypeActive(typesale);
+  //   console.log(typesale);
+  // };
 
   let userauth = useSelector((state) => {
     console.log("state update", state, state?.googleToken?.userInfo);
@@ -39,28 +38,15 @@ const Basicdetails = ({ showmodal, socket }) => {
       : state?.googleToken;
   });
 
-  const uploadproileimg = async (type) => {
-    switch (type) {
-      case "uploadprofile":
-        let data = {
-          profile: file,
-        };
-        let res = await dispatch(PostRequest(data, "addProfile"));
-        console.log("response", res);
-        return;
-
-      default:
-        break;
-    }
+  const uploadproileimg = async () => {
+    let data = { resume: File };
+    socket.emit("addProfileImg", data);
   };
   const getfetchbyuser = () => {
     socket.emit("fetchByUser");
   };
 
   useEffect(() => {
-    // let data = {
-    //   id: userauth.email,
-    // };
     socket.emit("fetchByUser");
     socket.on("fetchByUserd", (data) => {
       console.log("ddata", data);

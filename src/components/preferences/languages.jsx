@@ -28,17 +28,38 @@ const Languages = ({ showmodal, section, socket }) => {
 
   const submit = () => {
     let data = [...documents];
-    console.log("data", data);
-    socket.emit("addSkills", data).on("getaddSkills", (data) => {
-      console.log("data", data);
-    });
+    console.log(section + "submited data", data);
+    switch (section) {
+      case "Languages":
+        console.log("data", data);
+        socket.emit("addLangauge", data);
+        return;
+      case "Social Links":
+        console.log("data", data);
+        socket.emit("addSocialLinks", data);
+        return;
+      case "Skills":
+        console.log("data", data);
+        socket.emit("addSkills", (response) => {
+          console.log(response); // ok
+        });
+        return;
+
+      default:
+        return null;
+    }
   };
 
   useEffect(() => {
-    socket.on("addSkills", (data) => {
-      console.log("res", data);
+    console.log("useeffect");
+    socket.on("fetchByUser", (res) => {
+      console.log("response", res);
     });
-  }, []);
+    // socket.on("addSkillsset", (...data) => {
+    //   console.log("res", data);
+    //   return () => {};
+    // });
+  });
 
   return (
     <>
@@ -59,57 +80,114 @@ const Languages = ({ showmodal, section, socket }) => {
             {documents.map((input, index) => {
               return (
                 <div key={index}>
-                  <div className="py-2 ">
-                    <input
-                      type="text"
-                      className="accordion-inputs w-4/6 rounded-md"
-                      required
-                      placeholder="skill"
-                      name="skill"
-                      value={input.skill}
-                      onChange={(event) => handleDocumentChange(index, event)}
-                    />
-                  </div>
+                  <div>
+                    {section && section === "Social Links" ? (
+                      <>
+                        <select
+                          className="accordion-inputs w-4/6 rounded-md"
+                          required
+                          placeholder="SocialLinks"
+                          name="name"
+                          onChange={(event) =>
+                            handleDocumentChange(index, event)
+                          }
+                        >
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="LinkedIn"
+                            name="name"
+                          >
+                            {" "}
+                            LinkedIn
+                          </option>
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="Blog"
+                            name="name"
+                          >
+                            {" "}
+                            Blog
+                          </option>
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="Github"
+                            name="name"
+                          >
+                            {" "}
+                            Github
+                          </option>
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="Portfolio"
+                            name="name"
+                          >
+                            {" "}
+                            Portfolio
+                          </option>
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="Skype"
+                            name="name"
+                          >
+                            {" "}
+                            Skype
+                          </option>
+                          <option
+                            className="bg-transparent text-black border rounded-lg w-full px-2"
+                            value="Youtube"
+                            name="name"
+                          >
+                            {" "}
+                            Youtube
+                          </option>
+                        </select>
+                        <div className="py-2 ">
+                          <input
+                            type="text"
+                            className="accordion-inputs w-4/6 rounded-md"
+                            required
+                            placeholder="link"
+                            name={"link"}
+                            value={input.link ? input.link : ""}
+                            onChange={(event) =>
+                              handleDocumentChange(index, event)
+                            }
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="py-2 ">
+                          <input
+                            type="text"
+                            className="accordion-inputs w-4/6 rounded-md"
+                            required
+                            placeholder={
+                              section === "Skills" ? "skill" : "language"
+                            }
+                            name={section === "Skills" ? "skill" : "language"}
+                            value={input.skill}
+                            onChange={(event) =>
+                              handleDocumentChange(index, event)
+                            }
+                          />
+                        </div>
 
-                  <div className="py-2 flex">
-                    <input
-                      type="number"
-                      className="accordion-inputs w-4/6 rounded-md"
-                      required
-                      placeholder="proficiency"
-                      name="proficiency"
-                      value={input.proficiency}
-                      onChange={(event) => handleDocumentChange(index, event)}
-                    />
-                    {/* <select
-                      className="accordion-inputs w-4/6 rounded-md"
-                      required
-                      placeholder="Proficiency"
-                      onChange={(event) => handleDocumentChange(index, event)}
-                      value={}
-                    >
-                      <option
-                        className="bg-transparent text-black border rounded-lg w-full px-2"
-                        value="Beginner"
-                      >
-                        {" "}
-                        Beginner
-                      </option>
-                      <option
-                        className="bg-transparent text-black border rounded-lg w-full px-2"
-                        value=" Intermediate"
-                      >
-                        {" "}
-                        Intermediate
-                      </option>
-                      <option
-                        className="bg-transparent text-black border rounded-lg w-full px-2"
-                        value="Expert"
-                      >
-                        {" "}
-                        Expert
-                      </option>
-                    </select> */}
+                        <div className="py-2 flex">
+                          <input
+                            type="number"
+                            className="accordion-inputs w-4/6 rounded-md"
+                            required
+                            placeholder="proficiency"
+                            name="proficiency"
+                            value={input.proficiency}
+                            onChange={(event) =>
+                              handleDocumentChange(index, event)
+                            }
+                          />
+                        </div>
+                      </>
+                    )}
                     <i
                       className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                       onClick={addFields}
