@@ -1043,16 +1043,18 @@ font-weight: 400;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        /* padding: 7px 16px; */
-        padding:2px 5px;
+        padding: 7px 16px;
+        /* padding:2px 5px; */
         gap: 10px;
        border:none !important;
-        background: transparent;
+        /* background: transparent; */
         /* border: 1px solid #007AFE; */
         /* border-radius: 10px; */
 }
 .publish-site-option{
     padding:3px 10px;
+    background:#fff;
+    color:#000;
 }
 
 select {
