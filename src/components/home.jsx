@@ -30,7 +30,8 @@ import Resume from "./preferences/resume";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
-  const [profiledata, setProfiledata] = useState();
+  const [profiledata, setProfiledata] = useState();   const [state, setState] = useState('desktop');
+
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
   const [renderer, setRenderer] = useState(null);
@@ -146,6 +147,7 @@ const Home = () => {
   }, [socket]);
 
   return (
+    
     <div className="page-background page-body self-center align-middle justify-center">
       <div className="m-8 flex flex-row">
         <div className="flex xl:flex-row md:flex-col sm:flex-col flex-col w-full  mt-16">
@@ -198,8 +200,9 @@ const Home = () => {
                 </div>
               </div>
               <div className="device-type py-2 px-5">
-                Device: <img src={desktop} height="20" width="20" />{" "}
-                <img src={mobile} height="20" width="20" />
+                Device:
+                <button onClick={() => setState('desktop')}> <img src={desktop} height="20" width="20" />{" "}</button>
+               <button onClick={() => setState('phone')}> <img src={mobile} height="20" width="20" /></button>
               </div>
               <div
                 className="preview cursor-pointer py-1 px-5"
@@ -292,7 +295,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20">
+{/* <div className={`container ${state}`}> */}
+            <div className={`container home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20 ${state}`}>
               {/* dir="ltr" */}
               <FullScreen handle={handle} className="w-full h-full">
                 <React.Fragment key={iframe.random}>
@@ -375,6 +379,7 @@ const Home = () => {
                     </div>
                 </div> */}
             </div>
+            {/* </div> */}
             {/* </div> */}
           </div>
           <div className="right-0 m-1 justify-center self-center xl:w-2/6 md:w-5/6 sm:w-full w-full flex hidden sm:hidden md:flex xl:flex">
@@ -949,6 +954,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+   
   );
 };
 
