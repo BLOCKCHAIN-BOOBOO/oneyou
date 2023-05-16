@@ -34,6 +34,10 @@ const Home = () => {
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
   const [renderer, setRenderer] = useState(null);
+  const [documents, setDocuments] = useState([{ name: "", link: "" }]);
+
+  const [iframe, setIFrame] = useState({ random: 0 });
+  const dispatch = useDispatch();
   let userauth = useSelector((state) => {
     console.log("state update", state, state?.googleToken?.userInfo);
     return state?.googleToken?.state
@@ -41,11 +45,11 @@ const Home = () => {
       : state?.googleToken;
   });
   const socket = io(BASEURL, {
-    query: { token: userauth.token },
-    // headers: {
-    //   authorization: `Bearer ${userauth.token}`,
-    // },
-    transports: ["websocket"],
+    // query: { token: userauth.token },
+    extraHeaders: {
+      authorization: `Bearer ${userauth.token}`,
+    },
+    // transports: ["websocket"],
   });
 
   const click = (section) => {
@@ -102,10 +106,6 @@ const Home = () => {
     }
   };
 
-  const [documents, setDocuments] = useState([{ name: "", link: "" }]);
-
-  const [iframe, setIFrame] = useState({ random: 0 });
-  const dispatch = useDispatch();
   const handleTypeActive = (typesale) => {
     setTypeActive(typesale);
     console.log(typesale);
@@ -117,19 +117,33 @@ const Home = () => {
     setIFrame({ random: iframe.random + 1 });
   };
 
-  const loadUserData = async () => {
-    socket.on("recieveuserdata", (res) => {
-      console.log("userfetch", res);
-      dispatch({ type: PROFDATA, payload: res });
-      setProfiledata(res);
-    });
-  };
+  // const loadUserData = async () => {
+  //   socket.on("recieveuserdata", (res) => {
+  //     console.log("userfetch", res);
+  //     if (res.code === 200) {
+  //       dispatch({ type: PROFDATA, payload: res });
+  //       // setProfiledata(res.data);
+  //     } else {
+  //       console.log("error", res.code, res.message);
+  //       // setProfiledata();
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     socket.emit("connection").emit("join_room");
     socket.emit("fetchByUser");
-    loadUserData();
-  }, []);
+    socket.on("recieveuserdata", (res) => {
+      console.log("userfetch", res);
+      if (res.code === 200) {
+        dispatch({ type: PROFDATA, payload: res });
+        // setProfiledata(res.data);
+      } else {
+        console.log("error", res.code, res.message);
+        // setProfiledata();
+      }
+    });
+  }, [socket]);
 
   return (
     <div className="page-background page-body self-center align-middle justify-center">
@@ -145,14 +159,34 @@ const Home = () => {
                 <div className="">
                   {/* starter ml-2 px-5 py-1 */}
 
-
-                <select className="starter border-0 w-full starter ml-2 px-5 py-1" required placeholder="">
-              {/* w-4/6  */}
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter</option>
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter1 
-                   </option>
-                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Staretr2</option>
-                    </select>
+                  <select
+                    className="starter border-0 w-full starter ml-2 px-5 py-1"
+                    required
+                    placeholder=""
+                  >
+                    {/* w-4/6  */}
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Starter
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Starter1
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Staretr2
+                    </option>
+                  </select>
 
                   {/* Starter
                   <img
@@ -183,15 +217,43 @@ const Home = () => {
               </div>
               <div className=" publish-site cursor-pointer">
                 {/* publish-site py-1 cursor-pointer px-2 */}
-              <img src={publishicon} className="-ml-40 absolute flex" height="13" width="13" />
+                <img
+                  src={publishicon}
+                  className="-ml-40 absolute flex"
+                  height="13"
+                  width="13"
+                />
 
-              <select className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full " required placeholder="">
-              {/* w-4/6  */}
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Publish Site</option>
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Custom Domain <i className="fa fa-angle-right text white bg-slate-200 p-2"></i></option>
-                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> OneYou Domain</option>
-                    </select>
-               
+                <select
+                  className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full "
+                  required
+                  placeholder=""
+                >
+                  {/* w-4/6  */}
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    Publish Site
+                  </option>
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    Custom Domain{" "}
+                    <i className="fa fa-angle-right text white bg-slate-200 p-2"></i>
+                  </option>
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    OneYou Domain
+                  </option>
+                </select>
+
                 {/* <img src={publishicon} className="m-2" height="13" width="13" />
                 Publish Site{" "} */}
                 {/* <img
@@ -233,17 +295,18 @@ const Home = () => {
             <div className="home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20">
               {/* dir="ltr" */}
               <FullScreen handle={handle} className="w-full h-full">
-                <Iframe
-                  key={iframe.random}
-                  src="https://me.harrish.dev/"
-                  id=""
-                  height="600px"
-                  width="100%"
-                  className="w-full flex"
-                  allow="autoplay"
-                  display="block"
-                  position="relative"
-                />
+                <React.Fragment key={iframe.random}>
+                  <Iframe
+                    src="https://me.harrish.dev/"
+                    id=""
+                    height="600px"
+                    width="100%"
+                    className="w-full flex"
+                    allow="autoplay"
+                    display="block"
+                    position="relative"
+                  />
+                </React.Fragment>
               </FullScreen>
               {/* <div className="home-about-name flex self-center justify-center xl:w-2/6 md:w-2/6 sm:w-full w-full m-2">
                     <div className="w-full flex xl:flex-col md:flex-col sm:flex-row flex-row xl:border-b-2 md:border-b-2 sm:border-0 border-0">

@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import defaultprofileimgae from "../../images/defaultprofileimg.png";
 
 const Resume = ({ showmodal, socket }) => {
   const [File, SetFile] = useState(null);
-  const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
+
+  const [documents, setDocuments] = useState([]);
+
+  let profileData = useSelector((state) => {
+    let userprofdata = [];
+    userprofdata = state?.Profiledata?.state?.data;
+
+    return state?.Profiledata?.state?.data;
+  });
+  const [previewimg, setpreviewimg] = useState(
+    profileData?.resume ? profileData?.resume : defaultprofileimgae
+  );
 
   const close = () => {
     showmodal(false);
@@ -22,8 +34,17 @@ const Resume = ({ showmodal, socket }) => {
 
   const submit = () => {
     let data = { resume: File };
-    socket.emit("addSocialLinks", data);
+    socket.emit("addResume", data);
   };
+
+  //   const loaddata = () => {
+
+  // setDocuments(profileData.languages);
+
+  //   };
+  //   useEffect(() => {
+  //     loaddata();
+  //   }, []);
 
   return (
     <>
@@ -42,12 +63,29 @@ const Resume = ({ showmodal, socket }) => {
         <div className="flex flex-col p-2 w-full overflow-y-auto">
           <div className="flex py-4 flex-col">
             <div className="py-2 ">
-              <input
+              {/* <input
                 type="file"
                 className="accordion-inputs w-4/6 rounded-md"
                 required
                 placeholder="Resume"
                 onChange={(e) => getprofile(e)}
+              /> */}
+              <label for="myfile">Select a file:</label>
+              <input
+                type="file"
+                id="myfile"
+                name="myfile"
+                className="accordion-inputs w-4/6 rounded-md"
+                onChange={(e) => getprofile(e)}
+              />
+              <br></br>
+            </div>
+            <div className="py-2 ">
+              {/* <img src={previewimg}></img> */}
+              <embed
+                src={previewimg && previewimg}
+                width="80px"
+                height="90px"
               />
             </div>
           </div>

@@ -1,44 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+// import { callbackify } from "util";
 
 const Languages = ({ showmodal, section, socket }) => {
-  const [documents, setDocuments] = useState([{}]);
-  const [profiledata, setprofiledata] = useState([{}]);
+  const [documents, setDocuments] = useState([]);
+  const [profiledata, setprofiledata] = useState([]);
 
   const close = () => {
     showmodal(false);
   };
 
-  let profileData = useSelector(async (state) => {
-    console.log("profiledata", state?.Profiledata?.state);
-    let data = state?.Profiledata?.state;
-    // return state?.Profiledata?.state?.data;
-    let fordata = data.forEach((item) => {
-      console.log("items", item);
-      let data = [...data, item];
-      return data;
-    });
-    console.log("Ffffffff", fordata);
-
-    switch (section) {
-      case "Languages":
-        console.log("asdf", data?.data?.languages);
-        setDocuments(data?.data?.languages);
-        return;
-      case "Social Links":
-        setprofiledata(data?.data?.socialLinks);
-        return;
-
-      case "Skills":
-        console.log("asdf", data?.data?.skills);
-        setDocuments([...data?.data?.skills]);
-        return;
-
-      default:
-        return null;
+  const dataarry = async (arry) => {
+    console.log("data", arry);
+    if (arry.length > 0) {
+      setDocuments(arry);
     }
+    // setDocuments(arry);
+  };
+  let profileData = useSelector((state) => {
+    let userprofdata = [];
+    userprofdata = state?.Profiledata?.state?.data;
+
+    return state?.Profiledata?.state?.data;
   });
-  console.log("profileData", profiledata);
+
 
   const handleDocumentChange = (index, event) => {
     console.log({ [event.target.name]: event.target.value });
@@ -81,6 +66,21 @@ const Languages = ({ showmodal, section, socket }) => {
     }
   };
 
+
+  const loaddata = () => {
+    if (section === "Languages") {
+      setDocuments(profileData.languages);
+    }
+    if (section === "Skills") {
+      setDocuments(profileData.skills);
+    }
+    if (section === "Social Links") {
+      setDocuments(profileData.socialLinks);
+    }
+  };
+  useEffect(() => {
+    loaddata();
+  }, []);
   return (
     <>
       <div className="home-profile-edit profile-popup">
@@ -97,130 +97,137 @@ const Languages = ({ showmodal, section, socket }) => {
         </div>
         <div className="flex flex-col p-2 w-full overflow-y-auto">
           <div className="flex py-4 flex-col">
-            {documents.map((input, index) => {
-              console.log("input", input);
-              return (
-                <div key={index}>
-                  <div>
-                    {section && section === "Social Links" ? (
-                      <>
-                        <select
-                          className="accordion-inputs w-4/6 rounded-md"
-                          required
-                          placeholder="SocialLinks"
-                          name="name"
-                          onChange={(event) =>
-                            handleDocumentChange(index, event)
-                          }
-                        >
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="LinkedIn"
-                            name="name"
-                          >
-                            {" "}
-                            LinkedIn
-                          </option>
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="Blog"
-                            name="name"
-                          >
-                            {" "}
-                            Blog
-                          </option>
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="Github"
-                            name="name"
-                          >
-                            {" "}
-                            Github
-                          </option>
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="Portfolio"
-                            name="name"
-                          >
-                            {" "}
-                            Portfolio
-                          </option>
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="Skype"
-                            name="name"
-                          >
-                            {" "}
-                            Skype
-                          </option>
-                          <option
-                            className="bg-transparent text-black border rounded-lg w-full px-2"
-                            value="Youtube"
-                            name="name"
-                          >
-                            {" "}
-                            Youtube
-                          </option>
-                        </select>
-                        <div className="py-2 ">
-                          <input
-                            type="text"
-                            className="accordion-inputs w-4/6 rounded-md"
-                            required
-                            placeholder="link"
-                            name={"link"}
-                            value={input.link ? input.link : ""}
-                            onChange={(event) =>
-                              handleDocumentChange(index, event)
-                            }
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="py-2 ">
-                          <input
-                            type="text"
-                            className="accordion-inputs w-4/6 rounded-md"
-                            required
-                            placeholder={
-                              section === "Skills" ? "skill" : "language"
-                            }
-                            name={section === "Skills" ? "skill" : "language"}
-                            value={input.skill}
-                            onChange={(event) =>
-                              handleDocumentChange(index, event)
-                            }
-                          />
-                        </div>
+            {documents &&
+              documents.map((input, index) => {
+                console.log("Aaa", input.language);
 
-                        <div className="py-2 flex">
-                          <input
-                            type="number"
+                return (
+                  <div key={index}>
+                    <div>
+                      {section && section === "Social Links" ? (
+                        <>
+                          <select
                             className="accordion-inputs w-4/6 rounded-md"
                             required
-                            placeholder="proficiency"
-                            name="proficiency"
-                            value={input.proficiency}
+                            placeholder="SocialLinks"
+                            name="name"
                             onChange={(event) =>
                               handleDocumentChange(index, event)
                             }
-                          />
-                        </div>
-                      </>
-                    )}
-                    <i
-                      className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
-                      onClick={addFields}
-                    ></i>{" "}
-                    <i
-                      className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                      onClick={removeDocFields}
-                    ></i>
+                            value={input.name}
+                          >
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="LinkedIn"
+                              name="name"
+                            >
+                              {" "}
+                              LinkedIn
+                            </option>
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="Blog"
+                              name="name"
+                            >
+                              {" "}
+                              Blog
+                            </option>
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="Github"
+                              name="name"
+                            >
+                              {" "}
+                              Github
+                            </option>
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="Portfolio"
+                              name="name"
+                            >
+                              {" "}
+                              Portfolio
+                            </option>
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="Skype"
+                              name="name"
+                            >
+                              {" "}
+                              Skype
+                            </option>
+                            <option
+                              className="bg-transparent text-black border rounded-lg w-full px-2"
+                              value="Youtube"
+                              name="name"
+                            >
+                              {" "}
+                              Youtube
+                            </option>
+                          </select>
+                          <div className="py-2 ">
+                            <input
+                              type="text"
+                              className="accordion-inputs w-4/6 rounded-md"
+                              required
+                              placeholder="link"
+                              name={"link"}
+                              value={input.link && input.link}
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              }
+                            />
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="py-2 ">
+                            <input
+                              type="text"
+                              className="accordion-inputs w-4/6 rounded-md"
+                              required
+                              placeholder={
+                                section === "Skills" ? "skill" : "language"
+                              }
+                              name={section === "Skills" ? "skill" : "language"}
+                              value={
+                                section === "Languages"
+                                  ? input.language
+                                  : input.skill
+                              }
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              }
+                            />
+                          </div>
+
+                          <div className="py-2 flex">
+                            <input
+                              type="number"
+                              className="accordion-inputs w-4/6 rounded-md"
+                              required
+                              placeholder="proficiency"
+                              name="proficiency"
+                              value={input.proficiency}
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              }
+                            />
+                          </div>
+                        </>
+                      )}
+                      <i
+                        className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                        onClick={addFields}
+                      ></i>{" "}
+                      <i
+                        className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                        onClick={removeDocFields}
+                      ></i>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
             <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2">
               <button
                 onClick={submit}
