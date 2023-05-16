@@ -56,8 +56,8 @@ return (
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /></div>
                   
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
-                 {checked &&
-                 ( <div className="py-2"><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>)}
+                 {!checked &&
+                 ( <div className="py-2"><input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>)}
                  
                   {/* <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Till Date" /></div> */}
                   <div className="flex flex-row">
@@ -80,7 +80,7 @@ return (
                         </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /></div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
+                  <div className="py-2 "><textarea type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
                  
                  
                   {/* <div className="py-2 flex">

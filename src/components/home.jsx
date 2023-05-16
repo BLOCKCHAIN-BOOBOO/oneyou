@@ -30,7 +30,8 @@ import Resume from "./preferences/resume";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
-  const [profiledata, setProfiledata] = useState();   const [state, setState] = useState('desktop');
+  const [profiledata, setProfiledata] = useState();  
+   const [state, setState] = useState('desktop');
 
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
@@ -162,27 +163,27 @@ const Home = () => {
                   {/* starter ml-2 px-5 py-1 */}
 
                   <select
-                    className="starter border-0 w-full starter ml-2 px-5 py-1"
+                    className="starter border-none w-full starter ml-2 px-5 py-1"
                     required
                     placeholder=""
                   >
                     {/* w-4/6  */}
                     <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      className="bg-transparent publish-site-option border-none text-black w-full px-2"
                       value=""
                     >
                       {" "}
                       Starter
                     </option>
                     <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      className="bg-transparent publish-site-option border-none text-black  w-full px-2"
                       value=""
                     >
                       {" "}
                       Starter1
                     </option>
                     <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      className="bg-transparent publish-site-option border-none text-black w-full px-2"
                       value=""
                     >
                       {" "}
@@ -201,8 +202,16 @@ const Home = () => {
               </div>
               <div className="device-type py-2 px-5">
                 Device:
-                <button onClick={() => setState('desktop')}> <img src={desktop} height="20" width="20" />{" "}</button>
-               <button onClick={() => setState('phone')}> <img src={mobile} height="20" width="20" /></button>
+                <button  className={`flex text-gray-400 rounded-sm  ${ state=== "desktop" && " desk-active" }`}  onClick={() => setState('desktop')}> 
+                 {/* <img src={desktop} height="20" width="20" />{" "} */}
+                 <i className="fa fa-desktop px-1 pt-2"></i>
+                 
+                 </button>
+               <button className={`flex  text-gray-400 rounded-sm ${ state==="phone" && " phn-active" }`} onClick={() => setState('phone')}>
+                 {/* <img src={mobile} height="20" width="20" /> */}
+                 <i className="fa fa-mobile px-1 py-0 text-xl" aria-hidden="true"></i>
+                 
+                 </button>
               </div>
               <div
                 className="preview cursor-pointer py-1 px-5"

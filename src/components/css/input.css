@@ -678,7 +678,8 @@ font-weight: 600;
     line-height: 16px;
     color: #373737;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-direction:row;
     align-items: flex-start;
     padding: 7px 16px;
     gap: 10px;
@@ -1042,7 +1043,7 @@ font-weight: 400;
         color: #fff;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        /* align-items: flex-start; */
         padding: 7px 25px;
         /* padding:2px 5px; */
         gap: 10px;
@@ -1063,6 +1064,13 @@ select {
     color: #fff;
     border:none;
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
+    /* -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; */
+        /* Remove default arrow */
+    /* background: url(../../images/downarrow.png) !important; */
+
+
   }
 
 select option {
@@ -1098,4 +1106,13 @@ select option {
     min-width:280px;
     width:auto;
       max-width: 480px;
+  }
+  .desk-active{
+    /* background-color: #007AFE; */
+    color:#007AFE;
+
+  }
+  .phn-active{
+    /* background-color:#007AFE; */
+    color:#007AFE;
   }
