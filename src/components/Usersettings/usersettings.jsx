@@ -66,7 +66,10 @@ const Usersettings = () => {
 
                <div onClick={() => handleActiveLink("subscription")} 
                   className={`w-full flex user-setting-bg 
-                  ${(location.pathname) === "/usersettings/subscriptionsetting" && " user-setting-active-link"}`}>
+                  ${((location.pathname) === "/usersettings/subscriptionsetting"
+                  ||(location.pathname) === "/usersettings/subscriptions/upgradeplan"
+                  ||(location.pathname) === "/usersettings/subscriptions/editupi"
+                  |(location.pathname) === "/usersettings/subscriptions/subscriptionpayment" )&& " user-setting-active-link"}`}>
                 <button className="flex justify-between flex-row user-setting-btn" onClick={navigateToSubscription}>Subscriptions 
                  <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i> </button>
                

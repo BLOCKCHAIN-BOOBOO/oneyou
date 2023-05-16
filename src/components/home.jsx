@@ -142,35 +142,17 @@ const Home = () => {
               {/* dir="ltr" */}
               <div className="current-plan px-5 py-2 ">
                 Current Plan{" "}
-                <div className="starter ml-2 px-5 py-1">
-                  <select
-                    className="starter border-0 w-full"
-                    required
-                    placeholder=""
-                  >
-                    {/* w-4/6  */}
-                    <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                      value=""
-                    >
-                      {" "}
-                      Starter
-                    </option>
-                    <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                      value=""
-                    >
-                      {" "}
-                      Starter1
-                    </option>
-                    <option
-                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                      value=""
-                    >
-                      {" "}
-                      Staretr2
-                    </option>
-                  </select>
+                <div className="">
+                  {/* starter ml-2 px-5 py-1 */}
+
+
+                <select className="starter border-0 w-full starter ml-2 px-5 py-1" required placeholder="">
+              {/* w-4/6  */}
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter</option>
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter1 
+                   </option>
+                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Staretr2</option>
+                    </select>
 
                   {/* Starter
                   <img
@@ -199,39 +181,17 @@ const Home = () => {
                 Refresh{" "}
                 <img src={refresh} className="m-2" height="15" width="15" />
               </div>
-              <div className="publish-site py-1 cursor-pointer px-2">
-                <img src={publishicon} className="m-2" height="13" width="13" />
+              <div className=" publish-site cursor-pointer">
+                {/* publish-site py-1 cursor-pointer px-2 */}
+              <img src={publishicon} className="-ml-40 absolute flex" height="13" width="13" />
 
-                <select
-                  className="publish-site-dropdown border-0 w-full"
-                  required
-                  placeholder=""
-                >
-                  {/* w-4/6  */}
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
-                  >
-                    {" "}
-                    Publish Site
-                  </option>
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
-                  >
-                    {" "}
-                    Custom Domain{" "}
-                    <i className="fa fa-angle-right text white bg-slate-200 p-2"></i>
-                  </option>
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
-                  >
-                    {" "}
-                    OneYou Domain
-                  </option>
-                </select>
-
+              <select className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full " required placeholder="">
+              {/* w-4/6  */}
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Publish Site</option>
+                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Custom Domain <i className="fa fa-angle-right text white bg-slate-200 p-2"></i></option>
+                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> OneYou Domain</option>
+                    </select>
+               
                 {/* <img src={publishicon} className="m-2" height="13" width="13" />
                 Publish Site{" "} */}
                 {/* <img

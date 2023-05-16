@@ -46,6 +46,9 @@ const Menunavbar = () => {
                  ${((location.pathname) === "/usersettings/account"
                  || (location.pathname) === "/usersettings" 
                   || (location.pathname) === "/usersettings/subscriptionsetting"
+                   || (location.pathname) === "/usersettings/subscriptions/upgradeplan"
+                   || (location.pathname) === "/usersettings/subscriptions/editupi"
+                   || (location.pathname) === "/usersettings/subscriptions/subscriptionpayment"
                   || (location.pathname) === "/usersettings/about")  && " profile-button-active"}`}>
                     <img src={settings} className="m-2" height="15" width="15" /> User Settings</button>
 
