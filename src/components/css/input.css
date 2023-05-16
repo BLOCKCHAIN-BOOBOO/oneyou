@@ -1072,3 +1072,30 @@ select option {
     border:none;
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
   }
+
+  .container {
+      /* General styling */
+      background-color: whitesmoke;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      transition: all 1s;
+
+      /* Center the container */
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .desktop {
+      width: 100%;
+  }
+
+  .tablet {
+      width: 768px;
+  }
+
+  .phone {
+    min-width:280px;
+    width:auto;
+      max-width: 480px;
+  }
