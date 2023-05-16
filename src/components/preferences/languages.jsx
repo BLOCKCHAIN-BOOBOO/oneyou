@@ -1,11 +1,44 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Languages = ({ showmodal, section, socket }) => {
   const [documents, setDocuments] = useState([{}]);
+  const [profiledata, setprofiledata] = useState([{}]);
 
   const close = () => {
     showmodal(false);
   };
+
+  let profileData = useSelector(async (state) => {
+    console.log("profiledata", state?.Profiledata?.state);
+    let data = state?.Profiledata?.state;
+    // return state?.Profiledata?.state?.data;
+    let fordata = data.forEach((item) => {
+      console.log("items", item);
+      let data = [...data, item];
+      return data;
+    });
+    console.log("Ffffffff", fordata);
+
+    switch (section) {
+      case "Languages":
+        console.log("asdf", data?.data?.languages);
+        setDocuments(data?.data?.languages);
+        return;
+      case "Social Links":
+        setprofiledata(data?.data?.socialLinks);
+        return;
+
+      case "Skills":
+        console.log("asdf", data?.data?.skills);
+        setDocuments([...data?.data?.skills]);
+        return;
+
+      default:
+        return null;
+    }
+  });
+  console.log("profileData", profiledata);
 
   const handleDocumentChange = (index, event) => {
     console.log({ [event.target.name]: event.target.value });
@@ -40,26 +73,13 @@ const Languages = ({ showmodal, section, socket }) => {
         return;
       case "Skills":
         console.log("data", data);
-        socket.emit("addSkills", (response) => {
-          console.log(response); // ok
-        });
+        socket.emit("addSkills", data);
         return;
 
       default:
         return null;
     }
   };
-
-  useEffect(() => {
-    console.log("useeffect");
-    socket.on("fetchByUser", (res) => {
-      console.log("response", res);
-    });
-    // socket.on("addSkillsset", (...data) => {
-    //   console.log("res", data);
-    //   return () => {};
-    // });
-  });
 
   return (
     <>
@@ -78,6 +98,7 @@ const Languages = ({ showmodal, section, socket }) => {
         <div className="flex flex-col p-2 w-full overflow-y-auto">
           <div className="flex py-4 flex-col">
             {documents.map((input, index) => {
+              console.log("input", input);
               return (
                 <div key={index}>
                   <div>

@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import "./homepage.css";
 import Basicdetails from "./preferences/basicdetails";
-import { BASEURL } from "../state/actions/actionTypes";
+import { BASEURL, PROFDATA } from "../state/actions/actionTypes";
 import { io } from "socket.io-client";
 import Languages from "./preferences/languages";
 import Education from "./preferences/education";
@@ -30,7 +30,7 @@ import Resume from "./preferences/resume";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
-
+  const [profiledata, setProfiledata] = useState();
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
   const [renderer, setRenderer] = useState(null);
@@ -42,6 +42,9 @@ const Home = () => {
   });
   const socket = io(BASEURL, {
     query: { token: userauth.token },
+    // headers: {
+    //   authorization: `Bearer ${userauth.token}`,
+    // },
     transports: ["websocket"],
   });
 
@@ -114,15 +117,19 @@ const Home = () => {
     setIFrame({ random: iframe.random + 1 });
   };
 
+  const loadUserData = async () => {
+    socket.on("recieveuserdata", (res) => {
+      console.log("userfetch", res);
+      dispatch({ type: PROFDATA, payload: res });
+      setProfiledata(res);
+    });
+  };
+
   useEffect(() => {
-    socket.emit("connection", (data) => {
-      console.log("Connected to server", data);
-      // handle authenticated socket events here
-    });
-    socket.emit("join_room").on("status", (data) => {
-      console.log("status", data);
-    });
-  });
+    socket.emit("connection").emit("join_room");
+    socket.emit("fetchByUser");
+    loadUserData();
+  }, []);
 
   return (
     <div className="page-background page-body self-center align-middle justify-center">
@@ -136,16 +143,34 @@ const Home = () => {
               <div className="current-plan px-5 py-2 ">
                 Current Plan{" "}
                 <div className="starter ml-2 px-5 py-1">
-
-
-                <select className="starter border-0 w-full" required placeholder="">
-              {/* w-4/6  */}
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter</option>
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Starter1 
-                   </option>
-                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Staretr2</option>
-                    </select>
-
+                  <select
+                    className="starter border-0 w-full"
+                    required
+                    placeholder=""
+                  >
+                    {/* w-4/6  */}
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Starter
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Starter1
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Staretr2
+                    </option>
+                  </select>
 
                   {/* Starter
                   <img
@@ -175,15 +200,38 @@ const Home = () => {
                 <img src={refresh} className="m-2" height="15" width="15" />
               </div>
               <div className="publish-site py-1 cursor-pointer px-2">
-              <img src={publishicon} className="m-2" height="13" width="13" />
+                <img src={publishicon} className="m-2" height="13" width="13" />
 
-              <select className="publish-site-dropdown border-0 w-full" required placeholder="">
-              {/* w-4/6  */}
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Publish Site</option>
-                   <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> Custom Domain <i className="fa fa-angle-right text white bg-slate-200 p-2"></i></option>
-                    <option className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2" value=""> OneYou Domain</option>
-                    </select>
-               
+                <select
+                  className="publish-site-dropdown border-0 w-full"
+                  required
+                  placeholder=""
+                >
+                  {/* w-4/6  */}
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    Publish Site
+                  </option>
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    Custom Domain{" "}
+                    <i className="fa fa-angle-right text white bg-slate-200 p-2"></i>
+                  </option>
+                  <option
+                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                    value=""
+                  >
+                    {" "}
+                    OneYou Domain
+                  </option>
+                </select>
+
                 {/* <img src={publishicon} className="m-2" height="13" width="13" />
                 Publish Site{" "} */}
                 {/* <img

@@ -1,15 +1,10 @@
 import axios from "axios";
 import { BASEURL, SIGNIN } from "./actionTypes";
 
-
-
-export const googleAuth = (Gdata) => async (dispatch) => {
-  console.log(Gdata);
+export const googleAuth = (gToken) => async (dispatch) => {
+  console.log(gToken);
   try {
-    const  data  = await axios.post(BASEURL+
-      "/login/google_login",
-      Gdata
-    );
+    const data = await axios.post(BASEURL + "/login/google_login", gToken);
     console.log("google data ", data);
     if (data?.data?.code === "success") {
       sessionStorage.setItem("token", data?.data?.data?.token);
@@ -21,10 +16,10 @@ export const googleAuth = (Gdata) => async (dispatch) => {
 
       let userdata = {
         token: token,
-        email:email,
+        email: email,
         username: username,
       };
-      dispatch({ type: SIGNIN,payload:userdata});
+      dispatch({ type: SIGNIN, payload: userdata });
       return data;
     }
   } catch (error) {
