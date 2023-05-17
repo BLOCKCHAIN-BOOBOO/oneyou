@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 const Education = ({showmodal}) => {
+
+   const [checked, setChecked] = useState(false)
    const close=()=>{
 showmodal(null)
   }
@@ -17,7 +19,9 @@ const [documents, setDocuments] = useState([
 
    }
 
-
+const showEndDate =()=>{
+setChecked(!checked)
+}
 
 const addFields = () => {
   let newfield = { name: '', link: '' }
@@ -50,12 +54,33 @@ return (
 <div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /></div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /></div>
-                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Field of Study" /></div>
+                  
                   <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
-                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>
+                 {!checked &&
+                 ( <div className="py-2"><input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>)}
+                 
+                  {/* <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Till Date" /></div> */}
+                  <div className="flex flex-row">
+                        <div className="flex m-2">
+                          <input
+                            type="checkbox"
+                            id="tilldate"
+                            name="tillDate"
+                            // value="tillDate"
+                           checked={checked}
+                            onChange={showEndDate}
+                          />
+                          <label
+                            className="text-black text-sm pl-2 font-semibold"
+                            htmlFor="tilldate"
+                          >
+                            Till Date
+                          </label>
+                        </div>
+                        </div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /></div>
                   <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
+                  <div className="py-2 "><textarea type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
                  
                  
                   {/* <div className="py-2 flex">
