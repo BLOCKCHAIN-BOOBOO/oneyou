@@ -55,16 +55,16 @@ return (
 <div className="m-3">
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="School Name" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="School Name" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /> */}
-                     <TextField id="filled-basic" className=" w-4/6" label="Degree" variant="filled" />
+                     <TextField id="filled-basic" className=" w-5/6" label="Degree" variant="filled" />
                     </div>
                   
                   <div className="py-2 w-full flex">
                     {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /> */}
-                     <TextField id="date" className="w-4/6" label="Start Date" type="date" variant="filled"
+                     <TextField id="date" className="w-5/6" label="Start Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
@@ -72,7 +72,7 @@ return (
                  {!checked &&
                  ( <div className="py-2 w-full flex">
                   {/* <input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /> */}
-                   <TextField id="date" className="w-4/6" label="End Date" type="date" variant="filled"
+                   <TextField id="date" className="w-5/6" label="End Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
@@ -99,17 +99,17 @@ return (
                         </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Grade" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Grade" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Activities" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Activities" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                       {/* <TextareaAutosize id="filled-basic" variant="filled" label="Description" className="w-4/6" /> */}
                     {/* <textarea type="text" className="w-4/6 accordion-inputs" placeholder="Description" /> */}
 {/* defaultValue="Default Value" */}
-                     <TextField id="filled-multiline-static" className="w-4/6" label="Description" multiline rows={4}  variant="filled"/>
+                     <TextField id="filled-multiline-static" className="w-5/6" label="Description" multiline rows={4}  variant="filled"/>
                     </div>
                  
                  
@@ -130,12 +130,12 @@ return (
           return (
                   <div key={index}>
                   <div className="py-2 w-full flex">
-                     <TextField id="filled-basic" className=" w-4/6" label="Name" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.name} />
+                     <TextField id="filled-basic" className=" w-5/6" label="Name" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.name} />
                     {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /> */}
                   <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                   <div className="py-2 w-full flex">
-                     <TextField id="filled-basic" className=" w-4/6" label="Link" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.link} />
+                     <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.link} />
                     {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /> */}
                     
                     </div>

@@ -158,8 +158,8 @@ const Home = () => {
             {/* <div className="flex self-center justify-center md:w-4/6 mx-auto"> */}
             <div className="home-header w-full hidden sm:hidden md:flex xl:flex flex-col  sm:flex-col md:flex-row xl:flex-row">
               {/* dir="ltr" */}
-              <div className="current-plan px-5 py-2 ">
-                Current Plan{" "}
+              <div className="current-plan px-2 py-2 m-1">
+                <span className="text-xs font-normal">Current Plan</span>{" "}
                 <div className="starter-selectdiv relative">
                   {/* starter ml-2 px-5 py-1 */}
 
@@ -201,7 +201,7 @@ const Home = () => {
                   /> */}
                 </div>
               </div>
-              <div className="device-type py-2 px-5">
+              <div className="device-type py-2 px-5 m-1">
                 Device:
                 <button  className={`flex text-gray-400 rounded-sm  ${ state=== "desktop" && " desk-active" }`}  onClick={() => setState('desktop')}> 
                  {/* <img src={desktop} height="20" width="20" />{" "} */}
@@ -215,14 +215,14 @@ const Home = () => {
                  </button>
               </div>
               <div
-                className="preview cursor-pointer py-1 px-5"
+                className="preview cursor-pointer py-1 px-5 m-1"
                 onClick={handle.enter}
               >
                 Preview{" "}
                 <img src={arrow} className="m-2" height="10" width="10" />
               </div>
               <div
-                className="refresh cursor-pointer py-1 px-7"
+                className="refresh cursor-pointer py-1 px-7 m-1"
                 onClick={refreshIframe}
               >
                 Refresh{" "}
@@ -232,11 +232,11 @@ const Home = () => {
                 {/* publish-site py-1 cursor-pointer px-2 */}
                 <img
                   src={publishicon}
-                  className="-ml-40 absolute flex"
+                  className="-ml-36 absolute flex"
                   height="13"
                   width="13"
                 />
-<div className="selectdiv">
+<div className="selectdiv py-1">
                 <select
                   className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full "
                   required

@@ -124,7 +124,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     placeholder="Your Name"
                   /> */}
                    <div className="py-2 w-full">
-                    <TextField id="filled-basic" className=" w-4/6" label="Your Name" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Your Name" variant="filled" />
                     </div> 
                   {/* <div className="py-2 w-full"> <TextField id="outlined-basic" className="w-4/6" label="Outlined" variant="outlined" /></div> */}
                 </div>
@@ -134,7 +134,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Birthday"
                   /> */}
-                   <TextField id="date" className="w-4/6" label="Birthday" type="date" variant="filled"
+                   <TextField id="date" className="w-5/6" label="Birthday" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
@@ -145,7 +145,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Custom Tag"
                   /> */}
-                   <TextField id="filled-basic" className=" w-4/6" label="Custom Tag" variant="filled" />
+                   <TextField id="filled-basic" className=" w-5/6" label="Custom Tag" variant="filled" />
                   <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                 </div>
               </div>
@@ -160,7 +160,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Email"
                   /> */}
-                  <TextField id="outlined-basic" className="w-4/6" label="Enter Email" variant="filled" />
+                  <TextField id="outlined-basic" className="w-5/6" label="Enter Email" variant="filled" />
                 </div>
                 <div className="py-2 w-full">
                   {/* <input
@@ -168,7 +168,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Phone Number"
                   /> */}
-                  <TextField id="outlined-basic" className="w-4/6" label="Enter Phone Number" variant="filled" />
+                  <TextField id="outlined-basic" className="w-5/6" label="Enter Phone Number" variant="filled" />
                 </div>
                 <div className="py-2 w-full">
                   {/* <input
@@ -176,7 +176,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Location"
                   /> */}
-                  <TextField id="outlined-basic" className="w-4/6" label="Enter Location" variant="filled" />
+                  <TextField id="outlined-basic" className="w-5/6" label="Enter Location" variant="filled" />
                 </div>
               </div>
             </div>

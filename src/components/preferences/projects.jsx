@@ -23,11 +23,11 @@ return (
 <div className="m-3">
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
-                     <TextField id="filled-basic" className=" w-4/6" label="Title" variant="filled" />
+                     <TextField id="filled-basic" className=" w-5/6" label="Title" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /> */}
-                    <TextField id="filled-multiline-static" className="w-4/6" label="Description" multiline rows={4}  variant="filled"/>
+                    <TextField id="filled-multiline-static" className="w-5/6" label="Description" multiline rows={4}  variant="filled"/>
                     </div>                                  
                  
                  <div>
@@ -37,22 +37,22 @@ return (
                   </div> 
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /> */}
-                     <TextField id="filled-basic" className=" w-4/6" label="Name" variant="filled" />
+                     <TextField id="filled-basic" className=" w-5/6" label="Name" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /> */}
-                     <TextField id="filled-basic" className=" w-4/6" label="Link" variant="filled" />
+                     <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" />
                     </div>
                   </div>
                    <img className="about-name-img border-0 rounded-md" height="70" width="70" />
                   <div className="py-2 w-full flex">
                   {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
-                   <TextField id="filled-basic" className=" w-4/6" label="Hashtags" variant="filled" />
+                   <TextField id="filled-basic" className=" w-5/6" label="Hashtags" variant="filled" />
                   <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i> <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /> */}
-                     <TextField id="filled-basic" className=" w-4/6" label="Type" variant="filled" />
+                     <TextField id="filled-basic" className=" w-5/6" label="Type" variant="filled" />
                     </div>
               
                  

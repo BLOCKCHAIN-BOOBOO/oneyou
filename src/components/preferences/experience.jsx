@@ -23,18 +23,18 @@ return (
 <div className="m-3">
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Title" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Title" variant="filled" />
                     </div>
                  
                   <div className="py-2 w-full flex">
-                     <TextField id="date" className="w-4/6" label="Start Date" type="date" variant="filled"
+                     <TextField id="date" className="w-5/6" label="Start Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
                     {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /> */}
                     </div>
                   <div className="py-2 w-full flex">
-                     <TextField id="date" className="w-4/6" label="end Date" type="date" variant="filled"
+                     <TextField id="date" className="w-5/6" label="end Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
@@ -48,32 +48,32 @@ return (
                   </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Title" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Title" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Company Name" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Company Name" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Company Name" variant="filled" />
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Location" /> */}
-                    <TextField id="filled-basic" className=" w-4/6" label="Location" variant="filled" />
+                    <TextField id="filled-basic" className=" w-5/6" label="Location" variant="filled" />
                     </div>
                   <div className="py-2 flex w-full float-left"><input type="checkbox" className="accordion-inputs mx-2 rounded-md" /> Current</div>
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Description" /> */}
-                    <TextField id="filled-multiline-static" className="w-4/6" label="Description" multiline rows={4}  variant="filled"/>
+                    <TextField id="filled-multiline-static" className="w-5/6" label="Description" multiline rows={4}  variant="filled"/>
                     
                     </div>
                   <div className="py-2 w-full flex">
                     {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /> */}
-                     <TextField id="date" className="w-4/6" label="Start Date" type="date" variant="filled"
+                     <TextField id="date" className="w-5/6" label="Start Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
                     </div>
                   <div className="py-2 w-full flex ">
                     {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="End Date" /> */}
-                     <TextField id="date" className="w-4/6" label="End Date" type="date" variant="filled"
+                     <TextField id="date" className="w-5/6" label="End Date" type="date" variant="filled"
                     InputLabelProps={{
                    shrink: true,
                       }}/>
