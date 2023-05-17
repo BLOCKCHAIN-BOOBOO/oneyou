@@ -24,7 +24,6 @@ const Languages = ({ showmodal, section, socket }) => {
     return state?.Profiledata?.state?.data;
   });
 
-
   const handleDocumentChange = (index, event) => {
     console.log({ [event.target.name]: event.target.value });
     let data = [...documents];
@@ -38,10 +37,33 @@ const Languages = ({ showmodal, section, socket }) => {
     setDocuments([...documents, newfield]);
   };
 
-  const removeDocFields = (index) => {
+  const removeDocFields = (index, id) => {
+    let removedata = "";
+    console.log("index", index);
     let data = [...documents];
     data.splice(index, 1);
     setDocuments(data);
+
+    switch (section) {
+      case "Languages":
+        console.log("data", data);
+        removedata = { languageId: id };
+        socket.emit("removeLanguages", removedata);
+        return;
+      case "Social Links":
+        console.log("data", data);
+        removedata = { socailLinkId: id };
+        socket.emit("removeSocialLinks", removedata);
+        return;
+      case "Skills":
+        console.log("data", data);
+        removedata = { skillId: id };
+        socket.emit("removeSkills", removedata);
+        return;
+
+      default:
+        return null;
+    }
   };
 
   const submit = () => {
@@ -65,7 +87,6 @@ const Languages = ({ showmodal, section, socket }) => {
         return null;
     }
   };
-
 
   const loaddata = () => {
     if (section === "Languages") {
@@ -178,6 +199,14 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                             />
                           </div>
+                          <i
+                            className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                            onClick={addFields}
+                          ></i>{" "}
+                          <i
+                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                            onClick={() => removeDocFields(index, input._id)}
+                          ></i>
                         </>
                       ) : (
                         <>
@@ -200,7 +229,6 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                             />
                           </div>
-
                           <div className="py-2 flex">
                             <input
                               type="number"
@@ -214,16 +242,16 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                             />
                           </div>
+                          <i
+                            className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                            onClick={addFields}
+                          ></i>{" "}
+                          <i
+                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                            onClick={() => removeDocFields(index, input._id)}
+                          ></i>
                         </>
                       )}
-                      <i
-                        className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
-                        onClick={addFields}
-                      ></i>{" "}
-                      <i
-                        className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                        onClick={removeDocFields}
-                      ></i>
                     </div>
                   </div>
                 );
