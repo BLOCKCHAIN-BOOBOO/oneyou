@@ -364,9 +364,7 @@ label{
     border-radius: 200px;
     font-weight: 500;
     font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;        
+    line-height: 16px;     
     color: #FFFFFF;
 }
 .add-more{
@@ -1050,7 +1048,7 @@ font-weight: 400;
         display: flex;
         flex-direction: column;
         /* align-items: flex-start; */
-        padding: 7px 25px;
+        padding: 7px 40px;
         /* padding:2px 5px; */
         gap: 10px;
        border:none !important;
@@ -1070,13 +1068,47 @@ select {
     color: #fff;
     border:none;
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
-    /* -webkit-appearance: none;
+    -webkit-appearance: none;
         -moz-appearance: none;
-        appearance: none; */
+        appearance: none;
         /* Remove default arrow */
     /* background: url(../../images/downarrow.png) !important; */
+  }
+  select::-ms-expand {
+      display: none;
+  }
+  .starter-selectdiv {
+      position: relative;
+          /* float: left;
+      min-width: 200px;
+      margin: 50px 33%; */
+  }
+.starter-selectdiv:after{
+        content: '\f078';
+            font: normal normal normal 15px/1 FontAwesome;
+            /* color: #0ebeff; */
+            right: 5px;
+            top: 6px;
+            font-size:12px;
+            /* height: 34px; */
+            /* padding: 15px 5px 0px 8px; */
+            /* border-left: 1px solid #0ebeff; */
+            position: absolute;
+            pointer-events: none;
+}
 
-
+  .selectdiv:after {
+      content: '\f078';
+      font: normal normal normal 15px/1 FontAwesome;
+      /* color: #0ebeff; */
+      right: 15px;
+      top: 10px;
+      height: 34px;
+      font-size:12px;
+      padding: 15px 5px 0px 8px;
+      /* border-left: 1px solid #0ebeff; */
+      position: absolute;
+      pointer-events: none;
   }
 
 select option {

@@ -160,7 +160,7 @@ const Home = () => {
               {/* dir="ltr" */}
               <div className="current-plan px-5 py-2 ">
                 Current Plan{" "}
-                <div className="">
+                <div className="starter-selectdiv relative">
                   {/* starter ml-2 px-5 py-1 */}
 
                   <select
@@ -236,7 +236,7 @@ const Home = () => {
                   height="13"
                   width="13"
                 />
-
+<div className="selectdiv">
                 <select
                   className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full "
                   required
@@ -266,6 +266,7 @@ const Home = () => {
                     OneYou Domain
                   </option>
                 </select>
+                </div>
 
                 {/* <img src={publishicon} className="m-2" height="13" width="13" />
                 Publish Site{" "} */}
