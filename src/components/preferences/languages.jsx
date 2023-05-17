@@ -124,7 +124,7 @@ const Languages = ({ showmodal, section, socket }) => {
 
                 return (
                   <div key={index}>
-                    <div>
+                    <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
                           <select
@@ -186,7 +186,7 @@ const Languages = ({ showmodal, section, socket }) => {
                               Youtube
                             </option>
                           </select>
-                          <div className="py-2 ">
+                          <div className="py-2 flex">
                             <input
                               type="text"
                               className="accordion-inputs w-4/6 rounded-md"
@@ -198,15 +198,15 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             />
+                            <i
+                              className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                              onClick={addFields}
+                            ></i>{" "}
+                            <i
+                              className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                              onClick={() => removeDocFields(index, input._id)}
+                            ></i>
                           </div>
-                          <i
-                            className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
-                            onClick={addFields}
-                          ></i>{" "}
-                          <i
-                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                            onClick={() => removeDocFields(index, input._id)}
-                          ></i>
                         </>
                       ) : (
                         <>
@@ -241,22 +241,22 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             />
+                            <i
+                              className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                              onClick={addFields}
+                            ></i>{" "}
+                            <i
+                              className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                              onClick={() => removeDocFields(index, input._id)}
+                            ></i>
                           </div>
-                          <i
-                            className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
-                            onClick={addFields}
-                          ></i>{" "}
-                          <i
-                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                            onClick={() => removeDocFields(index, input._id)}
-                          ></i>
                         </>
                       )}
                     </div>
                   </div>
                 );
               })}
-            <div className="bg-gray-100 m-2 w-full flex self-center justify-center py-2">
+            <div className=" m-2 w-full flex self-center justify-center py-2">
               <button
                 onClick={submit}
                 className="publish-site m-1 flex py-2 px-6"

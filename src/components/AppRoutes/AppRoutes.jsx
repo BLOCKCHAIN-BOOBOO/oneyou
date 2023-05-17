@@ -1,5 +1,11 @@
 import "../../App.css";
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import Login from "../login";
 import Signup from "../signup";
 import Home from "../home";
@@ -17,27 +23,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { ValidateToken } from "../TokenValidtor";
 import { useEffect } from "react";
 
-const AppRoutes=()=> {
-const dispatch=useDispatch()
+const AppRoutes = () => {
+  const dispatch = useDispatch();
 
-  let navigate=useNavigate()
-let userauth=useSelector(state=>{
-    console.log("state update",state,state?.googleToken?.userInfo
+  let navigate = useNavigate();
+  let userauth = useSelector((state) => {
+    console.log("state update", state, state?.googleToken?.userInfo);
+    return state?.googleToken?.state
+      ? state?.googleToken?.state
+      : state?.googleToken;
+  });
 
-)
-return state?.googleToken?.state ?state?.googleToken?.state :state?.googleToken
+  const SignOut = () => {
+    dispatch(SignOut());
+    navigate("/login");
+  };
 
-  })
-
-
-
-    const SignOut=()=>{
-       dispatch(SignOut())
-      navigate("/login")
-    }
-
-
-useEffect(() => {
+  useEffect(() => {
     if (userauth?.token) {
       if (ValidateToken()) {
         console.log("Token Valid");
@@ -49,49 +51,54 @@ useEffect(() => {
     }
   }, [userauth?.token]);
 
-
   return (
     <div className="App">
       {/* {userauth?.token && ValidateToken() ?<Menunavbar/>:  <Navbar/>}  */}
-      <Menunavbar/>
+      <Menunavbar />
       <Routes>
         <Route path="/" element={<Login />}></Route>
-         <Route path="/login" element={<Login />}></Route>
-          
+        <Route path="/login" element={<Login />}></Route>
+
         <Route path="/signup" element={<Signup />}></Route>
-         
-       {/* {userauth?.token && ValidateToken()? ( */}
-       <>
-       
-       <Route path="/profile" element={<Home />}>
-      
-       </Route>
 
-        <Route path="/usersettings" element={<Usersettings />}> 
-         <Route path="account" element={<Account />}></Route>
-        
-         <Route path="subscriptionsetting" element={<Subscriptionsetting />}></Route>
-          <Route path="subscriptions/upgradeplan" element={<Upgradeplan />}></Route>
-           <Route path="subscriptions/editupi" element={<Editupi />}></Route>
-          <Route path="subscriptions/subscriptionpayment" element={<Subscriptionpayment />}></Route>
+        {/* {userauth?.token && ValidateToken()? ( */}
+        <>
+          <Route path="/profile" element={<Home />}></Route>
 
-          <Route path="about" element={<Aboutoneyou />}></Route></Route>
-         
-           {/* </>) */}
+          <Route path="/usersettings" element={<Usersettings />}>
+            <Route path="account" element={<Account />}></Route>
 
-           {/* :
+            <Route
+              path="subscriptionsetting"
+              element={<Subscriptionsetting />}
+            ></Route>
+            <Route
+              path="subscriptions/upgradeplan"
+              element={<Upgradeplan />}
+            ></Route>
+            <Route path="subscriptions/editupi" element={<Editupi />}></Route>
+            <Route
+              path="subscriptions/subscriptionpayment"
+              element={<Subscriptionpayment />}
+            ></Route>
+
+            <Route path="about" element={<Aboutoneyou />}></Route>
+          </Route>
+
+          {/* </>) */}
+
+          {/* :
            ( <> */}
-           <Route path="/login" element={<Login />}></Route>
-           </>
-            {/* ) } */}
+          <Route path="/login" element={<Login />}></Route>
+        </>
+        {/* ) } */}
 
-         <Route path="/*" element={<Login />}></Route>
-       </Routes>
-      
-      <Footer/>
-      
+        <Route path="/*" element={<Login />}></Route>
+      </Routes>
+
+      <Footer />
     </div>
   );
-}
+};
 
 export default AppRoutes;
