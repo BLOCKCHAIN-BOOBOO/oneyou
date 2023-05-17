@@ -27,6 +27,7 @@ import Education from "./preferences/education";
 import Experience from "./preferences/experience";
 import Projects from "./preferences/projects";
 import Resume from "./preferences/resume";
+import TextField from '@material-ui/core/TextField';
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
@@ -853,14 +854,15 @@ const Home = () => {
                     className="text-white bg-transparent"
                   >
                     <div className="flex flex-col">
-                      <div>
-                        <div className="py-2 ">
-                          <input
+                      <div className="m-3">
+                        <div className="py-2 w-full flex">
+                          {/* <input
                             type="text"
                             className="accordion-inputs w-4/6 rounded-md"
                             required
                             placeholder="Link"
-                          />
+                          /> */}
+                           <TextField id="filled-basic" className=" w-4/6" label="Link" variant="filled" />
                         </div>
                         <img
                           className="about-name-img border-0 rounded-md"
@@ -876,17 +878,18 @@ const Home = () => {
                     className="text-white bg-transparent"
                   >
                     <div className="flex flex-col py-4">
-                      <div>
+                      <div className="m-3">
                         <span className="domain-text self-start text-left">
                           Enter Domain You Own.
                         </span>
-                        <div className="py-2 ">
-                          <input
+                        <div className="py-2 w-full flex">
+                          {/* <input
                             type="text"
                             className="accordion-inputs w-4/6 rounded-md"
                             required
                             placeholder="Enter Domain Name"
-                          />
+                          /> */}
+                           <TextField id="filled-basic" className=" w-4/6" label="Enter Domain Name" variant="filled" />
                         </div>
                       </div>
 
@@ -933,7 +936,8 @@ const Home = () => {
                         </span>
                       </div>
 
-                      <div className="bg-gray-100 m-2 flex py-2">
+                      <div className=" m-2 flex py-2">
+                        {/* bg-gray-100 */}
                         {" "}
                         <button className="publish-site flex py-2 mx-auto px-6">
                           {" "}
