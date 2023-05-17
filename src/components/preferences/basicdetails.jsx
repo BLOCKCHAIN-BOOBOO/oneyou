@@ -4,6 +4,10 @@ import PostRequest from "../postRequest";
 import file from "../../images/file.png";
 import defaultprofileimgae from "../../images/defaultprofileimg.png";
 
+
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 const Basicdetails = ({ showmodal, socket }) => {
   const [typeActive, setTypeActive] = useState("your details");
   const [File, SetFile] = useState(null);
@@ -55,6 +59,7 @@ const Basicdetails = ({ showmodal, socket }) => {
   }, []);
   return (
     <>
+     <form className="" noValidate autoComplete="off">
       <div className="">
         <div className="home-profile-edit profile-popup">
           <div className="flex home-profile-edit-header w-full self-center justify-between flex text-center border-b-2">
@@ -68,8 +73,8 @@ const Basicdetails = ({ showmodal, socket }) => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col p-2 w-full overflow-y-auto">
-            <div className="flex py-4 flex-col">
+          <div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
+            <div className="flex py-4 flex-col m-3">
               <div className="flex flex-row self-start justify-start py-2">
                 <input
                   type="file"
@@ -113,25 +118,34 @@ const Basicdetails = ({ showmodal, socket }) => {
                   Add Personal Details
                 </span>
                 <div className="py-2 ">
-                  <input
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Your Name"
-                  />
+                  /> */}
+                   <div className="py-2 w-full">
+                    <TextField id="filled-basic" className=" w-4/6" label="Your Name" variant="filled" />
+                    </div> 
+                  {/* <div className="py-2 w-full"> <TextField id="outlined-basic" className="w-4/6" label="Outlined" variant="outlined" /></div> */}
                 </div>
-                <div className="py-2 ">
-                  <input
+                <div className="py-2 w-full">
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Birthday"
-                  />
+                  /> */}
+                   <TextField id="date" className="w-4/6" label="Birthday" type="date" variant="filled"
+                    InputLabelProps={{
+                   shrink: true,
+                      }}/>
                 </div>
-                <div className="py-2 flex">
-                  <input
+                <div className="py-2 flex w-full">
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Custom Tag"
-                  />
+                  /> */}
+                   <TextField id="filled-basic" className=" w-4/6" label="Custom Tag" variant="filled" />
                   <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                 </div>
               </div>
@@ -140,30 +154,36 @@ const Basicdetails = ({ showmodal, socket }) => {
                 <span className="profile-text self-start text-left">
                   Add Contact Details
                 </span>
-                <div className="py-2 ">
-                  <input
+                <div className="py-2 w-full ">
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Email"
-                  />
+                  /> */}
+                  <TextField id="outlined-basic" className="w-4/6" label="Enter Email" variant="filled" />
                 </div>
-                <div className="py-2 ">
-                  <input
+                <div className="py-2 w-full">
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Phone Number"
-                  />
+                  /> */}
+                  <TextField id="outlined-basic" className="w-4/6" label="Enter Phone Number" variant="filled" />
                 </div>
-                <div className="py-2">
-                  <input
+                <div className="py-2 w-full">
+                  {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Location"
-                  />
+                  /> */}
+                  <TextField id="outlined-basic" className="w-4/6" label="Enter Location" variant="filled" />
                 </div>
               </div>
             </div>
-            <div className=" m-2 w-full flex self-center justify-center py-2">
+            
+          </div>
+
+<div className=" m-2 w-full flex self-center justify-center py-2">
               <button
                 className="publish-site m-1 flex py-2 px-6"
                 onClick={getfetchbyuser}
@@ -173,9 +193,11 @@ const Basicdetails = ({ showmodal, socket }) => {
               </button>
               <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
             </div>
-          </div>
+
+
         </div>
       </div>
+      </form>
     </>
   );
 };

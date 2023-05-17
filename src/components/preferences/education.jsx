@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TextField from '@material-ui/core/TextField';
 
 const Education = ({showmodal}) => {
 
@@ -48,16 +49,34 @@ return (
   </div>
   
     </div>
-<div className="flex flex-col p-2 w-full overflow-y-auto">
+<div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
 
 <div className="flex py-4 flex-col">
-<div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /></div>
+<div className="m-3">
+                  <div className="py-2 w-full flex">
+                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /> */}
+                    <TextField id="filled-basic" className=" w-4/6" label="School Name" variant="filled" />
+                    </div>
+                  <div className="py-2 w-full flex">
+                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Degree" /> */}
+                     <TextField id="filled-basic" className=" w-4/6" label="Degree" variant="filled" />
+                    </div>
                   
-                  <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /></div>
+                  <div className="py-2 w-full flex">
+                    {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /> */}
+                     <TextField id="date" className="w-4/6" label="Start Date" type="date" variant="filled"
+                    InputLabelProps={{
+                   shrink: true,
+                      }}/>
+                    </div>
                  {!checked &&
-                 ( <div className="py-2"><input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /></div>)}
+                 ( <div className="py-2 w-full flex">
+                  {/* <input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /> */}
+                   <TextField id="date" className="w-4/6" label="End Date" type="date" variant="filled"
+                    InputLabelProps={{
+                   shrink: true,
+                      }}/>
+                  </div>)}
                  
                   {/* <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Till Date" /></div> */}
                   <div className="flex flex-row">
@@ -78,9 +97,20 @@ return (
                           </label>
                         </div>
                         </div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /></div>
-                  <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /></div>
-                  <div className="py-2 "><textarea type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>
+                  <div className="py-2 w-full flex">
+                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Grade" /> */}
+                    <TextField id="filled-basic" className=" w-4/6" label="Grade" variant="filled" />
+                    </div>
+                  <div className="py-2 w-full flex">
+                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Activities" /> */}
+                    <TextField id="filled-basic" className=" w-4/6" label="Activities" variant="filled" />
+                    </div>
+                  <div className="py-2 w-full flex">
+                      {/* <TextareaAutosize id="filled-basic" variant="filled" label="Description" className="w-4/6" /> */}
+                    {/* <textarea type="text" className="w-4/6 accordion-inputs" placeholder="Description" /> */}
+{/* defaultValue="Default Value" */}
+                     <TextField id="filled-multiline-static" className="w-4/6" label="Description" multiline rows={4}  variant="filled"/>
+                    </div>
                  
                  
                   {/* <div className="py-2 flex">
@@ -99,10 +129,16 @@ return (
                   {documents.map((input, index) => {
           return (
                   <div key={index}>
-                  <div className="py-2 flex"><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} />
+                  <div className="py-2 w-full flex">
+                     <TextField id="filled-basic" className=" w-4/6" label="Name" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.name} />
+                    {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /> */}
                   <i onClick={() => removeDocFields(index)} className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                   </div>
-                  <div className="py-2 "><input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /></div>
+                  <div className="py-2 w-full flex">
+                     <TextField id="filled-basic" className=" w-4/6" label="Link" variant="filled" onChange={event => handleDocumentChange(index, event)} type="text" value={input.link} />
+                    {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /> */}
+                    
+                    </div>
                 
                 </div>
           )})}
@@ -111,15 +147,18 @@ return (
                   </div>
 
 </div>
-<div className="m-2 w-full flex self-center justify-center py-2"> 
-<button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
-<button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-<button className="publish-site m-1 flex py-2 px-6">Add More</button>
-</div>
+<button className="fles add-more m-1 flex py-2"><i className="fa fa-plus self-center px-1"></i>Add More</button>
+
+
 {/* <div className="bg-gray-100 w-full flex self-center justify-center py-2"> 
                    <button className="publish-site m-1 flex py-2 px-6">Add More</button>
                   </div> */}
 
+</div>
+<div className="m-2 w-full flex self-center justify-center py-2"> 
+<button className="publish-site m-1 flex py-2 px-6"> Save & Update </button>
+<button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+{/* <button className="publish-site m-1 flex py-2 px-6">Add More</button> */}
 </div>
 </div>
 </>

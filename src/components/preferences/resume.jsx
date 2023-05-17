@@ -60,8 +60,8 @@ const Resume = ({ showmodal, socket }) => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col p-2 w-full overflow-y-auto">
-          <div className="flex py-4 flex-col">
+        <div className="flex flex-col p-2 w-full h-full overflow-y-auto overflow-x-hidden">
+          <div className="flex py-4 flex-col m-3">
             <div className="py-2 ">
               {/* <input
                 type="file"
@@ -89,7 +89,9 @@ const Resume = ({ showmodal, socket }) => {
               />
             </div>
           </div>
-          <div className="m-2 w-full flex self-center justify-center py-2">
+         
+        </div>
+         <div className="m-2 w-full flex self-center justify-center py-2">
             <button
               className="publish-site m-1 flex py-2 px-6"
               onClick={submit}
@@ -99,7 +101,6 @@ const Resume = ({ showmodal, socket }) => {
             </button>
             <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
           </div>
-        </div>
       </div>
     </>
   );

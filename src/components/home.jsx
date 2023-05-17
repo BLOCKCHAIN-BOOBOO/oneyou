@@ -204,7 +204,7 @@ const Home = () => {
                 Device:
                 <button  className={`flex text-gray-400 rounded-sm  ${ state=== "desktop" && " desk-active" }`}  onClick={() => setState('desktop')}> 
                  {/* <img src={desktop} height="20" width="20" />{" "} */}
-                 <i className="fa fa-desktop px-1 pt-2"></i>
+                 <i className="fa fa-desktop px-1 pt-1.5"></i>
                  
                  </button>
                <button className={`flex  text-gray-400 rounded-sm ${ state==="phone" && " phn-active" }`} onClick={() => setState('phone')}>

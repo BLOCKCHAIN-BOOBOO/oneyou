@@ -116,7 +116,7 @@ const Languages = ({ showmodal, section, socket }) => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col p-2 w-full overflow-y-auto">
+        <div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
           <div className="flex py-4 flex-col">
             {documents &&
               documents.map((input, index) => {
@@ -256,7 +256,10 @@ const Languages = ({ showmodal, section, socket }) => {
                   </div>
                 );
               })}
-            <div className=" m-2 w-full flex self-center justify-center py-2">
+            
+          </div>
+
+<div className=" m-2 w-full flex self-center justify-center py-2">
               <button
                 onClick={submit}
                 className="publish-site m-1 flex py-2 px-6"
@@ -266,7 +269,7 @@ const Languages = ({ showmodal, section, socket }) => {
               </button>
               <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
             </div>
-          </div>
+
         </div>
       </div>
     </>
