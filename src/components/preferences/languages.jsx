@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { callbackify } from "util";
 
+import TextField from '@material-ui/core/TextField';
+
 const Languages = ({ showmodal, section, socket }) => {
   const [documents, setDocuments] = useState([]);
   const [profiledata, setprofiledata] = useState([]);
@@ -186,8 +188,8 @@ const Languages = ({ showmodal, section, socket }) => {
                               Youtube
                             </option>
                           </select>
-                          <div className="py-2 flex">
-                            <input
+                          <div className="py-2 flex w-full">
+                            {/* <input
                               type="text"
                               className="accordion-inputs w-4/6 rounded-md"
                               required
@@ -197,7 +199,15 @@ const Languages = ({ showmodal, section, socket }) => {
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
                               }
-                            />
+                            /> */}
+
+                             <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" 
+                              required
+                              name={"link"}
+                              value={input.link && input.link}
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              } />
                             <i
                               className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                               onClick={addFields}
@@ -210,8 +220,8 @@ const Languages = ({ showmodal, section, socket }) => {
                         </>
                       ) : (
                         <>
-                          <div className="py-2 ">
-                            <input
+                          <div className="py-2 flex w-full ">
+                            {/* <input
                               type="text"
                               className="accordion-inputs w-4/6 rounded-md"
                               required
@@ -227,10 +237,22 @@ const Languages = ({ showmodal, section, socket }) => {
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
                               }
-                            />
+                            /> */}
+                             <TextField id="filled-basic" className=" w-5/6"  required
+                              label={
+                                section === "Skills" ? "skill" : "language"
+                              } variant="filled"  name={section === "Skills" ? "skill" : "language"}
+                              value={
+                                section === "Languages"
+                                  ? input.language
+                                  : input.skill
+                              }
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              } />
                           </div>
-                          <div className="py-2 flex">
-                            <input
+                          <div className="py-2 flex w-full">
+                            {/* <input
                               type="number"
                               className="accordion-inputs w-4/6 rounded-md"
                               required
@@ -240,7 +262,14 @@ const Languages = ({ showmodal, section, socket }) => {
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
                               }
-                            />
+                            /> */}
+
+                             <TextField id="filled-basic" className=" w-5/6" label="Proficiency" variant="filled"  name="proficiency"
+                              value={input.proficiency}  required
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              } />
+
                             <i
                               className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                               onClick={addFields}
@@ -259,7 +288,7 @@ const Languages = ({ showmodal, section, socket }) => {
             
           </div>
 
-<div className=" m-2 w-full flex self-center justify-center py-2">
+<div className="m-2 w-full flex self-center justify-center py-2">
               <button
                 onClick={submit}
                 className="publish-site m-1 flex py-2 px-6"

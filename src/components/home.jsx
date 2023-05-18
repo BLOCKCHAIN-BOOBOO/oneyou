@@ -863,7 +863,7 @@ const Home = () => {
                             required
                             placeholder="Link"
                           /> */}
-                           <TextField id="filled-basic" className=" w-4/6" label="Link" variant="filled" />
+                           <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" />
                         </div>
                         <img
                           className="about-name-img border-0 rounded-md"
@@ -890,7 +890,7 @@ const Home = () => {
                             required
                             placeholder="Enter Domain Name"
                           /> */}
-                           <TextField id="filled-basic" className=" w-4/6" label="Enter Domain Name" variant="filled" />
+                           <TextField id="filled-basic" className=" w-5/6" label="Enter Domain Name" variant="filled" />
                         </div>
                       </div>
 
