@@ -176,7 +176,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     placeholder="Custom Tag"
                   /> */}
                    <TextField id="filled-basic" name="custom_tag"
-                    onChange={(e) => getBasicDetails(e)} className=" w-5/6" label="#Headers" variant="filled" />
+                    onChange={(e) => getBasicDetails(e)} className=" w-5/6" label="#Headline" variant="filled" />
                   <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                 </div>
               </div>
