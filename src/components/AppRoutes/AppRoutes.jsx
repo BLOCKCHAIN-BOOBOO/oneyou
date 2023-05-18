@@ -61,7 +61,7 @@ const AppRoutes = () => {
 
         <Route path="/signup" element={<Signup />}></Route>
 
-        {/* {userauth?.token && ValidateToken()? ( */}
+        {userauth?.token && ValidateToken()? (
         <>
           <Route path="/profile" element={<Home />}></Route>
 
@@ -85,13 +85,13 @@ const AppRoutes = () => {
             <Route path="about" element={<Aboutoneyou />}></Route>
           </Route>
 
-          {/* </>) */}
+          </>)
 
-          {/* :
-           ( <> */}
+           :
+           ( <> 
           <Route path="/login" element={<Login />}></Route>
         </>
-        {/* ) } */}
+         ) } 
 
         <Route path="/*" element={<Login />}></Route>
       </Routes>
