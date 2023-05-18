@@ -8,6 +8,8 @@ const Basicdetails = ({ showmodal, socket }) => {
   const [typeActive, setTypeActive] = useState("your details");
   const [File, SetFile] = useState(null);
   const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
+  const [documents, setDocuments] = useState([]);
+
   const close = (e) => {
     console.log("close");
     showmodal(null);
@@ -31,28 +33,54 @@ const Basicdetails = ({ showmodal, socket }) => {
   //   console.log(typesale);
   // };
 
-  let userauth = useSelector((state) => {
-    console.log("state update", state, state?.googleToken?.userInfo);
-    return state?.googleToken?.state
-      ? state?.googleToken?.state
-      : state?.googleToken;
+  // let userauth = useSelector((state) => {
+  //   console.log("state update", state, state?.googleToken?.userInfo);
+  //   return state?.googleToken?.state
+  //     ? state?.googleToken?.state
+  //     : state?.googleToken;
+  // });
+
+  let profileData = useSelector((state) => {
+    let userprofdata = [];
+    userprofdata = state?.Profiledata?.state?.data;
+
+    return state?.Profiledata?.state?.data;
   });
+  // console.log("profdata", profileData);
 
   const uploadproileimg = async () => {
     let data = { resume: File };
     socket.emit("addProfileImg", data);
   };
-  const getfetchbyuser = () => {
-    socket.emit("fetchByUser");
+
+  const getBasicDetails = (event) => {
+    console.log({ [event.target.name]: event.target.value });
+
+    setDocuments({ ...documents, [event.target.name]: event.target.value });
   };
 
+  const SubmitBasicdetails = () => {
+    console.log(documents);
+    let data = { ...documents };
+
+    console.log("data", data);
+    socket.emit("addContactInfo", data);
+  };
+
+  const loaddata = () => {
+    setDocuments(profileData.languages);
+  };
   useEffect(() => {
-    socket.emit("fetchByUser");
-    socket.on("fetchByUserd", (data) => {
-      console.log("ddata", data);
-    });
-    return () => {};
+    // loaddata();
   }, []);
+
+  // useEffect(() => {
+  //   socket.emit("fetchByUser");
+  //   socket.on("fetchByUserd", (data) => {
+  //     console.log("ddata", data);
+  //   });
+  //   return () => {};
+  // }, []);
   return (
     <>
       <div className="">
@@ -117,6 +145,8 @@ const Basicdetails = ({ showmodal, socket }) => {
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Your Name"
+                    name="name"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                 </div>
                 <div className="py-2 ">
@@ -124,6 +154,8 @@ const Basicdetails = ({ showmodal, socket }) => {
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Birthday"
+                    name="dob"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                 </div>
                 <div className="py-2 flex">
@@ -131,6 +163,8 @@ const Basicdetails = ({ showmodal, socket }) => {
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Custom Tag"
+                    name="custom_tag"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                   <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                 </div>
@@ -145,6 +179,8 @@ const Basicdetails = ({ showmodal, socket }) => {
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Email"
+                    name="email"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                 </div>
                 <div className="py-2 ">
@@ -152,13 +188,35 @@ const Basicdetails = ({ showmodal, socket }) => {
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Phone Number"
+                    name="phone"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                 </div>
                 <div className="py-2">
                   <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
-                    placeholder="Enter Location"
+                    placeholder="Enter Country"
+                    name="country"
+                    onChange={(e) => getBasicDetails(e)}
+                  />
+                </div>
+                <div className="py-2">
+                  <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter State"
+                    name="state"
+                    onChange={(e) => getBasicDetails(e)}
+                  />
+                </div>
+                <div className="py-2">
+                  <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter City"
+                    name="city"
+                    onChange={(e) => getBasicDetails(e)}
                   />
                 </div>
               </div>
@@ -166,7 +224,7 @@ const Basicdetails = ({ showmodal, socket }) => {
             <div className=" m-2 w-full flex self-center justify-center py-2">
               <button
                 className="publish-site m-1 flex py-2 px-6"
-                onClick={getfetchbyuser}
+                onClick={SubmitBasicdetails}
               >
                 {" "}
                 Save & Update{" "}
