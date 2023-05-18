@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { callbackify } from "util";
 
-import TextField from "@material-ui/core/TextField";
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@material-ui/core/Select';
 
 const Languages = ({ showmodal, section, socket }) => {
   const [documents, setDocuments] = useState([]);
@@ -128,7 +132,7 @@ const Languages = ({ showmodal, section, socket }) => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-col p-2 w-full h-full overflow-y-auto overflow-x-hidden">
           <div className="flex py-4 flex-col">
             {documents && documents.length > 0 ? (
               documents &&
@@ -140,7 +144,29 @@ const Languages = ({ showmodal, section, socket }) => {
                     <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
-                          <select
+
+ <InputLabel id="demo-simple-select-filled-label">Social Links</InputLabel>
+        <Select
+        className="w-5/6"
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          name="name"
+           onChange={(event) =>
+                     handleDocumentChange(index, event)
+                     }  value={input.name}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value="LinkedIn" name="name">LinkedIn</MenuItem>
+          <MenuItem  value="Blog" name="name">Blog</MenuItem>
+          <MenuItem value="Github" name="name">Github</MenuItem>
+          <MenuItem value="Portfolio" name="name">Portfolio</MenuItem>
+          <MenuItem value="Skype" name="name">Skype</MenuItem>
+          <MenuItem value="Youtube" name="name">Youtube</MenuItem>
+        </Select>
+
+                          {/* <select
                             className="accordion-inputs w-4/6 rounded-md"
                             required
                             placeholder="SocialLinks"
@@ -198,7 +224,7 @@ const Languages = ({ showmodal, section, socket }) => {
                               {" "}
                               Youtube
                             </option>
-                          </select>
+                          </select> */}
                           <div className="py-2 flex w-full">
                             {/* <input
                               type="text"
@@ -284,14 +310,9 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             /> */}
-                            <TextField
-                              id="filled-basic"
-                              className=" w-5/6"
-                              label="Proficiency"
-                              variant="filled"
-                              name="proficiency"
-                              value={input.proficiency}
-                              required
+
+                             <TextField id="filled-basic" type="number" className=" w-5/6" label="Proficiency" variant="filled"  name="proficiency"
+                              value={input.proficiency}  required
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
                               }
@@ -324,17 +345,19 @@ const Languages = ({ showmodal, section, socket }) => {
             )}
           </div>
 
-          <div className="m-2 w-full flex self-center justify-center py-2">
-            <button
-              onClick={submit}
-              className="publish-site m-1 flex py-2 px-6"
-            >
-              {" "}
-              Save & Update{" "}
-            </button>
-            <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-          </div>
+
+
         </div>
+        <div className="m-2 w-full flex self-center justify-center py-2">
+              <button
+                onClick={submit}
+                className="publish-site m-1 flex py-2 px-6"
+              >
+                {" "}
+                Save & Update{" "}
+              </button>
+              <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+            </div>
       </div>
     </>
   );

@@ -176,7 +176,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     placeholder="Custom Tag"
                   /> */}
                    <TextField id="filled-basic" name="custom_tag"
-                    onChange={(e) => getBasicDetails(e)} className=" w-5/6" label="Custom Tag" variant="filled" />
+                    onChange={(e) => getBasicDetails(e)} className=" w-5/6" label="#Headline" variant="filled" />
                   <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
                 </div>
               </div>
@@ -192,7 +192,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     placeholder="Enter Email"
                   /> */}
                   <TextField id="outlined-basic"   name="email"
-                    onChange={(e) => getBasicDetails(e)} className="w-5/6" label="Enter Email" variant="filled" />
+                    onChange={(e) => getBasicDetails(e)} className="w-5/6" label="Email" variant="filled" />
                 </div>
                 <div className="py-2 w-full">
                   {/* <input
@@ -200,7 +200,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Phone Number"
                   /> */}
-                  <TextField id="outlined-basic" className="w-5/6" label="Enter Phone Number" name="phone"
+                  <TextField id="outlined-basic" className="w-5/6" label="Phone Number" name="phone"
                     onChange={(e) => getBasicDetails(e)} variant="filled" />
                 </div>
                 <div className="py-2 w-full">
@@ -210,7 +210,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                     placeholder="Enter Location"
                   /> */}
                   <TextField id="outlined-basic" className="w-5/6"  name="city"
-                    onChange={(e) => getBasicDetails(e)}  label="Enter Location" variant="filled" />
+                    onChange={(e) => getBasicDetails(e)}  label="Location" variant="filled" />
                 </div>
               </div>
             </div>
