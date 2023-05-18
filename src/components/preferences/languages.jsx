@@ -144,13 +144,14 @@ const Languages = ({ showmodal, section, socket }) => {
                     <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
-<div className="py-2 flex w-full">
- <InputLabel id="demo-simple-select-filled-label">Social Links</InputLabel>
+<div className="py-2 flex flex-col w-full text-left float-left ">
+ <InputLabel id="demo-simple-select-filled-label" variant="filled">Social Links</InputLabel>
         <Select
         className="w-5/6"
           labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
+          id="filled-basic"
           name="name"
+         variant="filled"
            onChange={(event) =>
                      handleDocumentChange(index, event)
                      }  value={input.name}
