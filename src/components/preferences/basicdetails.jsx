@@ -238,13 +238,14 @@ const Basicdetails = ({ showmodal, socket }) => {
                       variant="filled"
                     />
                   </div>
-                  <div className="py-2 w-full">
+                  {/* <div className="py-2 w-full"> */}
+                  
                     {/* <input
                     type="text"
                     className="accordion-inputs w-4/6 rounded-md"
                     placeholder="Enter Location"
                   /> */}
-                    <TextField
+                    {/* <TextField
                       id="outlined-basic"
                       className="w-5/6"
                       name="city"
@@ -253,7 +254,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                       label="Location"
                       variant="filled"
                     />
-                  </div>
+                  </div> */}
 
                    <div className="py-2 w-full">
                     {/* <input
