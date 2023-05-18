@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import defaultprofileimgae from "../../images/defaultprofileimg.png";
+import TextField from '@material-ui/core/TextField';
 
 const Resume = ({ showmodal, socket }) => {
   const [File, SetFile] = useState(null);
@@ -60,9 +61,9 @@ const Resume = ({ showmodal, socket }) => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col p-2 w-full overflow-y-auto">
-          <div className="flex py-4 flex-col">
-            <div className="py-2 ">
+        <div className="flex flex-col p-2 w-full h-full overflow-y-auto overflow-x-hidden">
+          <div className="flex py-4 flex-col m-3">
+            <div className="py-2 w-full flex flex-col">
               {/* <input
                 type="file"
                 className="accordion-inputs w-4/6 rounded-md"
@@ -70,14 +71,15 @@ const Resume = ({ showmodal, socket }) => {
                 placeholder="Resume"
                 onChange={(e) => getprofile(e)}
               /> */}
-              <label for="myfile">Select a file:</label>
-              <input
+              <label for="myfile" className="flex self-start text-left">Select a file:</label>
+              {/* <input
                 type="file"
                 id="myfile"
                 name="myfile"
                 className="accordion-inputs w-4/6 rounded-md"
                 onChange={(e) => getprofile(e)}
-              />
+              /> */}
+              <TextField id="myfile" type="file" onChange={(e) => getprofile(e)} name="myfile" className=" w-5/6" variant="filled" />
               <br></br>
             </div>
             <div className="py-2 ">
@@ -89,7 +91,9 @@ const Resume = ({ showmodal, socket }) => {
               />
             </div>
           </div>
-          <div className="m-2 w-full flex self-center justify-center py-2">
+         
+        </div>
+         <div className="m-2 w-full flex self-center justify-center py-2">
             <button
               className="publish-site m-1 flex py-2 px-6"
               onClick={submit}
@@ -99,7 +103,6 @@ const Resume = ({ showmodal, socket }) => {
             </button>
             <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
           </div>
-        </div>
       </div>
     </>
   );
