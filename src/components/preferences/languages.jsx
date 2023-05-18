@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { callbackify } from "util";
 
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 
 const Languages = ({ showmodal, section, socket }) => {
   const [documents, setDocuments] = useState([]);
@@ -34,9 +34,17 @@ const Languages = ({ showmodal, section, socket }) => {
   };
 
   const addFields = () => {
-    let newfield = { skill: "", proficiency: "" };
-
-    setDocuments([...documents, newfield]);
+    let newfield = [];
+    if (section === "Skills") {
+      newfield = { skill: "", proficiency: "" };
+      setDocuments([...documents, newfield]);
+    } else if (section === "Languages") {
+      newfield = { language: "", proficiency: "" };
+      setDocuments([...documents, newfield]);
+    } else {
+      newfield = { name: "", link: "" };
+      setDocuments([...documents, newfield]);
+    }
   };
 
   const removeDocFields = (index, id) => {
@@ -69,6 +77,8 @@ const Languages = ({ showmodal, section, socket }) => {
   };
 
   const submit = () => {
+    if (documents && documents.length === 0) return;
+
     let data = [...documents];
     console.log(section + "submited data", data);
     switch (section) {
@@ -92,13 +102,13 @@ const Languages = ({ showmodal, section, socket }) => {
 
   const loaddata = () => {
     if (section === "Languages") {
-      setDocuments(profileData.languages);
+      setDocuments(profileData?.languages);
     }
     if (section === "Skills") {
-      setDocuments(profileData.skills);
+      setDocuments(profileData?.skills);
     }
     if (section === "Social Links") {
-      setDocuments(profileData.socialLinks);
+      setDocuments(profileData?.socialLinks);
     }
   };
   useEffect(() => {
@@ -120,7 +130,8 @@ const Languages = ({ showmodal, section, socket }) => {
         </div>
         <div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
           <div className="flex py-4 flex-col">
-            {documents &&
+            {documents && documents.length > 0 ? (
+              documents &&
               documents.map((input, index) => {
                 console.log("Aaa", input.language);
 
@@ -200,14 +211,18 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             /> */}
-
-                             <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" 
+                            <TextField
+                              id="filled-basic"
+                              className=" w-5/6"
+                              label="Link"
+                              variant="filled"
                               required
                               name={"link"}
                               value={input.link && input.link}
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
-                              } />
+                              }
+                            />
                             <i
                               className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                               onClick={addFields}
@@ -238,10 +253,15 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             /> */}
-                             <TextField id="filled-basic" className=" w-5/6"  required
+                            <TextField
+                              id="filled-basic"
+                              className=" w-5/6"
+                              required
                               label={
                                 section === "Skills" ? "skill" : "language"
-                              } variant="filled"  name={section === "Skills" ? "skill" : "language"}
+                              }
+                              variant="filled"
+                              name={section === "Skills" ? "skill" : "language"}
                               value={
                                 section === "Languages"
                                   ? input.language
@@ -249,7 +269,8 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
-                              } />
+                              }
+                            />
                           </div>
                           <div className="py-2 flex w-full">
                             {/* <input
@@ -263,13 +284,18 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             /> */}
-
-                             <TextField id="filled-basic" className=" w-5/6" label="Proficiency" variant="filled"  name="proficiency"
-                              value={input.proficiency}  required
+                            <TextField
+                              id="filled-basic"
+                              className=" w-5/6"
+                              label="Proficiency"
+                              variant="filled"
+                              name="proficiency"
+                              value={input.proficiency}
+                              required
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
-                              } />
-
+                              }
+                            />
                             <i
                               className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                               onClick={addFields}
@@ -284,21 +310,30 @@ const Languages = ({ showmodal, section, socket }) => {
                     </div>
                   </div>
                 );
-              })}
-            
+              })
+            ) : (
+              <div>
+                <i
+                  className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                  onClick={addFields}
+                >
+                  {" "}
+                  Add Language
+                </i>
+              </div>
+            )}
           </div>
 
-<div className="m-2 w-full flex self-center justify-center py-2">
-              <button
-                onClick={submit}
-                className="publish-site m-1 flex py-2 px-6"
-              >
-                {" "}
-                Save & Update{" "}
-              </button>
-              <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-            </div>
-
+          <div className="m-2 w-full flex self-center justify-center py-2">
+            <button
+              onClick={submit}
+              className="publish-site m-1 flex py-2 px-6"
+            >
+              {" "}
+              Save & Update{" "}
+            </button>
+            <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+          </div>
         </div>
       </div>
     </>
