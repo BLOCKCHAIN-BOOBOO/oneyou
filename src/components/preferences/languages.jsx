@@ -164,9 +164,9 @@ const Languages = ({ showmodal, section, socket }) => {
                      handleDocumentChange(index, event)
                      }  value={input.name}
         >
-          <MenuItem value="">
+          {/* <MenuItem value="">
             <em>None</em>
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem value="LinkedIn" name="name">LinkedIn</MenuItem>
           <MenuItem  value="Blog" name="name">Blog</MenuItem>
           <MenuItem value="Github" name="name">Github</MenuItem>

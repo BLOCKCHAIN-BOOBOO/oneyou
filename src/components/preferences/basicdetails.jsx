@@ -254,6 +254,59 @@ const Basicdetails = ({ showmodal, socket }) => {
                       variant="filled"
                     />
                   </div>
+
+                   <div className="py-2 w-full">
+                    {/* <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter Location"
+                  /> */}
+                    <TextField
+                      id="outlined-basic"
+                      className="w-5/6"
+                      name="country"
+                      value={documents?.country}
+                      onChange={(e) => getBasicDetails(e)}
+                      label="Country"
+                      variant="filled"
+                    />
+                  </div>
+
+                  <div className="py-2 w-full">
+                    {/* <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter Location"
+                  /> */}
+                    <TextField
+                      id="outlined-basic"
+                      className="w-5/6"
+                      name="city"
+                      value={documents?.city}
+                      onChange={(e) => getBasicDetails(e)}
+                      label="City"
+                      variant="filled"
+                    />
+                  </div>
+
+                   <div className="py-2 w-full">
+                    {/* <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter Location"
+                  /> */}
+                    <TextField
+                      id="outlined-basic"
+                      className="w-5/6"
+                      name="state"
+                      value={documents?.state}
+                      onChange={(e) => getBasicDetails(e)}
+                      label="State"
+                      variant="filled"
+                    />
+                  </div>
+
+
                 </div>
               </div>
             </div>
