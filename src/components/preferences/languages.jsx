@@ -290,7 +290,7 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                             /> */}
 
-                             <TextField id="filled-basic" className=" w-5/6" label="Proficiency" variant="filled"  name="proficiency"
+                             <TextField id="filled-basic" type="number" className=" w-5/6" label="Proficiency" variant="filled"  name="proficiency"
                               value={input.proficiency}  required
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
