@@ -144,7 +144,7 @@ const Languages = ({ showmodal, section, socket }) => {
                     <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
-
+<div className="py-2 flex w-full">
  <InputLabel id="demo-simple-select-filled-label">Social Links</InputLabel>
         <Select
         className="w-5/6"
@@ -165,7 +165,7 @@ const Languages = ({ showmodal, section, socket }) => {
           <MenuItem value="Skype" name="name">Skype</MenuItem>
           <MenuItem value="Youtube" name="name">Youtube</MenuItem>
         </Select>
-
+</div>
                           {/* <select
                             className="accordion-inputs w-4/6 rounded-md"
                             required
