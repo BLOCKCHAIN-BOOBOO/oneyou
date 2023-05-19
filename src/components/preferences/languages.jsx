@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Box, Slider,Typography } from '@material-ui/core';
 // import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from "@material-ui/core/Select";
 
@@ -319,7 +320,9 @@ const Languages = ({ showmodal, section, socket }) => {
                                 handleDocumentChange(index, event)
                               }
                             /> */}
-                            <TextField
+
+
+                            {/* <TextField
                               id="filled-basic"
                               type="number"
                               className=" w-5/6"
@@ -331,7 +334,26 @@ const Languages = ({ showmodal, section, socket }) => {
                               onChange={(event) =>
                                 handleDocumentChange(index, event)
                               }
-                            />
+                            /> */}
+<div>
+<Typography id="discrete-slider-always" gutterBottom> Proficiency </Typography>
+  <Slider
+        style={{ width: 300 ,height:20}}
+        min={10}
+        max={100}
+        size="small"
+        // step={10}
+         defaultValue={input.proficiency}
+        // marks
+        aria-label="Proficiency"
+        aria-labelledby="discrete-slider-always"
+       required
+        onChange={(event) => handleDocumentChange(index, event)}
+        valueLabelDisplay="auto"
+        // getAriaValueText={getText}
+      />
+</div>
+
                             <i
                               className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                               onClick={addFields}
