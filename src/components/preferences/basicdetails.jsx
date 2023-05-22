@@ -155,7 +155,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                         id="filled-basic"
                         className=" w-5/6"
                         name="name"
-                        value={documents.name}
+                        value={documents?.name}
                         onChange={(e) => getBasicDetails(e)}
                         label="Your Name"
                         variant="filled"
@@ -177,7 +177,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                       label="Birthday"
                       type="date"
                       variant="filled"
-                      value={documents.dob}
+                      value={documents?.dob}
                       InputLabelProps={{
                         shrink: true,
                       }}
