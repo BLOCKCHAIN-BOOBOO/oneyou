@@ -62,12 +62,13 @@ const Basicdetails = ({ showmodal, socket }) => {
     setDocuments({ ...documents, [event.target.name]: event.target.value });
   };
 
-  const SubmitBasicdetails = () => {
+  const SubmitBasicdetails = (event) => {
     console.log(documents);
     let data = { ...documents };
 
     console.log("data", data);
     socket.emit("addContactInfo", data);
+    event.preventDefault();
   };
 
   const loaddata = () => {
@@ -238,6 +239,39 @@ const Basicdetails = ({ showmodal, socket }) => {
                       variant="filled"
                     />
                   </div>
+
+                  <div className="py-2 w-full">
+                    {/* <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter Location"
+                  /> */}
+                    <TextField
+                      id="outlined-basic"
+                      className="w-5/6"
+                      name="country"
+                      value={documents?.country}
+                      onChange={(e) => getBasicDetails(e)}
+                      label="Country"
+                      variant="filled"
+                    />
+                  </div>
+                  <div className="py-2 w-full">
+                    {/* <input
+                    type="text"
+                    className="accordion-inputs w-4/6 rounded-md"
+                    placeholder="Enter Location"
+                  /> */}
+                    <TextField
+                      id="outlined-basic"
+                      className="w-5/6"
+                      name="state"
+                      value={documents?.state}
+                      onChange={(e) => getBasicDetails(e)}
+                      label="State"
+                      variant="filled"
+                    />
+                  </div>
                   <div className="py-2 w-full">
                     {/* <input
                     type="text"
@@ -250,7 +284,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                       name="city"
                       value={documents?.city}
                       onChange={(e) => getBasicDetails(e)}
-                      label="Location"
+                      label="City"
                       variant="filled"
                     />
                   </div>
@@ -263,8 +297,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                 className="publish-site m-1 flex py-2 px-6"
                 onClick={SubmitBasicdetails}
               >
-                {" "}
-                Save & Update{" "}
+                Save & Update
               </button>
               <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
             </div>

@@ -27,12 +27,12 @@ import Education from "./preferences/education";
 import Experience from "./preferences/experience";
 import Projects from "./preferences/projects";
 import Resume from "./preferences/resume";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
-  const [profiledata, setProfiledata] = useState();  
-   const [state, setState] = useState('desktop');
+  const [profiledata, setProfiledata] = useState();
+  const [state, setState] = useState("desktop");
 
   const [showmodal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
@@ -68,16 +68,16 @@ const Home = () => {
         return <Basicdetails showmodal={setRenderer} socket={socket} />;
 
       case "Education Details":
-        return <Education showmodal={setRenderer} />;
+        return <Education showmodal={setRenderer} socket={socket} />;
 
       case "Experience Details":
-        return <Experience showmodal={setRenderer} />;
+        return <Experience showmodal={setRenderer} socket={socket} />;
 
       case "Project Details":
-        return <Projects showmodal={setRenderer} />;
+        return <Projects showmodal={setRenderer} socket={socket} />;
 
       case "Resume":
-        return <Resume showmodal={setRenderer} />;
+        return <Resume showmodal={setRenderer} socket={socket} />;
 
       case "Languages":
         return (
@@ -149,7 +149,6 @@ const Home = () => {
   }, [socket]);
 
   return (
-    
     <div className="page-background page-body self-center align-middle justify-center">
       <div className="m-8 flex flex-row">
         <div className="flex xl:flex-row md:flex-col sm:flex-col flex-col w-full  mt-16">
@@ -203,16 +202,27 @@ const Home = () => {
               </div>
               <div className="device-type py-2 px-5 m-1">
                 Device:
-                <button  className={`flex text-gray-400 rounded-sm  ${ state=== "desktop" && " desk-active" }`}  onClick={() => setState('desktop')}> 
-                 {/* <img src={desktop} height="20" width="20" />{" "} */}
-                 <i className="fa fa-desktop px-1 pt-1.5"></i>
-                 
-                 </button>
-               <button className={`flex  text-gray-400 rounded-sm ${ state==="phone" && " phn-active" }`} onClick={() => setState('phone')}>
-                 {/* <img src={mobile} height="20" width="20" /> */}
-                 <i className="fa fa-mobile px-1 py-0 text-xl" aria-hidden="true"></i>
-                 
-                 </button>
+                <button
+                  className={`flex text-gray-400 rounded-sm  ${
+                    state === "desktop" && " desk-active"
+                  }`}
+                  onClick={() => setState("desktop")}
+                >
+                  {/* <img src={desktop} height="20" width="20" />{" "} */}
+                  <i className="fa fa-desktop px-1 pt-1.5"></i>
+                </button>
+                <button
+                  className={`flex  text-gray-400 rounded-sm ${
+                    state === "phone" && " phn-active"
+                  }`}
+                  onClick={() => setState("phone")}
+                >
+                  {/* <img src={mobile} height="20" width="20" /> */}
+                  <i
+                    className="fa fa-mobile px-1 py-0 text-xl"
+                    aria-hidden="true"
+                  ></i>
+                </button>
               </div>
               <div
                 className="preview cursor-pointer py-1 px-5 m-1"
@@ -236,36 +246,36 @@ const Home = () => {
                   height="13"
                   width="13"
                 />
-<div className="selectdiv py-1">
-                <select
-                  className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full "
-                  required
-                  placeholder=""
-                >
-                  {/* w-4/6  */}
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
+                <div className="selectdiv py-1">
+                  <select
+                    className="publish-site py-1 cursor-pointer px-2 publish-site-dropdown border-none w-full "
+                    required
+                    placeholder=""
                   >
-                    {" "}
-                    Publish Site
-                  </option>
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
-                  >
-                    {" "}
-                    Custom Domain{" "}
-                    <i className="fa fa-angle-right text white bg-slate-200 p-2"></i>
-                  </option>
-                  <option
-                    className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
-                    value=""
-                  >
-                    {" "}
-                    OneYou Domain
-                  </option>
-                </select>
+                    {/* w-4/6  */}
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Publish Site
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      Custom Domain{" "}
+                      <i className="fa fa-angle-right text white bg-slate-200 p-2"></i>
+                    </option>
+                    <option
+                      className="bg-transparent publish-site-option border-0 text-black rounded-lg w-full px-2"
+                      value=""
+                    >
+                      {" "}
+                      OneYou Domain
+                    </option>
+                  </select>
                 </div>
 
                 {/* <img src={publishicon} className="m-2" height="13" width="13" />
@@ -306,8 +316,10 @@ const Home = () => {
               </div>
             </div>
 
-{/* <div className={`container ${state}`}> */}
-            <div className={`container home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20 ${state}`}>
+            {/* <div className={`container ${state}`}> */}
+            <div
+              className={`container home-about flex flex-col sm:flex-col md:flex-row xl:flex-row mt-5 w-full left-0 mb-20 ${state}`}
+            >
               {/* dir="ltr" */}
               <FullScreen handle={handle} className="w-full h-full">
                 <React.Fragment key={iframe.random}>
@@ -863,7 +875,12 @@ const Home = () => {
                             required
                             placeholder="Link"
                           /> */}
-                           <TextField id="filled-basic" className=" w-5/6" label="Link" variant="filled" />
+                          <TextField
+                            id="filled-basic"
+                            className=" w-5/6"
+                            label="Link"
+                            variant="filled"
+                          />
                         </div>
                         <img
                           className="about-name-img border-0 rounded-md"
@@ -890,7 +907,12 @@ const Home = () => {
                             required
                             placeholder="Enter Domain Name"
                           /> */}
-                           <TextField id="filled-basic" className=" w-5/6" label="Enter Domain Name" variant="filled" />
+                          <TextField
+                            id="filled-basic"
+                            className=" w-5/6"
+                            label="Enter Domain Name"
+                            variant="filled"
+                          />
                         </div>
                       </div>
 
@@ -938,8 +960,7 @@ const Home = () => {
                       </div>
 
                       <div className=" m-2 flex py-2">
-                        {/* bg-gray-100 */}
-                        {" "}
+                        {/* bg-gray-100 */}{" "}
                         <button className="publish-site flex py-2 mx-auto px-6">
                           {" "}
                           Update{" "}
@@ -968,7 +989,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-   
   );
 };
 
