@@ -102,7 +102,7 @@ const Basicdetails = ({ showmodal, socket }) => {
               </div>
             </div>
             <div className="flex flex-col p-2 w-full overflow-y-auto overflow-x-hidden">
-              <div className="flex py-4 flex-col m-3">
+              <div className="flex py-4 flex-col m-3 border-b">
                 <div className="flex flex-row self-start justify-start py-2">
                   <input
                     type="file"
@@ -288,6 +288,8 @@ const Basicdetails = ({ showmodal, socket }) => {
                       variant="filled"
                     />
                   </div>
+
+
                 </div>
               </div>
             </div>

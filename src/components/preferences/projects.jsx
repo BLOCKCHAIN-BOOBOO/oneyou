@@ -106,7 +106,16 @@ const Projects = ({ showmodal, socket }) => {
           <div className="flex py-4 flex-col">
             {projects?.map((item, index) => {
               return (
-                <div className="m-3" key={index}>
+                <div className="border-b px-2 py-2 section-shadow mt-2 mb-2" key={index}>
+
+                  <div className="flex">
+                    <span className="text-lg font-semibold mx-2"> Details</span>
+                    <i
+                      onClick={(e) => removeProject(index, item._id)}
+                      className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
+                    ></i>
+                  </div>
+
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
                     <TextField
@@ -212,19 +221,14 @@ const Projects = ({ showmodal, socket }) => {
                     {/* <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
                           <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
                   </div>
-                  <div>
-                    <i
-                      onClick={() => removeProject(index, item._id)}
-                      className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                    ></i>
-                  </div>
+                 
                 </div>
               );
             })}
           </div>
 
           <button className="fles add-more m-1 flex py-2" onClick={addProjects}>
-            <i className="fa fa-plus self-center px-1"></i>Add More
+            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add More
           </button>
         </div>
         <div className="m-2 w-full flex self-center justify-center py-2">
