@@ -149,7 +149,7 @@ const Languages = ({ showmodal, section, socket }) => {
                 console.log("Aaa", input.language);
 
                 return (
-                  <div key={index}>
+                  <div key={index} className="border-b section-shadow mt-2 mb-2">
                     <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
@@ -278,11 +278,11 @@ const Languages = ({ showmodal, section, socket }) => {
                               }
                             />
                             <i
-                              className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                              className="cursor-pointer fa fa-plus cursor-pointer text-green-600 self-center flex m-2"
                               onClick={addFields}
                             ></i>{" "}
                             <i
-                              className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                              className="fa fa-trash-o flex cursor-pointer text-red-500 self-center text-center m-2"
                               onClick={() => removeDocFields(index, input._id)}
                             ></i>
                           </div>
@@ -373,11 +373,11 @@ const Languages = ({ showmodal, section, socket }) => {
 </div>
 
                             <i
-                              className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                              className="cursor-pointer fa fa-plus cursor-pointer text-green-600 self-center flex m-2"
                               onClick={addFields}
                             ></i>{" "}
                             <i
-                              className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                              className="fa fa-trash-o flex cursor-pointer text-red-500 self-center text-center m-2"
                               onClick={() => removeDocFields(index, input._id)}
                             ></i>
                           </div>
@@ -390,7 +390,7 @@ const Languages = ({ showmodal, section, socket }) => {
             ) : (
               <div>
                 <i
-                  className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                  className="cursor-pointer fa fa-plus add-more self-center flex m-2"
                   onClick={addFields}
                 >
                   {" "}

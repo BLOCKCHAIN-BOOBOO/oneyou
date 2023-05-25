@@ -139,7 +139,16 @@ const Education = ({ showmodal, socket }) => {
             education.map((educ, index) => {
               console.log("Date", educ);
               return (
-                <div className="flex py-4 flex-col" key={index}>
+                <div className="flex py-4 flex-col border-b section-shadow mt-2 mb-2" key={index}>
+
+                  <div className="flex">
+                    <span className="text-lg font-semibold mx-2">{educ?.degree} Details</span>
+                    <i
+                      onClick={(e) => removeEduc(index, educ._id)}
+                      className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
+                    ></i>
+                  </div>
+
                   <div className="m-3">
                     <div className="py-2 w-full flex">
                       {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="School Name" /> */}
@@ -296,7 +305,7 @@ const Education = ({ showmodal, socket }) => {
                                 {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="name" required placeholder="Name"  value={input.name} /> */}
                                 <i
                                   onClick={() => removeDocFields(index, indx)}
-                                  className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                                  className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
                                 ></i>
                               </div>
                               <div className="py-2 w-full flex">
@@ -319,12 +328,7 @@ const Education = ({ showmodal, socket }) => {
                         })}
                     </div>
                   </div>
-                  <div>
-                    <i
-                      onClick={(e) => removeEduc(index, educ._id)}
-                      className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                    ></i>
-                  </div>
+                 
                 </div>
               );
             })}
@@ -333,7 +337,7 @@ const Education = ({ showmodal, socket }) => {
             className="fles add-more m-1 flex py-2"
             onClick={addEducation}
           >
-            <i className="fa fa-plus self-center px-1"></i>Add More
+            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add More
           </button>
           {/* )} */}
 

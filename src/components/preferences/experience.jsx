@@ -119,7 +119,15 @@ const Experience = ({ showmodal, socket }) => {
               experience.length > 0 &&
               experience?.map((item, index) => {
                 return (
-                  <div className="m-3" key={index}>
+                  <div className="py-2 border-b section-shadow mt-2 mb-2" key={index}>
+                    <div className="flex">
+                       <span className="text-lg font-semibold mx-2"> Details</span>
+                      <i
+                        onClick={(e) => removeExperience(index, item._id)}
+                        className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
+                      ></i>
+                    </div>
+                    <div className="m-3">
                     <div className="py-2 w-full flex">
                       <TextField
                         id="filled-basic"
@@ -211,16 +219,24 @@ const Experience = ({ showmodal, socket }) => {
                       />
                     </div> */}
                     <div>
-                      <div className="py-2 w-full flex">
+                     
+                      {item.position.map((post, ind) => {
+                        return (
+                          <div key={ind}>
+                             <div className="py-2 w-full flex">
                         <span className="profile-text">Position</span>
                         <i
                           className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
                           onClick={() => addposition(index)}
                         ></i>{" "}
-                      </div>
-                      {item.position.map((post, ind) => {
-                        return (
-                          <div key={ind}>
+                                           
+                              <i
+                              className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
+                              onClick={() =>
+                                removePosition(index, ind, post._id)
+                              }
+                            ></i>
+                             </div>
                             <div className="py-2 w-full flex">
                               <TextField
                                 id="filled-basic"
@@ -300,22 +316,13 @@ const Experience = ({ showmodal, socket }) => {
                                 variant="filled"
                               />
                             </div>
-                            <i
-                              className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                              onClick={() =>
-                                removePosition(index, ind, post._id)
-                              }
-                            ></i>
+                           
                           </div>
                         );
                       })}
                     </div>
-                    <div>
-                      <i
-                        onClick={(e) => removeExperience(index, item._id)}
-                        className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                      ></i>
                     </div>
+                    
                     {/* <div className="py-2 "><input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /></div>                */}
                   </div>
                 );
@@ -325,9 +332,10 @@ const Experience = ({ showmodal, socket }) => {
               className="fles add-more m-1 flex py-2"
               onClick={addExperience}
             >
-              <i className="fa fa-plus self-center px-1"></i>Add More
+              <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add More
             </button>
           </div>
+          
         </div>
 
         <div className=" m-2 w-full flex self-center justify-center py-2">
