@@ -199,7 +199,7 @@ const Basicdetails = ({ showmodal, socket }) => {
                       label="#Headline"
                       variant="filled"
                     />
-                    <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                    {/* <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
                   </div>
                 </div>
 

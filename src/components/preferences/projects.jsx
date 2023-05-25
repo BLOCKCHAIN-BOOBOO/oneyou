@@ -24,7 +24,7 @@ const Projects = ({ showmodal, socket }) => {
           link: "",
         },
       ],
-      hashTags: [{}],
+      hashTags: "",
     };
     setProjects([...projects, data]);
   };
@@ -40,10 +40,50 @@ const Projects = ({ showmodal, socket }) => {
       socket.emit("removeProjects", data);
     }
   };
-  const submit=()=>{
-   
-      socket.emit("addProjects", projects);
-  }
+  const submit = () => {
+    console.log("project", projects);
+    socket.emit("addProjects", projects);
+  };
+
+  const getProjectDetails = (index, event) => {
+    let data = [...projects];
+    console.log((data[index][event.target.name] = event.target.value));
+    data[index][event.target.name] = event.target.value;
+    setProjects(data);
+  };
+  const getProjectLinkDetails = (mainIndex, subindex, event) => {
+    let data = [...projects];
+    console.log(
+      (data[mainIndex].link[subindex][event.target.name] = event.target.value)
+    );
+    // data[mainindex].documents[subindex][event.target.name] = event.target.value;
+    data[mainIndex].link[subindex][event.target.name] = event.target.value;
+    setProjects(data);
+  };
+  // const getProjectHashDetails = (mainindex, subIndex, event) => {
+  //   let data = [...projects];
+  //   data[mainindex].hashTags[subIndex].name = event.target.name;
+  //   data[mainindex].hashTags[subIndex].value = event.target.value;
+  //   setProjects(data);
+  // };
+
+  const addlink = (index) => {
+    let data = [...projects];
+    data[index].link.push({ name: "", link: "" });
+    setProjects(data);
+  };
+
+  const removelink = (mainindex, subindex, id) => {
+    let data = [...projects];
+    data[mainindex].link.splice(subindex, 1);
+    setProjects(data);
+    if (id) {
+      let data = {
+        projectId: id,
+      };
+      socket.emit("removeProjects", data);
+    }
+  };
 
   const close = () => {
     showmodal(false);
@@ -75,6 +115,7 @@ const Projects = ({ showmodal, socket }) => {
                       label="Title"
                       name="title"
                       value={item.title}
+                      onChange={(event) => getProjectDetails(index, event)}
                       variant="filled"
                     />
                   </div>
@@ -86,6 +127,7 @@ const Projects = ({ showmodal, socket }) => {
                       label="Type"
                       name="type"
                       value={item.type}
+                      onChange={(event) => getProjectDetails(index, event)}
                       variant="filled"
                     />
                   </div>
@@ -95,19 +137,22 @@ const Projects = ({ showmodal, socket }) => {
                       id="filled-multiline-static"
                       className="w-5/6"
                       label="Description"
+                      name="descrption"
+                      value={item?.descrption}
                       multiline
-                      name="description"
-                      value={item.descrption}
                       rows={4}
                       variant="filled"
+                      onChange={(event) => getProjectDetails(index, event)}
                     />
                   </div>
 
                   <div>
                     <div className="py-2 w-full flex">
                       <span className="profile-text">Link</span>
-                      <i className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"></i>{" "}
-                      <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
+                      <i
+                        className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                        onClick={() => addlink(index)}
+                      ></i>{" "}
                     </div>
                     {item?.link?.map((itemlink, ind) => {
                       return (
@@ -119,6 +164,9 @@ const Projects = ({ showmodal, socket }) => {
                               className=" w-5/6"
                               label="Name"
                               name="name"
+                              onChange={(event) =>
+                                getProjectLinkDetails(index, ind, event)
+                              }
                               value={itemlink.name}
                               variant="filled"
                             />
@@ -131,9 +179,16 @@ const Projects = ({ showmodal, socket }) => {
                               label="Link"
                               name="link"
                               value={itemlink.link}
+                              onChange={(event) =>
+                                getProjectLinkDetails(index, ind, event)
+                              }
                               variant="filled"
                             />
                           </div>
+                          <i
+                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                            onClick={() => removelink(index, ind, itemlink._id)}
+                          ></i>
                         </div>
                       );
                     })}
@@ -143,27 +198,23 @@ const Projects = ({ showmodal, socket }) => {
                     height="70"
                     width="70"
                   />
-                  <div>
-                    {item.hashTags.map((hash, ind) => {
-                      return (
-                        <div className="py-2 w-full flex" key={ind}>
-                          {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
-                          <TextField
-                            id="filled-basic"
-                            className=" w-5/6"
-                            label="Hashtags"
-                            variant="filled"
-                            value={hash[ind]}
-                          />
-                          <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
-                          <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i>
-                        </div>
-                      );
-                    })}
+                  <div className="py-2 w-full flex">
+                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
+                    <TextField
+                      id="filled-basic"
+                      className=" w-5/6"
+                      label="HashTags"
+                      name="hashTags"
+                      value={item.hashTags}
+                      onChange={(event) => getProjectDetails(index, event)}
+                      variant="filled"
+                    />
+                    {/* <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
+                          <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
                   </div>
                   <div>
                     <i
-                      onClick={(e) => removeProject(index, item._id)}
+                      onClick={() => removeProject(index, item._id)}
                       className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
                     ></i>
                   </div>
