@@ -153,29 +153,47 @@ const Languages = ({ showmodal, section, socket }) => {
                     <div className="m-3">
                       {section && section === "Social Links" ? (
                         <>
-<div className="py-2 flex flex-col w-full text-left float-left ">
- <InputLabel id="demo-simple-select-filled-label" variant="filled">Social Links</InputLabel>
-        <Select
-        className="w-5/6"
-          labelId="demo-simple-select-filled-label"
-          id="filled-basic"
-          name="name"
-         variant="filled"
-           onChange={(event) =>
-                     handleDocumentChange(index, event)
-                     }  value={input.name}
-        >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
-          <MenuItem value="LinkedIn" name="name">LinkedIn</MenuItem>
-          <MenuItem  value="Blog" name="name">Blog</MenuItem>
-          <MenuItem value="Github" name="name">Github</MenuItem>
-          <MenuItem value="Portfolio" name="name">Portfolio</MenuItem>
-          <MenuItem value="Skype" name="name">Skype</MenuItem>
-          <MenuItem value="Youtube" name="name">Youtube</MenuItem>
-        </Select>
-</div>
+                          <div className="py-2 flex flex-col w-full text-left float-left ">
+                            <InputLabel
+                              id="demo-simple-select-filled-label"
+                              variant="filled"
+                            >
+                              Social Links
+                            </InputLabel>
+                            <Select
+                              className="w-5/6"
+                              labelId="demo-simple-select-filled-label"
+                              id="filled-basic"
+                              name="name"
+                              variant="filled"
+                              onChange={(event) =>
+                                handleDocumentChange(index, event)
+                              }
+                              value={input.name}
+                            >
+                              <MenuItem value="">
+                                <em>None</em>
+                              </MenuItem>
+                              <MenuItem value="LinkedIn" name="name">
+                                LinkedIn
+                              </MenuItem>
+                              <MenuItem value="Blog" name="name">
+                                Blog
+                              </MenuItem>
+                              <MenuItem value="Github" name="name">
+                                Github
+                              </MenuItem>
+                              <MenuItem value="Portfolio" name="name">
+                                Portfolio
+                              </MenuItem>
+                              <MenuItem value="Skype" name="name">
+                                Skype
+                              </MenuItem>
+                              <MenuItem value="Youtube" name="name">
+                                Youtube
+                              </MenuItem>
+                            </Select>
+                          </div>
                           {/* <select
                             className="accordion-inputs w-4/6 rounded-md"
                             required

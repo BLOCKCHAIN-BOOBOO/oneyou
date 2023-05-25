@@ -53,6 +53,8 @@ const AppRoutes = () => {
 
   return (
     <div className="App">
+      {userauth?.token && ValidateToken() ? <Menunavbar /> : <Navbar />}
+      {/* <Menunavbar /> */}
       {userauth?.token && ValidateToken() ?<Menunavbar/>:  <Navbar/>} 
       {/* <Menunavbar /> */}
       <Routes>
@@ -61,37 +63,35 @@ const AppRoutes = () => {
 
         <Route path="/signup" element={<Signup />}></Route>
 
-        {userauth?.token && ValidateToken()? (
-        <>
-          <Route path="/profile" element={<Home />}></Route>
+        {userauth?.token && ValidateToken() ? (
+          <>
+            <Route path="/profile" element={<Home />}></Route>
 
-          <Route path="/usersettings" element={<Usersettings />}>
-            <Route path="account" element={<Account />}></Route>
+            <Route path="/usersettings" element={<Usersettings />}>
+              <Route path="account" element={<Account />}></Route>
 
-            <Route
-              path="subscriptionsetting"
-              element={<Subscriptionsetting />}
-            ></Route>
-            <Route
-              path="subscriptions/upgradeplan"
-              element={<Upgradeplan />}
-            ></Route>
-            <Route path="subscriptions/editupi" element={<Editupi />}></Route>
-            <Route
-              path="subscriptions/subscriptionpayment"
-              element={<Subscriptionpayment />}
-            ></Route>
+              <Route
+                path="subscriptionsetting"
+                element={<Subscriptionsetting />}
+              ></Route>
+              <Route
+                path="subscriptions/upgradeplan"
+                element={<Upgradeplan />}
+              ></Route>
+              <Route path="subscriptions/editupi" element={<Editupi />}></Route>
+              <Route
+                path="subscriptions/subscriptionpayment"
+                element={<Subscriptionpayment />}
+              ></Route>
 
-            <Route path="about" element={<Aboutoneyou />}></Route>
-          </Route>
-
-          </>)
-
-           :
-           ( <> 
-          <Route path="/login" element={<Login />}></Route>
-        </>
-         ) } 
+              <Route path="about" element={<Aboutoneyou />}></Route>
+            </Route>
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<Login />}></Route>
+          </>
+        )}
 
         <Route path="/*" element={<Login />}></Route>
       </Routes>
