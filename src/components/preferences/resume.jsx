@@ -82,12 +82,13 @@ const Resume = ({ showmodal, socket }) => {
               <TextField id="myfile" type="file" onChange={(e) => getprofile(e)} name="myfile" className=" w-5/6" variant="filled" />
               <br></br>
             </div>
-            <div className="py-2 ">
+            <div className="py-2 resume-embed-div">
               {/* <img src={previewimg}></img> */}
               <embed
                 src={previewimg && previewimg}
                 width="80px"
                 height="90px"
+                className="resume-embed"
               />
             </div>
           </div>
