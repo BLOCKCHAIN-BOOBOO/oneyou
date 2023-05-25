@@ -106,7 +106,7 @@ const Projects = ({ showmodal, socket }) => {
           <div className="flex py-4 flex-col">
             {projects?.map((item, index) => {
               return (
-                <div className="border-b px-2 py-2 section-shadow mt-2 mb-2" key={index}>
+                <div className="border-b py-2 section-shadow mt-2 mb-2" key={index}>
 
                   <div className="flex">
                     <span className="text-lg font-semibold mx-2"> Details</span>
@@ -115,6 +115,7 @@ const Projects = ({ showmodal, socket }) => {
                       className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
                     ></i>
                   </div>
+                  <div className="m-3">
 
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
@@ -179,7 +180,12 @@ const Projects = ({ showmodal, socket }) => {
                               value={itemlink.name}
                               variant="filled"
                             />
+                              <i
+                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                            onClick={() => removelink(index, ind, itemlink._id)}
+                          ></i>
                           </div>
+                         
                           <div className="py-2 w-full flex">
                             {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /> */}
                             <TextField
@@ -194,19 +200,13 @@ const Projects = ({ showmodal, socket }) => {
                               variant="filled"
                             />
                           </div>
-                          <i
-                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                            onClick={() => removelink(index, ind, itemlink._id)}
-                          ></i>
+                         
                         </div>
+                      
                       );
                     })}
                   </div>
-                  <img
-                    className="about-name-img border-0 rounded-md"
-                    height="70"
-                    width="70"
-                  />
+                  
                   <div className="py-2 w-full flex">
                     {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
                     <TextField
@@ -221,7 +221,17 @@ const Projects = ({ showmodal, socket }) => {
                     {/* <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
                           <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
                   </div>
+
+                  <div className="py-2 w-full flex-col flex">
+                    <span className="flex w-full float-left text-sm py-2">Preview Image</span>
+                    <img
+                    className="about-name-img border-0 rounded-md"
+                    height="70"
+                    width="70"
+                  />
+                  </div>
                  
+                </div>
                 </div>
               );
             })}
