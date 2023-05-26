@@ -366,7 +366,7 @@ const Education = ({ showmodal, socket }) => {
             {" "}
             Save & Update{" "}
           </button>
-          <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+          {/* <button className="reset-btn m-1 flex py-2 px-6"> Reset </button> */}
           {/* <button className="publish-site m-1 flex py-2 px-6">Add More</button> */}
         </div>
       </div>

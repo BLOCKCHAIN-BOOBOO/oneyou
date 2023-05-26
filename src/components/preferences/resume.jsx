@@ -114,19 +114,27 @@ const Resume = ({ showmodal, socket }) => {
               />
               <br></br>
             </div>
-            <div className="py-2 ">
+            <div className="py-2 resume-embed-div">
               {/* <img src={previewimg}></img> */}
-              <embed src={previewimg} width="80px" height="90px" />
+              <embed
+                src={previewimg && previewimg}
+                width="80px"
+                height="90px"
+                className="resume-embed"
+              />
             </div>
           </div>
         </div>
-        <div className="m-2 w-full flex self-center justify-center py-2">
-          <button className="publish-site m-1 flex py-2 px-6" onClick={submit}>
-            {" "}
-            Save & Update{" "}
-          </button>
-          <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-        </div>
+         <div className="m-2 w-full flex self-center justify-center py-2">
+            <button
+              className="publish-site m-1 flex py-2 px-6"
+              onClick={submit}
+            >
+              {" "}
+              Save & Update{" "}
+            </button>
+            {/* <button className="reset-btn m-1 flex py-2 px-6"> Reset </button> */}
+          </div>
       </div>
     </>
   );
