@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import defaultprofileimgae from "../../images/defaultprofileimg.png";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
+import axios from "axios";
 
 const Resume = ({ showmodal, socket }) => {
   const [File, SetFile] = useState(null);
@@ -15,8 +16,17 @@ const Resume = ({ showmodal, socket }) => {
     return state?.Profiledata?.state?.data;
   });
   const [previewimg, setpreviewimg] = useState(
-    profileData?.resume ? profileData?.resume : defaultprofileimgae
+    profileData?.resume
+      ? "http://localhost:3000" + profileData?.resume
+      : defaultprofileimgae
   );
+
+  let userauth = useSelector((state) => {
+    console.log("state update", state, state?.googleToken?.userInfo);
+    return state?.googleToken?.state
+      ? state?.googleToken?.state
+      : state?.googleToken;
+  });
 
   const close = () => {
     showmodal(false);
@@ -33,9 +43,22 @@ const Resume = ({ showmodal, socket }) => {
     }
   };
 
-  const submit = () => {
-    let data = { resume: File };
-    socket.emit("addResume", data);
+  const submit = async () => {
+    let formData = new FormData();
+    formData.append("resume", File);
+    console.log("resume", File);
+    if (File) {
+      const res = await axios.post(
+        "http://localhost:3000/profile/addResume",
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${userauth.token}`,
+          },
+        }
+      );
+      console.log("res", res);
+    }
   };
 
   //   const loaddata = () => {
@@ -71,7 +94,9 @@ const Resume = ({ showmodal, socket }) => {
                 placeholder="Resume"
                 onChange={(e) => getprofile(e)}
               /> */}
-              <label for="myfile" className="flex self-start text-left">Select a file:</label>
+              <label for="myfile" className="flex self-start text-left">
+                Select a file:
+              </label>
               {/* <input
                 type="file"
                 id="myfile"
@@ -79,30 +104,29 @@ const Resume = ({ showmodal, socket }) => {
                 className="accordion-inputs w-4/6 rounded-md"
                 onChange={(e) => getprofile(e)}
               /> */}
-              <TextField id="myfile" type="file" onChange={(e) => getprofile(e)} name="myfile" className=" w-5/6" variant="filled" />
+              <TextField
+                id="myfile"
+                type="file"
+                onChange={(e) => getprofile(e)}
+                name="myfile"
+                className=" w-5/6"
+                variant="filled"
+              />
               <br></br>
             </div>
             <div className="py-2 ">
               {/* <img src={previewimg}></img> */}
-              <embed
-                src={previewimg && previewimg}
-                width="80px"
-                height="90px"
-              />
+              <embed src={previewimg} width="80px" height="90px" />
             </div>
           </div>
-         
         </div>
-         <div className="m-2 w-full flex self-center justify-center py-2">
-            <button
-              className="publish-site m-1 flex py-2 px-6"
-              onClick={submit}
-            >
-              {" "}
-              Save & Update{" "}
-            </button>
-            <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
-          </div>
+        <div className="m-2 w-full flex self-center justify-center py-2">
+          <button className="publish-site m-1 flex py-2 px-6" onClick={submit}>
+            {" "}
+            Save & Update{" "}
+          </button>
+          <button className="reset-btn m-1 flex py-2 px-6"> Reset </button>
+        </div>
       </div>
     </>
   );

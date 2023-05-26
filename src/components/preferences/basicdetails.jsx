@@ -6,11 +6,12 @@ import defaultprofileimgae from "../../images/defaultprofileimg.png";
 
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import axios from "axios";
 
 const Basicdetails = ({ showmodal, socket }) => {
   const [typeActive, setTypeActive] = useState("your details");
-  const [File, SetFile] = useState(null);
-  const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
+  const [File, SetFile] = useState();
+
   const [documents, setDocuments] = useState([]);
 
   const close = (e) => {
@@ -36,12 +37,12 @@ const Basicdetails = ({ showmodal, socket }) => {
   //   console.log(typesale);
   // };
 
-  // let userauth = useSelector((state) => {
-  //   console.log("state update", state, state?.googleToken?.userInfo);
-  //   return state?.googleToken?.state
-  //     ? state?.googleToken?.state
-  //     : state?.googleToken;
-  // });
+  let userauth = useSelector((state) => {
+    console.log("state update", state, state?.googleToken?.userInfo);
+    return state?.googleToken?.state
+      ? state?.googleToken?.state
+      : state?.googleToken;
+  });
 
   let profileData = useSelector((state) => {
     let userprofdata = [];
@@ -50,10 +51,27 @@ const Basicdetails = ({ showmodal, socket }) => {
     return state?.Profiledata?.state?.data;
   });
   // console.log("profdata", profileData);
-
+  const [previewimg, setpreviewimg] = useState(
+    profileData?.profileImg
+      ? "http://localhost:3000" + profileData?.profileImg
+      : defaultprofileimgae
+  );
   const uploadproileimg = async () => {
-    let data = { resume: File };
-    socket.emit("addProfileImg", data);
+    let formData = new FormData();
+    formData.append("profile", File);
+    console.log("profile", File);
+    if (File) {
+      const res = await axios.post(
+        "http://localhost:3000/profile/addProfile",
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${userauth.token}`,
+          },
+        }
+      );
+      console.log("res", res);
+    }
   };
 
   const getBasicDetails = (event) => {
@@ -288,8 +306,6 @@ const Basicdetails = ({ showmodal, socket }) => {
                       variant="filled"
                     />
                   </div>
-
-
                 </div>
               </div>
             </div>

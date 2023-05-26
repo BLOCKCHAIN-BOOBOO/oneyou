@@ -18,7 +18,9 @@ const Education = ({ showmodal, socket }) => {
     return state?.Profiledata?.state?.data;
   });
 
-  const [education, setEducation] = useState(profileData?.education);
+  const [education, setEducation] = useState(
+    profileData?.education ? profileData?.education : []
+  );
 
   const handleDocumentChange = (index, event) => {
     // let data = [...documents];
@@ -139,10 +141,14 @@ const Education = ({ showmodal, socket }) => {
             education.map((educ, index) => {
               console.log("Date", educ);
               return (
-                <div className="flex py-4 flex-col border-b section-shadow mt-2 mb-2" key={index}>
-
+                <div
+                  className="flex py-4 flex-col border-b section-shadow mt-2 mb-2"
+                  key={index}
+                >
                   <div className="flex">
-                    <span className="text-lg font-semibold mx-2">{educ?.degree} Details</span>
+                    <span className="text-lg font-semibold mx-2">
+                      {educ?.degree} Details
+                    </span>
                     <i
                       onClick={(e) => removeEduc(index, educ._id)}
                       className="fa fa-trash-o cursor-pointer flex text-red-500 self-center text-center m-2"
@@ -179,13 +185,13 @@ const Education = ({ showmodal, socket }) => {
                       {/* <input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Start Date" /> */}
                       <TextField
                         id="date"
+                        name="startDate"
+                        onChange={(e) => geteducFields(e, index)}
                         className="w-5/6"
                         label="Start Date"
                         type="date"
                         variant="filled"
-                        name="startDate"
-                        onChange={(e) => geteducFields(e, index)}
-                        value={moment(educ?.startDate).format("DD / MM / YYYY")}
+                        value={educ?.startDate}
                         InputLabelProps={{
                           shrink: true,
                         }}
@@ -196,13 +202,13 @@ const Education = ({ showmodal, socket }) => {
                         {/* <input type="date" className="flex flex-row accordion-inputs w-4/6 rounded-md" placeholder="End Date" /> */}
                         <TextField
                           id="date"
+                          name="endDate"
+                          onChange={(e) => geteducFields(e, index)}
                           className="w-5/6"
                           label="End Date"
                           type="date"
-                          name="endDate"
                           variant="filled"
                           value={educ?.endDate}
-                          onChange={(e) => geteducFields(e, index)}
                           InputLabelProps={{
                             shrink: true,
                           }}
@@ -328,7 +334,6 @@ const Education = ({ showmodal, socket }) => {
                         })}
                     </div>
                   </div>
-                 
                 </div>
               );
             })}
@@ -337,7 +342,8 @@ const Education = ({ showmodal, socket }) => {
             className="fles add-more m-1 flex py-2"
             onClick={addEducation}
           >
-            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add More
+            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add
+            More
           </button>
           {/* )} */}
 

@@ -138,7 +138,7 @@ const Home = () => {
     socket.emit("fetchByUser");
     socket.on("recieveuserdata", (res) => {
       console.log("userfetch", res);
-      if (res.code === 200) {
+      if (res.code === 200 ) {
         dispatch({ type: PROFDATA, payload: res });
         // setProfiledata(res.data);
       } else {
