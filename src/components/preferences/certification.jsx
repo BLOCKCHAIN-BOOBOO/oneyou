@@ -53,13 +53,7 @@ const Certification = ({ showmodal, socket }) => {
                     </div>
 
                   <div className="m-3">
-                   
-                    {/* <div className="py-2 "><input type="date" className="accordion-inputs w-4/6 rounded-md" placeholder="Till Date" /></div> */}
-                   
                     <div className="py-2 w-full flex">
-                      {/* <TextareaAutosize id="filled-basic" variant="filled" label="Description" className="w-4/6" /> */}
-                      {/* <textarea type="text" className="w-4/6 accordion-inputs" placeholder="Description" /> */}
-                      {/* defaultValue="Default Value" */}
                       <TextField
                         id="filled-multiline-static"
                         className="w-5/6"
@@ -104,7 +98,7 @@ const Certification = ({ showmodal, socket }) => {
                                   type="text"
                                 //   value={input.link}
                                 />
-                                {/* <input onChange={event => handleDocumentChange(index, event)} type="text" className="accordion-inputs w-4/6 rounded-md" name="link" required placeholder="Link"  value={input.link} /> */}
+                                
                               </div>
                             </div>
                          
@@ -119,18 +113,7 @@ const Certification = ({ showmodal, socket }) => {
             <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add
             More
           </button>
-          {/* )} */}
-
-          {/* <div className="bg-gray-100 w-full flex self-center justify-center py-2"> 
-                   <button className="publish-site m-1 flex py-2 px-6">Add More</button>
-                  </div> */}
-
-          {/* <button
-            className="fles add-more m-1 flex py-2"
-            onClick={addEducation}
-          >
-            <i className="fa fa-plus self-center px-1"></i>Add More
-          </button> */}
+        
         </div>
         </div>
         <div className="m-2 w-full flex self-center justify-center py-2">
