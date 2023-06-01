@@ -56,6 +56,7 @@ const Basicdetails = ({ showmodal, socket }) => {
       ? "http://localhost:3000" + profileData?.profileImg
       : defaultprofileimgae
   );
+
   const uploadproileimg = async () => {
     let formData = new FormData();
     formData.append("profile", File);
@@ -74,24 +75,51 @@ const Basicdetails = ({ showmodal, socket }) => {
     }
   };
 
+  const removeProfile = async () => {
+    const res = await axios
+      .post("http://localhost:3000/profile/removeProfile", {
+        headers: {
+          authorization: `Bearer ${userauth.token}`,
+        },
+      })
+      .then((res) => {
+        console.log("success", res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
+
+  // let timer;
   const getBasicDetails = (event) => {
     console.log({ [event.target.name]: event.target.value });
-
     setDocuments({ ...documents, [event.target.name]: event.target.value });
+
+    // clearTimeout(timer);
+    // // Sets new timer that may or may not get cleared
+    // timer = setTimeout(() => {
+    //   // Only fires if not cleared
+
+    //   if (event.keyCode != 13) {
+    //     SubmitBasicdetails(event);
+    //   }
+    // }, 5000);
+    // console.log("timer", timer);
   };
 
   const SubmitBasicdetails = (event) => {
+    event.preventDefault();
     console.log(documents);
     let data = { ...documents };
 
     console.log("data", data);
     socket.emit("addContactInfo", data);
-    event.preventDefault();
   };
 
   const loaddata = () => {
     setDocuments(profileData?.contactInfo);
   };
+
   useEffect(() => {
     loaddata();
   }, []);
@@ -148,14 +176,21 @@ const Basicdetails = ({ showmodal, socket }) => {
 
                   <div className="flex flex-col justify-between ml-2">
                     <span className="profile-text">Add Profile Image</span>
-
                     <button
                       type="button"
                       className="upload-image-btn rounded-2xl rounded-lg"
-                      onClick={(e) => uploadproileimg("uploadprofile")}
+                      onClick={uploadproileimg}
                     >
                       {" "}
-                      Upload image
+                      Add Profile{" "}
+                    </button>
+                    <button
+                      type="button"
+                      className="upload-image-btn rounded-2xl rounded-lg"
+                      onClick={removeProfile}
+                    >
+                      {" "}
+                      Remove Profile{" "}
                     </button>
                   </div>
                 </div>

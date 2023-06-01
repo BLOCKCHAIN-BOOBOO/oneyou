@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import defaultprofileimgae from "../../images/defaultprofileimg.png";
 
 const Projects = ({ showmodal, socket }) => {
-  let profileData = useSelector((state) => {
-    let userprofdata = [];
-    userprofdata = state?.Profiledata?.state?.data;
+  const [File, SetFile] = useState();
 
+  let profileData = useSelector((state) => {
     return state?.Profiledata?.state?.data;
   });
+  const [previewimg, setpreviewimg] = useState(defaultprofileimgae);
 
   const [projects, setProjects] = useState(profileData?.projects);
+
+  let userauth = useSelector((state) => {
+    console.log("state update", state, state?.googleToken?.userInfo);
+    return state?.googleToken?.state
+      ? state?.googleToken?.state
+      : state?.googleToken;
+  });
 
   const addProjects = () => {
     let data = {
@@ -85,6 +94,38 @@ const Projects = ({ showmodal, socket }) => {
     }
   };
 
+  const getprofile = (e,id) => {
+    let file = e.target.files[0];
+    console.log("inmg", e.target.files[0]);
+
+    if (e.target.files && e.target.files[0]) {
+      console.log(URL.createObjectURL(e.target.files[0]));
+      setpreviewimg(URL.createObjectURL(e.target.files[0]));
+      SetFile(file);
+    }
+  };
+
+  const addPreviewImage = async (id) => {
+    let formData = new FormData();
+    formData.append("image", File);
+    formData.append("project_id", id);
+    console.log("image", File);
+    if (File) {
+      const res = await axios.post(
+        "http://localhost:3000/profile/addProjects",
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${userauth.token}`,
+          },
+        }
+      );
+      console.log("res", res);
+    }
+  };
+
+  
+
   const close = () => {
     showmodal(false);
   };
@@ -106,8 +147,10 @@ const Projects = ({ showmodal, socket }) => {
           <div className="flex py-4 flex-col">
             {projects?.map((item, index) => {
               return (
-                <div className="border-b py-2 section-shadow mt-2 mb-2" key={index}>
-
+                <div
+                  className="border-b py-2 section-shadow mt-2 mb-2"
+                  key={index}
+                >
                   <div className="flex">
                     <span className="text-lg font-semibold mx-2"> Details</span>
                     <i
@@ -116,129 +159,161 @@ const Projects = ({ showmodal, socket }) => {
                     ></i>
                   </div>
                   <div className="m-3">
-
-                  <div className="py-2 w-full flex">
-                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
-                    <TextField
-                      id="filled-basic"
-                      className=" w-5/6"
-                      label="Title"
-                      name="title"
-                      value={item.title}
-                      onChange={(event) => getProjectDetails(index, event)}
-                      variant="filled"
-                    />
-                  </div>
-                  <div className="py-2 w-full flex">
-                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /> */}
-                    <TextField
-                      id="filled-basic"
-                      className=" w-5/6"
-                      label="Type"
-                      name="type"
-                      value={item.type}
-                      onChange={(event) => getProjectDetails(index, event)}
-                      variant="filled"
-                    />
-                  </div>
-                  <div className="py-2 w-full flex">
-                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /> */}
-                    <TextField
-                      id="filled-multiline-static"
-                      className="w-5/6"
-                      label="Description"
-                      name="descrption"
-                      value={item?.descrption}
-                      multiline
-                      rows={4}
-                      variant="filled"
-                      onChange={(event) => getProjectDetails(index, event)}
-                    />
-                  </div>
-
-                  <div>
                     <div className="py-2 w-full flex">
-                      <span className="profile-text">Link</span>
-                      <i
-                        className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
-                        onClick={() => addlink(index)}
-                      ></i>{" "}
+                      {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Title" /> */}
+                      <TextField
+                        id="filled-basic"
+                        className=" w-5/6"
+                        label="Title"
+                        name="title"
+                        value={item.title}
+                        onChange={(event) => getProjectDetails(index, event)}
+                        variant="filled"
+                      />
                     </div>
-                    {item?.link?.map((itemlink, ind) => {
-                      return (
-                        <div key={ind}>
-                          <div className="py-2 w-full flex">
-                            {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /> */}
-                            <TextField
-                              id="filled-basic"
-                              className=" w-5/6"
-                              label="Name"
-                              name="name"
-                              onChange={(event) =>
-                                getProjectLinkDetails(index, ind, event)
-                              }
-                              value={itemlink.name}
-                              variant="filled"
-                            />
-                              <i
-                            className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
-                            onClick={() => removelink(index, ind, itemlink._id)}
-                          ></i>
-                          </div>
-                         
-                          <div className="py-2 w-full flex">
-                            {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /> */}
-                            <TextField
-                              id="filled-basic"
-                              className=" w-5/6"
-                              label="Link"
-                              name="link"
-                              value={itemlink.link}
-                              onChange={(event) =>
-                                getProjectLinkDetails(index, ind, event)
-                              }
-                              variant="filled"
-                            />
-                          </div>
-                         
-                        </div>
-                      
-                      );
-                    })}
-                  </div>
-                  
-                  <div className="py-2 w-full flex">
-                    {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
-                    <TextField
-                      id="filled-basic"
-                      className=" w-5/6"
-                      label="HashTags"
-                      name="hashTags"
-                      value={item.hashTags}
-                      onChange={(event) => getProjectDetails(index, event)}
-                      variant="filled"
-                    />
-                    {/* <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
-                          <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
-                  </div>
+                    <div className="py-2 w-full flex">
+                      {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Type" /> */}
+                      <TextField
+                        id="filled-basic"
+                        className=" w-5/6"
+                        label="Type"
+                        name="type"
+                        value={item.type}
+                        onChange={(event) => getProjectDetails(index, event)}
+                        variant="filled"
+                      />
+                    </div>
+                    <div className="py-2 w-full flex">
+                      {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Description" /> */}
+                      <TextField
+                        id="filled-multiline-static"
+                        className="w-5/6"
+                        label="Description"
+                        name="descrption"
+                        value={item?.descrption}
+                        multiline
+                        rows={4}
+                        variant="filled"
+                        onChange={(event) => getProjectDetails(index, event)}
+                      />
+                    </div>
 
-                  <div className="py-2 w-full flex-col flex">
-                    <span className="flex w-full float-left text-sm py-2">Preview Image</span>
-                    <img
-                    className="about-name-img border-0 rounded-md"
-                    height="70"
-                    width="70"
-                  />
+                    <div>
+                      <div className="py-2 w-full flex">
+                        <span className="profile-text">Link</span>
+                        <i
+                          className="cursor-pointer fa fa-plus text-green-600 self-center flex m-2"
+                          onClick={() => addlink(index)}
+                        ></i>{" "}
+                      </div>
+                      {item?.link?.map((itemlink, ind) => {
+                        return (
+                          <div key={ind}>
+                            <div className="py-2 w-full flex">
+                              {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Name" /> */}
+                              <TextField
+                                id="filled-basic"
+                                className=" w-5/6"
+                                label="Name"
+                                name="name"
+                                onChange={(event) =>
+                                  getProjectLinkDetails(index, ind, event)
+                                }
+                                value={itemlink.name}
+                                variant="filled"
+                              />
+                              <i
+                                className="fa fa-trash-o flex text-red-500 self-center text-center m-2"
+                                onClick={() =>
+                                  removelink(index, ind, itemlink._id)
+                                }
+                              ></i>
+                            </div>
+
+                            <div className="py-2 w-full flex">
+                              {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" required placeholder="Link" /> */}
+                              <TextField
+                                id="filled-basic"
+                                className=" w-5/6"
+                                label="Link"
+                                name="link"
+                                value={itemlink.link}
+                                onChange={(event) =>
+                                  getProjectLinkDetails(index, ind, event)
+                                }
+                                variant="filled"
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="py-2 w-full flex">
+                      {/* <input type="text" className="accordion-inputs w-4/6 rounded-md" placeholder="Hashtags" />  */}
+                      <TextField
+                        id="filled-basic"
+                        className=" w-5/6"
+                        label="HashTags"
+                        name="hashTags"
+                        value={item.hashTags}
+                        onChange={(event) => getProjectDetails(index, event)}
+                        variant="filled"
+                      />
+                      {/* <i className="fa fa-plus cursor-pointer text-green-600 self-center flex m-2"></i>
+                          <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
+                    </div>
+
+                    <div className="py-2 w-full flex-col flex">
+                      <span className="flex w-full float-left text-sm py-2">
+                        Preview Image
+                      </span>
+                      <input
+                        type="file"
+                        id="profileimg"
+                        onChange={(e) => getprofile(e, item._id)}
+                      />
+                      <label
+                        htmlFor="profileimg"
+                        className=" cursor-pointer self-center text-xs font-bold text-color pt-2"
+                        style={{
+                          fontFamily: " Arial, Helvetica, sans-serif",
+                          background:
+                            " linear-gradient( to right, #2162ec 6.93%, #7a6bf1c7 52.34%, #b771f3b5 95.98%, #d375f6, #d775f6)",
+                          WebkitTextFillColor: "transparent",
+                          WebkitBackgroundClip: "text",
+                        }}
+                      >
+                        <img
+                          className="about-name-img border-0 rounded-md"
+                          multiple="multiple"
+                          height="70"
+                          width="70"
+                          src={
+                            item?.image
+                              ? "http://localhost:3000" + item?.image
+                              : previewimg
+                          }
+                        />
+                      </label>
+                    </div>
+                    <div>
+                      <button
+                        className="publish-site m-1 flex py-2 px-6"
+                        onClick={() => addPreviewImage(item._id)}
+                      >
+                        Add Preview Image
+                      </button>
+                    </div>
                   </div>
-                 
-                </div>
                 </div>
               );
             })}
           </div>
 
           <button className="fles add-more m-1 flex py-2" onClick={addProjects}>
-            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add More
+            <i className="fa fa-plus cursor-pointer self-center px-1"></i>Add
+            More
           </button>
         </div>
         <div className="m-2 w-full flex self-center justify-center py-2">

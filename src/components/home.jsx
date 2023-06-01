@@ -138,7 +138,7 @@ const Home = () => {
     socket.emit("fetchByUser");
     socket.on("recieveuserdata", (res) => {
       console.log("userfetch", res);
-      if (res.code === 200 ) {
+      if (res.code === 200) {
         dispatch({ type: PROFDATA, payload: res });
         // setProfiledata(res.data);
       } else {
@@ -324,7 +324,7 @@ const Home = () => {
               <FullScreen handle={handle} className="w-full h-full">
                 <React.Fragment key={iframe.random}>
                   <Iframe
-                    src="https://me.harrish.dev/"
+                    src="http://127.0.0.1:5501/index.html"
                     id=""
                     height="600px"
                     width="100%"
