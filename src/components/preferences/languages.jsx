@@ -417,7 +417,7 @@ const Languages = ({ showmodal, section, socket }) => {
           </div>
         </div>
         <div className="m-2 w-full flex self-center justify-center py-2">
-          <button onClick={submit} className="publish-site m-1 flex py-2 px-6">
+          <button onClick={submit} className="publish-site m-1 flex py-3 px-6">
             {" "}
             Save & Update{" "}
           </button>

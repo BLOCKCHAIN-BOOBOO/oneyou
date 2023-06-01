@@ -127,7 +127,7 @@ const Resume = ({ showmodal, socket }) => {
         </div>
          <div className="m-2 w-full flex self-center justify-center py-2">
             <button
-              className="publish-site m-1 flex py-2 px-6"
+              className="publish-site m-1 flex py-3 px-6"
               onClick={submit}
             >
               {" "}

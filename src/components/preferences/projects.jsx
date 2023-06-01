@@ -275,7 +275,7 @@ const Projects = ({ showmodal, socket }) => {
                       />
                       <label
                         htmlFor="profileimg"
-                        className=" cursor-pointer self-center text-xs font-bold text-color pt-2"
+                        className=" cursor-pointer self-start text-xs font-bold text-color pt-2"
                         style={{
                           fontFamily: " Arial, Helvetica, sans-serif",
                           background:
@@ -297,12 +297,18 @@ const Projects = ({ showmodal, socket }) => {
                         />
                       </label>
                     </div>
-                    <div>
+                    <div className="flex">
                       <button
                         className="publish-site m-1 flex py-2 px-6"
                         onClick={() => addPreviewImage(item._id)}
                       >
                         Add Preview Image
+                      </button>
+
+                       <button
+                        className="remove-btn m-1 flex rounded-full py-2 px-6"
+                      >
+                        Remove Image
                       </button>
                     </div>
                   </div>
@@ -317,7 +323,7 @@ const Projects = ({ showmodal, socket }) => {
           </button>
         </div>
         <div className="m-2 w-full flex self-center justify-center py-2">
-          <button className="publish-site m-1 flex py-2 px-6" onClick={submit}>
+          <button className="publish-site m-1 flex py-3 px-6" onClick={submit}>
             {" "}
             Save & Update{" "}
           </button>

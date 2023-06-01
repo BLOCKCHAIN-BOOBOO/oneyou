@@ -28,6 +28,7 @@ import Experience from "./preferences/experience";
 import Projects from "./preferences/projects";
 import Resume from "./preferences/resume";
 import TextField from "@material-ui/core/TextField";
+import Certification from "./preferences/certification";
 
 const Home = () => {
   const [typeActive, setTypeActive] = useState("your details");
@@ -75,6 +76,9 @@ const Home = () => {
 
       case "Project Details":
         return <Projects showmodal={setRenderer} socket={socket} />;
+      
+      case "Certification Section":
+        return <Certification showmodal={setRenderer} socket={socket} />;
 
       case "Resume":
         return <Resume showmodal={setRenderer} socket={socket} />;
@@ -602,6 +606,7 @@ const Home = () => {
                       <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i>{" "}
                     </button>
                   </div>
+
                   {/* <Accordion title="Projects Section" className="bg-transparent overflow-x-hidden">
                 <div className="flex flex-col">
                  <div>
@@ -632,6 +637,18 @@ const Home = () => {
                   </div>
                 </div>
               </Accordion> */}
+
+
+                  <div
+                    className="accordion-bg m-2"
+                    onClick={() => click("Certification Section")}
+                  >
+                    <button className="flex justify-between flex-row user-setting-btn">
+                      Certification Section
+                      <i className="fa fa-angle-right user-setting-right-btn self-center float-right flex"></i>{" "}
+                    </button>
+                  </div>
+
 
                   <div
                     className="accordion-bg m-2"
