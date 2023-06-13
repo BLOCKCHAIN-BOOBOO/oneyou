@@ -94,7 +94,7 @@ const Projects = ({ showmodal, socket }) => {
     }
   };
 
-  const getprofile = (e,id) => {
+  const getprofile = (e, id) => {
     let file = e.target.files[0];
     console.log("inmg", e.target.files[0]);
 
@@ -123,8 +123,6 @@ const Projects = ({ showmodal, socket }) => {
       console.log("res", res);
     }
   };
-
-  
 
   const close = () => {
     showmodal(false);
@@ -305,9 +303,7 @@ const Projects = ({ showmodal, socket }) => {
                         Add Preview Image
                       </button>
 
-                       <button
-                        className="remove-btn m-1 flex rounded-full py-2 px-6"
-                      >
+                      <button className="remove-btn m-1 flex rounded-full py-2 px-6">
                         Remove Image
                       </button>
                     </div>

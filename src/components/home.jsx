@@ -76,7 +76,7 @@ const Home = () => {
 
       case "Project Details":
         return <Projects showmodal={setRenderer} socket={socket} />;
-      
+
       case "Certification Section":
         return <Certification showmodal={setRenderer} socket={socket} />;
 

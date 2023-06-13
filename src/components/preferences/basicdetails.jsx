@@ -176,23 +176,23 @@ const Basicdetails = ({ showmodal, socket }) => {
 
                   <div className="flex flex-col justify-between ml-2">
                     <span className="profile-text">Add Profile Image</span>
-                   <div className="flex">
-                    <button
-                      type="button"
-                      className="upload-image-btn m-1 rounded-md"
-                      onClick={uploadproileimg}
-                    >
-                      {" "}
-                      Add Profile{" "}
-                    </button>
-                    <button
-                      type="button"
-                      className="remove-btn px-2 m-1 py-2 rounded-md"
-                      onClick={removeProfile}
-                    >
-                      {" "}
-                      Remove Profile{" "}
-                    </button>
+                    <div className="flex">
+                      <button
+                        type="button"
+                        className="upload-image-btn m-1 rounded-md"
+                        onClick={uploadproileimg}
+                      >
+                        {" "}
+                        Add Profile{" "}
+                      </button>
+                      <button
+                        type="button"
+                        className="remove-btn px-2 m-1 py-2 rounded-md"
+                        onClick={removeProfile}
+                      >
+                        {" "}
+                        Remove Profile{" "}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -257,22 +257,22 @@ const Basicdetails = ({ showmodal, socket }) => {
                     {/* <i className="fa fa-trash-o flex text-red-500 self-center text-center m-2"></i> */}
                   </div>
 
-                   <div className="py-2 w-full flex">
-                      {/* <TextareaAutosize id="filled-basic" variant="filled" label="Description" className="w-4/6" /> */}
-                      {/* <textarea type="text" className="w-4/6 accordion-inputs" placeholder="Description" /> */}
-                      {/* defaultValue="Default Value" */}
-                      <TextField
-                        id="filled-multiline-static"
-                        className="w-5/6"
-                        label="About me"
-                        name="aboutMe"
-                        value={documents?.aboutme}
-                        multiline
-                        rows={4}
-                        variant="filled"
-                        onChange={(e) => getBasicDetails(e)}
-                      />
-                    </div>
+                  <div className="py-2 w-full flex">
+                    {/* <TextareaAutosize id="filled-basic" variant="filled" label="Description" className="w-4/6" /> */}
+                    {/* <textarea type="text" className="w-4/6 accordion-inputs" placeholder="Description" /> */}
+                    {/* defaultValue="Default Value" */}
+                    <TextField
+                      id="filled-multiline-static"
+                      className="w-5/6"
+                      label="About me"
+                      name="about"
+                      value={documents?.about}
+                      multiline
+                      rows={4}
+                      variant="filled"
+                      onChange={(e) => getBasicDetails(e)}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex flex-col accordion-div-height py-4 w-full text-left self-start">

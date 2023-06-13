@@ -22,6 +22,7 @@ import Navbar from "../Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { ValidateToken } from "../TokenValidtor";
 import { useEffect } from "react";
+import Payment from "../Usersettings/payment";
 
 const AppRoutes = () => {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const AppRoutes = () => {
     <div className="App">
       {userauth?.token && ValidateToken() ? <Menunavbar /> : <Navbar />}
       {/* <Menunavbar /> */}
-      {userauth?.token && ValidateToken() ?<Menunavbar/>:  <Navbar/>} 
+      {userauth?.token && ValidateToken() ? <Menunavbar /> : <Navbar />}
       {/* <Menunavbar /> */}
       <Routes>
         <Route path="/" element={<Login />}></Route>
