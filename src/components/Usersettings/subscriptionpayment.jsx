@@ -164,7 +164,8 @@ const Subscriptionpayment = () => {
 
         <div className="home-about-me w-full">
           <div className="flex w-full  border-b-2">
-            <button className="float-left text-left py-2 m-2 px-3">
+            <button className="float-left text-left px-3">
+              {/* py-2 m-2 */}
               <img
                 className="flex bg-gray-300 rounded-2xl p-3"
                 height=""
@@ -193,7 +194,7 @@ const Subscriptionpayment = () => {
                 <span>50 INR</span>
               </div>
               <div className="flex py-1">
-                <span className="flex self-center">Plan:</span>
+                <span className="flex self-start">Plan:</span>
                 <span>Starter Premium Plan / Monthly</span>
               </div>
               <div className="flex py-1">

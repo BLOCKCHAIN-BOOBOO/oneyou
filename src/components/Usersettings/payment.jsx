@@ -104,17 +104,19 @@ const Payment = () => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
-      <div className="payment-form w-full flex">
-        <div className="form-row w-full">
-          <label htmlFor="card-element">card</label>
+    <form onSubmit={handleSubmit} className="xl:w-2/4 md:w-3/4 sm:w-full w-full">
+      <div className="payment-form w-full flex flex-col">
+        <div className="form-col w-full">
+          {/* <label htmlFor="card-element">card</label> */}
           <div id="upi-element">
             <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
           </div>
         </div>
-        <button type="submit" disabled={!stripe}>
+        <div className="flex flex-col self-center">
+        <button className="publish-site  w-full py-2 m-2 px-3" type="submit" disabled={!stripe}>
           {isProcessing ? "Processing..." : "Pay"}
         </button>
+        </div>
         {error && <div className="error">{error}</div>}
         {isPaymentComplete && (
           <div className="success">Payment successful!</div>

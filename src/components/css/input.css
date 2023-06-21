@@ -1270,3 +1270,27 @@ select option {
   .remove-profile{
 
   }
+        .payment-form iframe {
+            /* height: 100% !important; */
+            height: 50px !important;
+        }
+
+  /* .CardField-input-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+
+.CardField-restWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.CardField-child{
+    transform: translateX(0px)!important;
+    display: contents !important;
+}
+.CardField-restWrapper .CardField-expiry{
+    display:contents !important;
+}
+.CardField-cvc {
+    display: initial !important;
+} */
