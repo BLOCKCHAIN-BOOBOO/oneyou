@@ -108,8 +108,60 @@ const Payment = () => {
       <div className="payment-form w-full flex flex-col">
         <div className="form-col w-full">
           {/* <label htmlFor="card-element">card</label> */}
-          <div id="upi-element">
-            <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
+          <div id="upi-element" className="flex flex-col payment-inputs">
+            {/* <CardElement options={{ style: { base: { fontSize: "16px" } } }} /> */}
+            <div className="flex flex-col">
+               <div className="flex flex-col py-1">
+                <label className="flex text-md py-2 font-semibold">Username</label>
+                 <input
+                  type="text"
+                  className=" border rounded-md p-2 w-3/4"
+                  placeholder="Username"
+                />
+                </div>
+
+               <div className="flex flex-col py-1">
+                <label className="flex text-md py-2 font-semibold">Email</label>
+                 <input
+                  type="text"
+                  className="border rounded-md p-2 w-3/4"
+                  placeholder="Email"
+                />
+                </div>
+
+               <div className="flex flex-col py-1">
+                <label className="flex text-md py-2 font-semibold">Phone no</label>
+                 <input
+                  type="text"
+                  className="border rounded-md p-2 w-3/4"
+                  placeholder="Phone no"
+                />
+                </div>
+
+            </div>
+            <div className="flex">
+            <div className="flex">
+               <i class="fa fa-credit-card flex self-center text-gray-400"></i> <input
+                  type="text"
+                  className="mx-auto border-none w-3/4 "
+                  placeholder="Card Number"
+                />
+                </div>
+                 <div className="flex">
+                 <input
+                  type="text"
+                  className="mx-auto border-0 w-3/4"
+                  placeholder="MM/YY"
+                />
+                </div>
+                <div className="flex">
+                 <input
+                  type="text"
+                  className="mx-auto border-0 w-3/4"
+                  placeholder="CVV"
+                />
+                </div>
+                </div>
           </div>
         </div>
         <div className="flex flex-col self-center">

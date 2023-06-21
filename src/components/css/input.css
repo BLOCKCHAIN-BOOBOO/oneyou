@@ -1294,3 +1294,6 @@ select option {
 .CardField-cvc {
     display: initial !important;
 } */
+.payment-inputs input:focus {
+    outline: none;
+}
