@@ -88,7 +88,8 @@ const Subscriptionsetting = () => {
                     <td>50</td>
                     <td>Monthly</td>
                     <td className="flex self-center justify-center"><button className="paid-btn py-2 px-7">PAID</button></td>
-                    <td><div className="flex ">Download Invoice <img src={download} className="flex m-1" width="12" height="12" /></div></td>
+                    <td>
+                      <div className="flex ">Download Invoice <img src={download} className="flex self-center m-1" width="12" height="12" /></div></td>
                 </tr>
                 <tr>
                     <td>UX27032001</td>
@@ -96,7 +97,7 @@ const Subscriptionsetting = () => {
                     <td>50</td>
                     <td>Monthly</td>
                     <td className="flex self-center justify-center"><button className="paid-btn py-2 px-7">PAID</button></td>
-                    <td><div className="flex ">Download Invoice <img src={download} className="flex m-1" width="12" height="12" /></div></td>
+                    <td><div className="flex ">Download Invoice <img src={download} className="flex self-center m-1" width="12" height="12" /></div></td>
                 </tr>
             </tbody>
           
