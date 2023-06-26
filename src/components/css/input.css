@@ -838,7 +838,7 @@ td {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 2px 10px;
+        padding: 8px 15px;
         background: #FFF5C0;
         border-radius: 100px;
 
@@ -852,7 +852,7 @@ td {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 2px 10px;    
+    padding: 5px 15px;    
     background: #D8FFC0;
     border-radius: 100px;
     font-weight: 600;
