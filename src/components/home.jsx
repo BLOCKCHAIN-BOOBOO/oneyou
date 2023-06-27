@@ -167,7 +167,7 @@ const Home = () => {
                   {/* starter ml-2 px-5 py-1 */}
 
                   <select
-                    className="starter border-none w-full starter ml-2 px-5 py-1"
+                    className="starter border-none w-full starter ml-1 mr-2 px-5 py-1"
                     required
                     placeholder=""
                   >
